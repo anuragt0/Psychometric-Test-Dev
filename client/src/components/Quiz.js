@@ -11,9 +11,35 @@ import 'react-circular-progressbar/dist/styles.css';
 
 import { toast, Toaster } from "react-hot-toast";
 
+// IMPORTS for Language Functionlaity
+import i18n /*, { changeLanguage }*/ from "i18next";
+import { useTranslation } from 'react-i18next';
+
+
 
 function Quiz() {
 
+    const { t } = useTranslation("translation", { keyPrefix: 'quiz' } );
+
+
+      //handles Click on Language changes Functionality
+  const changeLang = (l)=>{
+    return ()=>{
+      i18n.changeLanguage(l);
+
+      // Now saving current language on LocalStorage
+      localStorage.setItem('lang' , l );
+    }
+  };
+
+
+//when Page Refreshes
+    useEffect(()=>{
+      let currentLang = localStorage.getItem('lang');
+      i18n.changeLanguage(currentLang);
+    //   console.log(currentLang);
+  
+    },[]);
 
     const navigate = useNavigate();
     const [questions, setQuestions] = useState([]);
@@ -66,8 +92,13 @@ function Quiz() {
             },
         });
         const result = await response.json()
-        const questions1 = result.questions;
+        // const questions1 = result.questions;
 
+        //! Storing Question Array According to the language in LocalStorage
+        const questions1 = t('question'  , { returnObjects: true });
+        
+
+        console.log(questions1);
         setQuestions(questions1);
         setLoading(false);
 
@@ -182,10 +213,10 @@ function Quiz() {
                     </div>
 
                     <div className="buttons">
-                            <input type="button" value="Next" id="next-button" onClick={nextQuestion} />
-                            <input type="button" value="Prev" id="prev-button" onClick={previousQuestion} />
+                            <button value="Next" id="next-button" onClick={nextQuestion}> {t('controls.next')}</button>
+                            <button value="Prev" id="prev-button" onClick={previousQuestion}> {t('controls.previous')} </button>
                         </div>
-                        <button style={result.length !== questions.length ? { display: "none" } : {}} className='btn btn-success' onClick={handleSubmit}>Submit</button>
+                        <button style={result.length !== questions.length ? { display: "none" } : {}} className='btn btn-success' onClick={handleSubmit}>{t('controls.submit')}</button>
 
                 <div className="right my-5">
                     <div className="box">

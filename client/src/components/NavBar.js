@@ -9,7 +9,36 @@ import css from "../css/navbar.module.css";
 import logo from "../assests/logo.png";
 
 
+//IMPORTS FOR Language change Functionality
+import i18n from "i18next";
+// import { useTranslation } from "react-i18next";
+import '../library/i18n';
+
+
+
 const Navbar = () => {
+  //handles Click on Language changes Functionality
+  const changeLang = (l)=>{
+  return ()=>{
+    i18n.changeLanguage(l);
+
+    // Now saving current language on LocalStorage
+    localStorage.setItem('lang' , l );
+  }
+};
+
+  //used to get language Stored in LocalStorage //*should be in every Page having Language Functionality 
+  useEffect(()=>{
+    let currentLang = localStorage.getItem('lang');
+    i18n.changeLanguage(currentLang);
+
+    // console.log(t('array'  , { returnObjects: true }));
+
+  },[]);
+
+
+
+
     const [isAdmin, setIsAdmin] = useState(false)
 
     useEffect( () => {
@@ -53,7 +82,7 @@ const Navbar = () => {
     style={{ position: "sticky", top: 0, zIndex: 100 }}>
       <Link to="/" style={{ marginRight: "1rem" }}>
         <img src={logo} alt="yi-logo" style={{"width": "3rem",
-    "margin-right": "2%"}} />
+    "marginRight": "2%"}} />
       </Link>
       <button
         type="button"
@@ -127,6 +156,19 @@ const Navbar = () => {
             )
           }
         </ul>
+
+        {/*//* Language Buttons Starts  */}
+        <div className="language-buttons" style={{ display: "flex", alignItems: "center" }}>
+          <button className="language-button" style={{ fontSize: "10px", padding: "5px 10px", marginRight: "10px" }} onClick={changeLang('en')}>
+            English
+          </button>
+          <button className="language-button" style={{ fontSize: "10px", padding: "5px 10px" }} onClick={changeLang('hi')}>
+            हिन्दी
+          </button>
+          {/* Add more buttons for other languages */}
+        </div>
+        {/*//* Language Buttons Ends  */}
+
 
         <ul className="navbar-nav ms-auto">
           {localStorage.getItem("token") ? (
