@@ -1,6 +1,22 @@
 {
   "home": {},
-  "instruction": {},
+  "instruction": {
+    "testInstructions": "Test Instructions",
+    "welcomeMessage": "Welcome to the test! This test contains 26 questions, and for each question, you'll have four options to choose from.",
+    "instructionsHeader": "Instructions:",
+    "instructionList": [
+      "Ensure you are in a quiet environment to concentrate on the test.",
+      "Read each question carefully and choose the best option.",
+      "Once you select an option, you can also change it.",
+      "There is no time limit, so take your time and do your best!",
+      "After clicking the \"Start Test\" button, full-screen mode will be enabled.",
+      "This test is designed to assess your knowledge and skills in various areas.",
+      "Please answer each question to the best of your ability."
+      ],
+    "note":"Note:",
+    "noteMessage" : " If you accidentally exit full-screen mode during the test, you can click the \"Go Full Screen\" button again to re-enable it.",
+    "startTestButton": "Start Test"
+  },
   "login": {},
   "register": {},
   "quiz": {
