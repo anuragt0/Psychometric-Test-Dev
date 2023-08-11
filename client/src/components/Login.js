@@ -372,13 +372,13 @@ const Login = () => {
             </div>
 
             {
-                componentState === -1 ? <EnterPhoneComponent />
+                componentState === -1 ? EnterPhoneComponent()
                     : (
-                        componentState === 0 ? <EnterOTPComponent />
+                        componentState === 0 ? EnterOTPComponent()
                             : (
-                                componentState === 1 ? <EnterPasswordCheckComponent />
+                                componentState === 1 ? EnterPasswordCheckComponent()
                                     : (
-                                        componentState === 2 ? <EnterPasswordCreateComponent />
+                                        componentState === 2 ? EnterPasswordCreateComponent()
                                             : ("Nothing to Show...Refresh the page")
                                     )
                             )
