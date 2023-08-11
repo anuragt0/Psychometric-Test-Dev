@@ -1,6 +1,9 @@
 {
   "home": {},
   "instruction": {
+    "toast": {
+      "loginToContinue": "Please Login to continue"
+    },
     "testInstructions": "Test Instructions",
     "welcomeMessage": "Welcome to the test! This test contains 26 questions, and for each question, you'll have four options to choose from.",
     "instructionsHeader": "Instructions:",
@@ -12,14 +15,21 @@
       "After clicking the \"Start Test\" button, full-screen mode will be enabled.",
       "This test is designed to assess your knowledge and skills in various areas.",
       "Please answer each question to the best of your ability."
-      ],
-    "note":"Note:",
-    "noteMessage" : " If you accidentally exit full-screen mode during the test, you can click the \"Go Full Screen\" button again to re-enable it.",
+    ],
+    "note": "Note:",
+    "noteMessage": " If you accidentally exit full-screen mode during the test, you can click the \"Go Full Screen\" button again to re-enable it.",
     "startTestButton": "Start Test"
   },
   "login": {},
   "register": {},
   "quiz": {
+    "toast": {
+      "loginToContinue": "Please Login to continue",
+      "selectAtLeastOneOption": "Please select atleast one option",
+      "answerAllQuestions": "Please answer all questions",
+      "testSubmittedSuccessfully": "Test submitted successfully.",
+      "submitError": "Unable to submit, please try again later.."
+    },
     "question": [
       {
         "questionText": "Regarding the matter of facilitating Group Discussions and selecting between smaller groups versus larger groups:",
@@ -263,54 +273,53 @@
     }
   },
   "result": {
-      "main": {
-        "main_heading1": "Test Results",
-        "download": "Download Result",
-        "text_heading": "Psychometric Test  Results",
-        "text1": "Congratulations! Here are the results of your psychometric test taken on",
-        "text2": ". The test assessed your personality traits, cognitive abilities, and emotional intelligence. The test results provide valuable insights into your strengths and areas for development, helping you understand yourself better.",
-        "toast": "Please wait..."
-      },
-      "graph": {
-        "heading": "Graph Chart Example",
-        "sub_heading": "Compliance vs. Social Pressure",
-        "text_heading": "Graph Chart",
-        "text_content": "The Graph Chart displays the comparison between your compliance and social pressure scores. The compliance score reflects your tendency to conform to social norms and expectations, while the social pressure score indicates the level of influence from others in decision-making.",
-
-        "label1": "Q1: Information Driven",
-        "label2": "Q2: Ideal Normative",
-        "label3": "Q3: Friendly Follower",
-        "label4": "Q4: Individualist Rebellion",
-
-        "Xaxis_label":"Confirmity to Scale of Social Pressure ->",
-        "Yaxis_label":"Confirmity to Scale of Compilance ->"
-
-      },
-      "pie": {
-        "heading": "PieChart Example",
-        "sub_heading": "Social Influence Breakdown",
-        "text_heading": "Pie Chart",
-        "text_content": "The Pie Chart illustrates the breakdown of social influence categories. It provides an overview of the various factors affecting your decision-making process, including family, peers, and media influence.",
-
-        "label1": "Confirimity",
-        "label2": "Compliance",
-        "label3": "Obedience"
-
-      },
-      "radialBar": {
-        "heading": "RadialBarChart Example",
-        "sub_heading": "",
-        "text_heading": "Radial Bar Chart",
-        "text_content": "The Radial Bar Chart showcases your performance in different aspects, such as cognitive abilities, emotional intelligence, and adaptability. It presents a holistic view of your strengths and areas for improvement.",
-
-        "label1": "Affected by group size or unanimity?",
-        "label2": "Affected by cohesion or status of others?",
-        "label3": "Affected by Reciprocity?",
-
-        "label4": "Affected by Commitment and Consistency?",
-        "label5": "Affected by Scarcity?",
-        "label6": "Affected by Authority/ commands ?"
-
-      }
+    "main": {
+      "main_heading1": "Test Results",
+      "download": "Download Result",
+      "text_heading": "Psychometric Test  Results",
+      "text1": "Congratulations! Here are the results of your psychometric test taken on",
+      "text2": ". The test assessed your personality traits, cognitive abilities, and emotional intelligence. The test results provide valuable insights into your strengths and areas for development, helping you understand yourself better."
+    },
+    "graph": {
+      "heading": "Graph Chart Example",
+      "sub_heading": "Compliance vs. Social Pressure",
+      "text_heading": "Graph Chart",
+      "text_content": "The Graph Chart displays the comparison between your compliance and social pressure scores. The compliance score reflects your tendency to conform to social norms and expectations, while the social pressure score indicates the level of influence from others in decision-making.",
+      "label1": "Q1: Information Driven",
+      "label2": "Q2: Ideal Normative",
+      "label3": "Q3: Friendly Follower",
+      "label4": "Q4: Individualist Rebellion",
+      "Xaxis_label": "Confirmity to Scale of Social Pressure ->",
+      "Yaxis_label": "Confirmity to Scale of Compilance ->"
+    },
+    "pie": {
+      "heading": "PieChart Example",
+      "sub_heading": "Social Influence Breakdown",
+      "text_heading": "Pie Chart",
+      "text_content": "The Pie Chart illustrates the breakdown of social influence categories. It provides an overview of the various factors affecting your decision-making process, including family, peers, and media influence.",
+      "label1": "Confirimity",
+      "label2": "Compliance",
+      "label3": "Obedience"
+    },
+    "radialBar": {
+      "heading": "RadialBarChart Example",
+      "sub_heading": "",
+      "text_heading": "Radial Bar Chart",
+      "text_content": "The Radial Bar Chart showcases your performance in different aspects, such as cognitive abilities, emotional intelligence, and adaptability. It presents a holistic view of your strengths and areas for improvement.",
+      "label1": "Affected by group size or unanimity?",
+      "label2": "Affected by cohesion or status of others?",
+      "label3": "Affected by Reciprocity?",
+      "label4": "Affected by Commitment and Consistency?",
+      "label5": "Affected by Scarcity?",
+      "label6": "Affected by Authority/ commands ?"
+    },
+    "toast": {
+      "errorFetchResult": "Unable to fetch result. Please login again",
+      "registerToViewResults": "Please register to view results",
+      "noTestTaken": "You have not given the test yet!",
+      "resultsDownloaded": "Test results downloaded!",
+      "pleaseWait": "Please wait...",
+      "resultDownloaded": "Result Downloaded"
+    }
   }
 }

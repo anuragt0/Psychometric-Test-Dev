@@ -30,6 +30,7 @@ function Result_M() {
 //? Language Functionality Starts ............................................................
   
 const { t } = useTranslation("translation", { keyPrefix: 'result' } );
+
   
 
 //used to get language Stored in LocalStorage //*should be in every Page having Language Functionality 
@@ -80,7 +81,7 @@ useEffect(()=>{
         // console.log("response1: ", response1);
 
         if (response1.success === false) {
-            toast.error("Unable to fetch result. Please login again");
+            toast.error(t('toast.errorFetchResult'));
             navigate("/login");
             return;
         }
@@ -89,13 +90,13 @@ useEffect(()=>{
             // 2. User not given the test
             if(response1.userDoc.testResponse.length!==0){
                 // user given the test
-                toast.error("Please register to view results");
+                toast.error(t('toast.registerToViewResults'));
                 navigate("/test/register");
                 return;
             }
             else{
                 //user has not given the test
-                toast.error("You have not given the test yet!");
+                toast.error(t('toast.noTestTaken'));
                 navigate("/test/instructions");
                 return;
             }
@@ -128,7 +129,7 @@ useEffect(()=>{
             pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
             pdf.save('Result.pdf');
             setDownloading(false);
-            toast.success("Test results downloaded!"); // Using toast from react-hot-toast for demonstration
+            toast.success(t('toast.resultsDownloaded')); // Using toast from react-hot-toast for demonstration
         });
     };
     //* Download Functionallity Ends *//
@@ -209,7 +210,7 @@ useEffect(()=>{
                     </div>
                     <button  className="download-button" onClick={handleDownloadClick} disabled={downloading}>
                             <FiDownload className="download-icon" />
-                            {downloading? t('main.toast'): t('main.download') } 
+                            {downloading? t('toast.pleaseWait'): t('main.download') } 
                         </button>
                 </div>
             ) : (

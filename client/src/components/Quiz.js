@@ -58,7 +58,7 @@ function Quiz() {
             if (response1.success === true) {
               setIsUserAuthenticated(true);
             } else {
-              toast.error('Please Login to continue', {
+              toast.error(t('toast.loginToContinue'), {
                   style: {
                     border: '1px solid #713200',
                     padding: '16px',
@@ -119,7 +119,7 @@ function Quiz() {
 
     const nextQuestion = () => {
         if (clickedOption === 5 && !result[currentQuestionIndex]) {
-            toast.error("Please select atleast one option");
+            toast.error(t('toast.selectAtLeastOneOption'));
             return;
         }
         if (currentQuestionIndex < questions.length - 1) {
@@ -147,7 +147,7 @@ function Quiz() {
 
     const handleSubmit = async () => {
         if (result.length !== questions.length) {
-            toast.error("Please answer all questions");
+            toast.error(t('toast.answerAllQuestions'));
             return;
         }
         // console.log("Submit quiz");
@@ -164,11 +164,11 @@ function Quiz() {
         let response1 = await response.json();
         // console.log( response1);
         if (response1.success == true) {
-            toast.success("Test submitted successfully.");
+            toast.success(t('toast.testSubmittedSuccessfully'));
             navigate("/test/register");
         }
         else {
-            toast.error("Unable to submit, please try again later.");
+            toast.error(t('toast.submitError'));
         }
 
         if (document.fullscreenElement) {

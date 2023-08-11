@@ -51,7 +51,7 @@ useEffect(()=>{
           if (response1.success === true) {
             setIsUserAuthenticated(true);
           } else {
-            toast.error('Please Login to continue', {
+            toast.error(t('toast.loginToContinue'), {
                 style: {
                   border: '1px solid #713200',
                   padding: '16px',
