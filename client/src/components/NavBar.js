@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate , useLocation } from "react-router-dom";
 import { server_origin } from '../utilities/constants';
 import {motion} from 'framer-motion'
 // import img from "../../assets/images/yi_logo.png";
@@ -17,15 +17,20 @@ import '../library/i18n';
 
 
 const Navbar = () => {
-  //handles Click on Language changes Functionality
-  const changeLang = (l)=>{
-  return ()=>{
-    i18n.changeLanguage(l);
 
-    // Now saving current language on LocalStorage
-    localStorage.setItem('lang' , l );
-  }
-};
+  const {pathname} = useLocation(); // Get the current route path
+
+//? Language Functionality Starts .................................................................
+
+//   //handles Click on Language changes Functionality
+//   const changeLang = (l)=>{
+//   return ()=>{
+//     i18n.changeLanguage(l);
+
+//     // Now saving current language on LocalStorage
+//     localStorage.setItem('lang' , l );
+//   }
+// };
 
   //used to get language Stored in LocalStorage //*should be in every Page having Language Functionality 
   useEffect(()=>{
@@ -36,8 +41,16 @@ const Navbar = () => {
 
   },[]);
 
+  const [selectedLanguage, setSelectedLanguage] = useState(localStorage.getItem('lang') || 'en');
+
+  const handleLanguageChange = (language) => {
+    i18n.changeLanguage(language);
+    localStorage.setItem('lang', language);
+    setSelectedLanguage(language);
+  };
 
 
+//? Language Functionality Ends .................................................................
 
     const [isAdmin, setIsAdmin] = useState(false)
 
@@ -157,50 +170,67 @@ const Navbar = () => {
           }
         </ul>
 
-        {/*//* Language Buttons Starts  */}
-        <div className="language-buttons" style={{ display: "flex", alignItems: "center" }}>
-          <button className="language-button" style={{ fontSize: "10px", padding: "5px 10px", marginRight: "10px" }} onClick={changeLang('en')}>
-            English
-          </button>
-          <button className="language-button" style={{ fontSize: "10px", padding: "5px 10px" }} onClick={changeLang('hi')}>
-            हिन्दी
-          </button>
-          {/* Add more buttons for other languages */}
-        </div>
-        {/*//* Language Buttons Ends  */}
+
 
 
         <ul className="navbar-nav ms-auto">
-          {localStorage.getItem("token") ? (
-            <button
-              className={`${css.navBtn} text-ff1 navbar-right`}
-              onClick={handleLogoutClick}
-            >
-              <motion.p
-                whileHover={{ scale: 1.1 }}
-                transition={{
-                  type: 'spring', stiffness: 300
-                }}>
-              Logout
-              </motion.p>
-            </button>
-          ) : (
-            <>
+            {/* Language Buttons Starts hit and try  */}
+            
+            {pathname !== '/test/start' && (
+                
+                <li className="nav-item active">
+                  <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        transition={{
+                          type: 'spring', stiffness: 300
+                        }}>
+                    <select
+                    className={`language-select ${css.languageSelect}`}
+                    value={selectedLanguage}
+                    onChange={(e) => handleLanguageChange(e.target.value)}
+                  >
+                    <option className="nav-item active" value="en">English</option>
+                    <option className="nav-item active" value="hi">  हिन्दी  </option>
+                    {/* Add more options for other languages */}
+                  </select>
+                    </motion.div>
+                </li>
+
+              )}
+            {/* Language Buttons Ends   */}
+
+          <li>
+            {localStorage.getItem("token") ? (
               <button
                 className={`${css.navBtn} text-ff1 navbar-right`}
-                onClick={handleLoginClick}
+                onClick={handleLogoutClick}
               >
                 <motion.p
-                whileHover={{ scale: 1.1 }}
-                transition={{
-                  type: 'spring', stiffness: 300
-                }}>
-                Login
+                  whileHover={{ scale: 1.1 }}
+                  transition={{
+                    type: 'spring', stiffness: 300
+                  }}>
+                Logout
                 </motion.p>
               </button>
+            ) : (
+              <>
+                <button
+                  className={`${css.navBtn} text-ff1 navbar-right`}
+                  onClick={handleLoginClick}
+                >
+                  <motion.p
+                  whileHover={{ scale: 1.1 }}
+                  transition={{
+                    type: 'spring', stiffness: 300
+                  }}>
+                  Login
+                  </motion.p>
+                </button>
 
-            </>
-          )}
+              </>
+            )}
+          </li>
         </ul>
       </div>
     </nav>

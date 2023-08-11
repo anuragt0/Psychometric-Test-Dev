@@ -21,25 +21,21 @@ function Quiz() {
 
     const { t } = useTranslation("translation", { keyPrefix: 'quiz' } );
 
-
-      //handles Click on Language changes Functionality
-  const changeLang = (l)=>{
-    return ()=>{
-      i18n.changeLanguage(l);
-
-      // Now saving current language on LocalStorage
-      localStorage.setItem('lang' , l );
-    }
-  };
-
-
-//when Page Refreshes
+    // when Page Refreshes
     useEffect(()=>{
       let currentLang = localStorage.getItem('lang');
       i18n.changeLanguage(currentLang);
     //   console.log(currentLang);
-  
+    //! Storing Question Array According to the language in LocalStorage
+    const questions1 = t('question'  , { returnObjects: true });
+    console.log(questions1);
+    setQuestions(questions1);
+    setLoading(false);
+
     },[]);
+
+
+
 
     const navigate = useNavigate();
     const [questions, setQuestions] = useState([]);
@@ -80,29 +76,41 @@ function Quiz() {
           // Run the effect only once on component mount
           validateUserToken();
           getQuestions();
+
+         
     }, [])
 
-    const getQuestions = async () => {
-        setLoading(true);
-        const response = await fetch(`${server_origin}/api/user/get-questions`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'auth-token': localStorage.getItem('token')
-            },
-        });
-        const result = await response.json()
-        // const questions1 = result.questions;
 
+    // Dummy getQuestions
+    const getQuestions = ()=>{
         //! Storing Question Array According to the language in LocalStorage
         const questions1 = t('question'  , { returnObjects: true });
-        
-
         console.log(questions1);
         setQuestions(questions1);
         setLoading(false);
+    };
 
-    }
+    // const getQuestions = async () => {
+    //     setLoading(true);
+    //     const response = await fetch(`${server_origin}/api/user/get-questions`, {
+    //         method: 'GET',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'auth-token': localStorage.getItem('token')
+    //         },
+    //     });
+    //     const result = await response.json()
+    //     // const questions1 = result.questions;
+
+    //     //! Storing Question Array According to the language in LocalStorage
+    //     const questions1 = t('question'  , { returnObjects: true });
+        
+
+    //     console.log(questions1);
+    //     setQuestions(questions1);
+    //     setLoading(false);
+
+    // }
 
 
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
