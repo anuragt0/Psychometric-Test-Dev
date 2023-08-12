@@ -13,8 +13,6 @@ app.use("/api/user", require("./src/api/user"));
 app.use("/api/admin", require("./src/api/admin"));
 
 
-
-
 app.listen(5000, ()=>{
     console.log("Server is running on port 5000");
 })

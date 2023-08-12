@@ -1,4 +1,22 @@
 {
+  "navBar" : {
+    "Home": "Home",
+    "About": "About",
+    "More": "More",
+    "Analytics": "Analytics",
+    "Logout": "Logout",
+    "Login": "Login"
+  },
+  "footer":{
+    "Community": "Community",
+    "About_WEP": "About WEP",
+    "Partners": "Partners",
+    "Newsletter": "Newsletter",
+    "Events": "Events",
+    "Disclaimer": "Disclaimer",
+    "FAQ": "FAQ's",
+    "Feedback": "Feedback"
+  },
   "home": {},
   "instruction": {
     "toast": {
@@ -20,7 +38,35 @@
     "noteMessage": " If you accidentally exit full-screen mode during the test, you can click the \"Go Full Screen\" button again to re-enable it.",
     "startTestButton": "Start Test"
   },
-  "login": {},
+  "login": {
+    "enterPhone": "Please enter your mobile number to continue",
+    "enterPasswordToLogin": "Please enter your password to continue",
+    "enterPasswordToCreate": "Please enter a password",
+    "enterOTP": "Please enter the OTP sent to your mobile number ",
+    "waitButton": "Please wait...",
+    "MobilePlaceholder": "Mobile Number",
+    "loginButton": "Login",
+    "passwordPlaceholder": "Password",
+    "confirmPasswordPlaceholder": "Confirm Password",
+    "PasswordNotMatch": "Passwords do not match",
+    "saveContinueButton": "Save and continue",
+    "forgotPassword": "Forgot Password?",
+    "submitButton": "Submit",
+    "otpPlaceholder": "Enter OTP",
+    "verifyOTPButton": "Verify and login",
+    "mobilePlaceholder": "Enter 10 digit mobile number",
+    "cannotUpdatePasswordToast": "Cannot update password. Please try again later",
+    "passwordCreatedToast": "Password created successfully",
+    "passwordNotMatchToast": "Please make sure passwords match",
+    "wrongPasswordToast": "Wrong password",
+    "loggedInToast": "Logged in successfully",
+    "enterCorrectOTPToast": "Please enter correct OTP",
+    "otpVerifiedToast": "OTP verified successfully",
+    "otpSentToast": "OTP sent successfully ",
+    "invalidMobileToast": "Please enter valid mobile number",
+    "capthchaExpiredToast": "Captcha expired. Refresh the page and try again later",
+    "welcomeUser": "Welcome user"
+  },
   "register": {},
   "quiz": {
     "toast": {

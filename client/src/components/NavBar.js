@@ -11,7 +11,7 @@ import logo from "../assests/logo.png";
 
 //IMPORTS FOR Language change Functionality
 import i18n from "i18next";
-// import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import '../library/i18n';
 
 
@@ -19,6 +19,25 @@ import '../library/i18n';
 const Navbar = () => {
 
   const {pathname} = useLocation(); // Get the current route path
+
+  //? Language Functionality Starts *Translation* ............................................................
+  
+const { t } = useTranslation("translation", { keyPrefix: 'navBar' } );
+
+  
+
+//used to get language Stored in LocalStorage //*should be in every Page having Language Functionality 
+useEffect(()=>{
+  let currentLang = localStorage.getItem('lang');
+  i18n.changeLanguage(currentLang);
+
+  // console.log(t('array'  , { returnObjects: true }));
+
+},[]);
+
+
+//? Language Functionality Ends *Translation* .................................................................
+
 
 //? Language Functionality Starts .................................................................
 
@@ -119,7 +138,7 @@ const Navbar = () => {
                   type: 'spring', stiffness: 300
                 }}>
             <Link className="nav-link active" to="/" style={listItemStyle}>
-              Home
+            {t('Home')}
             </Link>
             </motion.div>
           </li>
@@ -134,7 +153,7 @@ const Navbar = () => {
               to="/about"
               style={listItemStyle}
             >
-              About
+              {t('About')}
             </Link>
             </motion.div>
           </li>
@@ -149,7 +168,7 @@ const Navbar = () => {
               to="/more"
               style={listItemStyle}
             >
-              More
+              {t('More')}
             </Link>
             </motion.div>
           </li>
@@ -166,7 +185,7 @@ const Navbar = () => {
                 to="/admin/analytics"
                 style={listItemStyle}
                 >
-                Analytics
+                {t('Analytics')}
                 </Link>
                 </motion.div>
             </li>
@@ -214,7 +233,7 @@ const Navbar = () => {
                   transition={{
                     type: 'spring', stiffness: 300
                   }}>
-                Logout
+                {t('Logout')}
                 </motion.p>
               </button>
             ) : (
@@ -228,7 +247,7 @@ const Navbar = () => {
                   transition={{
                     type: 'spring', stiffness: 300
                   }}>
-                  Login
+                  {t('Login')}
                   </motion.p>
                 </button>
 

@@ -5,7 +5,13 @@ const UserSchema = new mongoose.Schema({
     mobile:{
         type: String,
         maxlength :10,
-        unique: true
+        unique: true,
+        required: true
+    },
+    password:{
+        type: String,
+        minLength: 4,
+        required: true
     },
     isRegistered:{
         type: Boolean,
