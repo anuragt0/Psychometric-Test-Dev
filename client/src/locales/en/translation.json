@@ -7,6 +7,16 @@
     "Logout": "Logout",
     "Login": "Login"
   },
+  "footer":{
+    "Community": "Community",
+    "About_WEP": "About WEP",
+    "Partners": "Partners",
+    "Newsletter": "Newsletter",
+    "Events": "Events",
+    "Disclaimer": "Disclaimer",
+    "FAQ": "FAQ's",
+    "Feedback": "Feedback"
+  },
   "home": {},
   "instruction": {
     "toast": {

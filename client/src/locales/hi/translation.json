@@ -7,6 +7,16 @@
         "Logout": "लॉगआउट",
         "Login": "लॉगिन"
     },
+    "footer":{
+        "Community": "समुदाय",
+        "About_WEP": "वीडियो के बारे में",
+        "Partners": "साथी",
+        "Newsletter": "समाचार पत्रिका",
+        "Events": "घटनाएँ",
+        "Disclaimer": "अस्वीकरण",
+        "FAQ": "सामान्य प्रश्न",
+        "Feedback": "प्रतिक्रिया"
+      },
     "home": {},
     "instruction": {
         "toast": {
