@@ -1,4 +1,12 @@
 {
+    "navBar": {
+        "Home": "होम",
+        "About": "अबाउट",
+        "More": "मोर",
+        "Analytics": "एनालिटिक्स",
+        "Logout": "लॉगआउट",
+        "Login": "लॉगिन"
+    },
     "home": {},
     "instruction": {
         "toast": {
@@ -25,7 +33,6 @@
         "enterPasswordToLogin": "कृपया जारी रखने के लिए अपना पासवर्ड दर्ज करें",
         "enterPasswordToCreate": "कृपया एक पासवर्ड दर्ज करें",
         "enterOTP": "कृपया अपने मोबाइल नंबर पर भेजा गया OTP दर्ज करें",
-      
         "waitButton": "कृपया प्रतीक्षा करें...",
         "MobilePlaceholder": "मोबाइल नंबर",
         "loginButton": "लॉग इन करें",
@@ -35,11 +42,9 @@
         "saveContinueButton": "सहेजें और जारी रखें",
         "forgotPassword": "पासवर्ड भूल गए?",
         "submitButton": "सबमिट करें",
-      
         "otpPlaceholder": "OTP दर्ज करें",
         "verifyOTPButton": "सत्यापित करें और लॉग इन करें",
         "mobilePlaceholder": "10 अंकों का मोबाइल नंबर दर्ज करें",
-      
         "cannotUpdatePasswordToast": "पासवर्ड अपडेट नहीं किया जा सकता। कृपया बाद में पुन: प्रयास करें",
         "passwordCreatedToast": "पासवर्ड सफलतापूर्वक बनाया गया",
         "passwordNotMatchToast": "कृपया सुनिश्चित करें कि पासवर्ड मेल खाता है",
@@ -50,9 +55,8 @@
         "otpSentToast": "OTP सफलतापूर्वक भेजा गया",
         "invalidMobileToast": "कृपया वैध मोबाइल नंबर दर्ज करें",
         "capthchaExpiredToast": "कैप्चा समाप्त हो गया है। पृष्ठ को ताज़ा करें और बाद में पुन: प्रयास करें",
-
         "welcomeUser": "आपका स्वागत है"
-      },
+    },
     "register": {},
     "quiz": {
         "toast": {

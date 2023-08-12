@@ -1,4 +1,12 @@
 {
+  "navBar" : {
+    "Home": "Home",
+    "About": "About",
+    "More": "More",
+    "Analytics": "Analytics",
+    "Logout": "Logout",
+    "Login": "Login"
+  },
   "home": {},
   "instruction": {
     "toast": {
@@ -25,7 +33,6 @@
     "enterPasswordToLogin": "Please enter your password to continue",
     "enterPasswordToCreate": "Please enter a password",
     "enterOTP": "Please enter the OTP sent to your mobile number ",
-
     "waitButton": "Please wait...",
     "MobilePlaceholder": "Mobile Number",
     "loginButton": "Login",
@@ -35,11 +42,9 @@
     "saveContinueButton": "Save and continue",
     "forgotPassword": "Forgot Password?",
     "submitButton": "Submit",
-
     "otpPlaceholder": "Enter OTP",
     "verifyOTPButton": "Verify and login",
     "mobilePlaceholder": "Enter 10 digit mobile number",
-
     "cannotUpdatePasswordToast": "Cannot update password. Please try again later",
     "passwordCreatedToast": "Password created successfully",
     "passwordNotMatchToast": "Please make sure passwords match",
@@ -50,7 +55,6 @@
     "otpSentToast": "OTP sent successfully ",
     "invalidMobileToast": "Please enter valid mobile number",
     "capthchaExpiredToast": "Captcha expired. Refresh the page and try again later",
-
     "welcomeUser": "Welcome user"
   },
   "register": {},
