@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate , useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { server_origin } from '../utilities/constants';
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 // import img from "../../assets/images/yi_logo.png";
 
 // My css
@@ -13,52 +13,54 @@ import logo from "../assests/logo.png";
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
 import '../library/i18n';
+import { MdOutlineArrowDropDown } from 'react-icons/md';
+
 
 
 
 const Navbar = () => {
 
-  const {pathname} = useLocation(); // Get the current route path
+  const { pathname } = useLocation(); // Get the current route path
 
   //? Language Functionality Starts *Translation* ............................................................
-  
-const { t } = useTranslation("translation", { keyPrefix: 'navBar' } );
 
-  
-
-//used to get language Stored in LocalStorage //*should be in every Page having Language Functionality 
-useEffect(()=>{
-  let currentLang = localStorage.getItem('lang');
-  i18n.changeLanguage(currentLang);
-
-  // console.log(t('array'  , { returnObjects: true }));
-
-},[]);
+  const { t } = useTranslation("translation", { keyPrefix: 'navBar' });
 
 
-//? Language Functionality Ends *Translation* .................................................................
-
-
-//? Language Functionality Starts .................................................................
-
-//   //handles Click on Language changes Functionality
-//   const changeLang = (l)=>{
-//   return ()=>{
-//     i18n.changeLanguage(l);
-
-//     // Now saving current language on LocalStorage
-//     localStorage.setItem('lang' , l );
-//   }
-// };
 
   //used to get language Stored in LocalStorage //*should be in every Page having Language Functionality 
-  useEffect(()=>{
+  useEffect(() => {
     let currentLang = localStorage.getItem('lang');
     i18n.changeLanguage(currentLang);
 
     // console.log(t('array'  , { returnObjects: true }));
 
-  },[]);
+  }, []);
+
+
+  //? Language Functionality Ends *Translation* .................................................................
+
+
+  //? Language Functionality Starts .................................................................
+
+  //   //handles Click on Language changes Functionality
+  //   const changeLang = (l)=>{
+  //   return ()=>{
+  //     i18n.changeLanguage(l);
+
+  //     // Now saving current language on LocalStorage
+  //     localStorage.setItem('lang' , l );
+  //   }
+  // };
+
+  //used to get language Stored in LocalStorage //*should be in every Page having Language Functionality 
+  useEffect(() => {
+    let currentLang = localStorage.getItem('lang');
+    i18n.changeLanguage(currentLang);
+
+    // console.log(t('array'  , { returnObjects: true }));
+
+  }, []);
 
   const [selectedLanguage, setSelectedLanguage] = useState(localStorage.getItem('lang') || 'en');
 
@@ -69,32 +71,32 @@ useEffect(()=>{
   };
 
 
-//? Language Functionality Ends .................................................................
+  //? Language Functionality Ends .................................................................
 
-    const [isAdmin, setIsAdmin] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false)
 
-    useEffect( () => {
-        verifyUser();
-    }, [])
+  useEffect(() => {
+    verifyUser();
+  }, [])
 
-    const verifyUser = async()=>{
-        if(localStorage.getItem('token')){
-            const response = await fetch(`${server_origin}/api/user/verify-user`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'auth-token': localStorage.getItem('token')
-                },
-            });
-    
-            const result = await response.json()
-            // console.log("here: ", result);
-            if(result.isAdmin===true){
-                setIsAdmin(true);
-            }
-        }
+  const verifyUser = async () => {
+    if (localStorage.getItem('token')) {
+      const response = await fetch(`${server_origin}/api/user/verify-user`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'auth-token': localStorage.getItem('token')
+        },
+      });
+
+      const result = await response.json()
+      // console.log("here: ", result);
+      if (result.isAdmin === true) {
+        setIsAdmin(true);
+      }
     }
-    
+  }
+
 
   const navigate = useNavigate();
 
@@ -111,84 +113,86 @@ useEffect(()=>{
 
   return (
     <nav className={`${css.outerNav} navbar navbar-expand-lg fixed-top`}
-    style={{ position: "sticky", top: 0, zIndex: 100 }}>
+      style={{ position: "sticky", top: 0, zIndex: 100 }}>
 
-       <div className={`${css.hamDisplay}`}>
-      <Link to="/" style={{ marginRight: "1rem" }}>
-        <img src={logo} alt="yi-logo" style={{"width": "3rem",
-    "marginRight": "2%"}} />
+      <div className={`${css.hamDisplay}`}>
+        <Link to="/" style={{ marginRight: "1rem" }}>
+          <img src={logo} alt="yi-logo" style={{
+            "width": "3rem",
+            "marginRight": "2%"
+          }} />
 
-      </Link>
-      <button
-        type="button"
-        className={`${css.navStyle} navbar-toggler`}
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarCollapse"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
+        </Link>
+        <button
+          type="button"
+          className={`${css.navStyle} navbar-toggler`}
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
       </div>
 
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <ul className="navbar-nav mr-auto text-ff1">
           <li className="nav-item active">
-          <motion.div
-                whileHover={{ scale: 1.1 }}
-                transition={{
-                  type: 'spring', stiffness: 300
-                }}>
-            <Link className="nav-link active" to="/" style={listItemStyle}>
-            {t('Home')}
-            </Link>
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              transition={{
+                type: 'spring', stiffness: 300
+              }}>
+              <Link className="nav-link active" to="/" style={listItemStyle}>
+                {t('Home')}
+              </Link>
             </motion.div>
           </li>
           <li className="nav-item active">
-          <motion.div
-                whileHover={{ scale: 1.1 }}
-                transition={{
-                  type: 'spring', stiffness: 300
-                }}>
-            <Link
-              className="nav-link active"
-              to="/about"
-              style={listItemStyle}
-            >
-              {t('About')}
-            </Link>
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              transition={{
+                type: 'spring', stiffness: 300
+              }}>
+              <Link
+                className="nav-link active"
+                to="/about"
+                style={listItemStyle}
+              >
+                {t('About')}
+              </Link>
             </motion.div>
           </li>
           <li className="nav-item active">
-          <motion.div
-                whileHover={{ scale: 1.1 }}
-                transition={{
-                  type: 'spring', stiffness: 300
-                }}>
-            <Link
-              className="nav-link active"
-              to="/more"
-              style={listItemStyle}
-            >
-              {t('More')}
-            </Link>
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              transition={{
+                type: 'spring', stiffness: 300
+              }}>
+              <Link
+                className="nav-link active"
+                to="/more"
+                style={listItemStyle}
+              >
+                {t('More')}
+              </Link>
             </motion.div>
           </li>
           {
             isAdmin && (
-                <li className="nav-item active">
-                   <motion.div
-                whileHover={{ scale: 1.1 }}
-                transition={{
-                  type: 'spring', stiffness: 300
-                }}>
-                <Link
-                className="nav-link active"
-                to="/admin/analytics"
-                style={listItemStyle}
-                >
-                {t('Analytics')}
-                </Link>
+              <li className="nav-item active">
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  transition={{
+                    type: 'spring', stiffness: 300
+                  }}>
+                  <Link
+                    className="nav-link active"
+                    to="/admin/analytics"
+                    style={listItemStyle}
+                  >
+                    {t('Analytics')}
+                  </Link>
                 </motion.div>
-            </li>
+              </li>
             )
           }
         </ul>
@@ -197,30 +201,34 @@ useEffect(()=>{
 
 
         <ul className="navbar-nav ms-auto">
-            {/* Language Buttons Starts hit and try  */}
-            
-            {pathname !== '/test/start' && (
-                
-                <li className="nav-item active">
-                  <motion.div
+          {/* Language Buttons Starts hit and try  */}
+
+          {pathname !== '/test/start' && (
+
+            <li className="nav-item active">
+              {/* <motion.div
                         whileHover={{ scale: 1.1 }}
                         transition={{
                           type: 'spring', stiffness: 300
-                        }}>
-                    <select
-                    className={`language-select ${css.languageSelect}`}
-                    value={selectedLanguage}
-                    onChange={(e) => handleLanguageChange(e.target.value)}
-                  >
-                    <option className="nav-item active" value="en">English</option>
-                    <option className="nav-item active" value="hi">  हिन्दी  </option>
-                    {/* Add more options for other languages */}
-                  </select>
-                    </motion.div>
-                </li>
+                        }}> */}
+              <div className={`${css.languageContainer}`}>
+                <select
+                  className={`language-select ${css.languageSelect} ${css.btnStyle}`}
+                  value={selectedLanguage}
+                  onChange={(e) => handleLanguageChange(e.target.value)}
+                >
+                  <option className="nav-item active" value="en">English</option>
+                  <option className="nav-item active" value="hi">  हिन्दी  </option>
+                  {/* Add more options for other languages */}
 
-              )}
-            {/* Language Buttons Ends   */}
+                </select>
+                {/* <MdOutlineArrowDropDown/> */}
+
+                {/* </motion.div> */}
+              </div>
+            </li>
+          )}
+          {/* Language Buttons Ends   */}
 
           <li>
             {localStorage.getItem("token") ? (
@@ -233,7 +241,7 @@ useEffect(()=>{
                   transition={{
                     type: 'spring', stiffness: 300
                   }}>
-                {t('Logout')}
+                  {t('Logout')}
                 </motion.p>
               </button>
             ) : (
@@ -243,11 +251,11 @@ useEffect(()=>{
                   onClick={handleLoginClick}
                 >
                   <motion.p
-                  whileHover={{ scale: 1.1 }}
-                  transition={{
-                    type: 'spring', stiffness: 300
-                  }}>
-                  {t('Login')}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{
+                      type: 'spring', stiffness: 300
+                    }}>
+                    {t('Login')}
                   </motion.p>
                 </button>
 

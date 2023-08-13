@@ -21,7 +21,7 @@ const Page = () => {
 
     const [showModal, setShowModal] = useState(true);
     const [selectedLanguage, setSelectedLanguage] = useState('');
-    const languages = ['English', 'हिन्दी '];
+    const languages = ['English', 'हिन्दी'];
 
     useEffect(() => {
         console.log('useEffect is triggered');
@@ -118,7 +118,7 @@ const Page = () => {
                                     whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 300 }}
                                     whileTap={{ scale: 0.9, backgroundColor: '#a4acff', color: 'rgb(37, 23, 107)' }}
 
-                                >START TEST<span className='arrow'>&rarr;</span></motion.a></Link>
+                                >START TEST<span className='arrow'>  &rarr;</span></motion.a></Link>
                         </div>
 
                     </div>
