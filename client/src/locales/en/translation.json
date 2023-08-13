@@ -1,5 +1,5 @@
 {
-  "navBar" : {
+  "navBar": {
     "Home": "Home",
     "About": "About",
     "More": "More",
@@ -7,7 +7,7 @@
     "Logout": "Logout",
     "Login": "Login"
   },
-  "footer":{
+  "footer": {
     "Community": "Community",
     "About_WEP": "About WEP",
     "Partners": "Partners",
@@ -17,7 +17,15 @@
     "FAQ": "FAQ's",
     "Feedback": "Feedback"
   },
-  "home": {},
+  "home": {
+    "video_unsupported": "Sorry, your browser doesn't support videos.",
+    "take_a": "TAKE A",
+    "step_ahead": "STEP AHEAD",
+    "in_your": "IN YOUR",
+    "business": "BUSINESS",
+    "start_test": "START TEST",
+    "select_your_language": "Select Your Language"
+  },
   "instruction": {
     "toast": {
       "loginToContinue": "Please Login to continue"

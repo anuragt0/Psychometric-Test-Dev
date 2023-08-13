@@ -4,7 +4,7 @@ import {initReactI18next } from "react-i18next";
 
 import tEn from '../locales/en/translation.json';
 import tHi from '../locales/hi/translation.json';
-
+import tGu from '../locales/gu/translation.json'
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
@@ -18,6 +18,9 @@ i18n
       },
       hi: {
         translation: tHi
+      },
+      gu: {
+        translation: tGu
       }
     },
     lng: "en", // if you're using a language detector, do not define the lng option

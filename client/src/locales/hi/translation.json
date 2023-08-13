@@ -17,7 +17,15 @@
         "FAQ": "सामान्य प्रश्न",
         "Feedback": "प्रतिक्रिया"
       },
-    "home": {},
+    "home": {
+        "video_unsupported": "क्षमा करें, आपका ब्राउज़र वीडियो समर्थन नहीं करता।",
+        "take_a": " एक कदम ",
+        "step_ahead": " आगे बढ़ें ",
+        "in_your": " अपने ",
+        "business": " व्यवसाय में ",
+        "start_test": "परीक्षण शुरू करें",
+        "select_your_language": "अपनी भाषा का चयन करें"
+      },
     "instruction": {
         "toast": {
             "loginToContinue": "कृपया जारी रखने के लिए लॉगिन करें"

@@ -31,15 +31,12 @@ function Result_M() {
   
 const { t } = useTranslation("translation", { keyPrefix: 'result' } );
 
-  
-
 //used to get language Stored in LocalStorage //*should be in every Page having Language Functionality 
 useEffect(()=>{
   let currentLang = localStorage.getItem('lang');
   i18n.changeLanguage(currentLang);
 
   // console.log(t('array'  , { returnObjects: true }));
-
 },[]);
 
 

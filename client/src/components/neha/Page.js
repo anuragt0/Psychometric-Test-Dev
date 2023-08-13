@@ -1,27 +1,49 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './page.css'
-import Image1 from './images/Goal-amico.png'
-import Image2 from './images/Seamstress-bro.png'
-import Image3 from './images/Webinar.png'
-import { Footer } from './Footer'
+// import Image1 from './images/Goal-amico.png'
+// import Image2 from './images/Seamstress-bro.png'
+// import Image3 from './images/Webinar.png'
+// import { Footer } from './Footer'
 import { motion } from 'framer-motion'
-import { InView } from 'react-intersection-observer'
+// import { InView } from 'react-intersection-observer'
 import videoFile from './images/Worklife.mp4'
 import { useState, useEffect } from 'react';
 import { useInView } from 'framer-motion' // refer slide.jsx
-import { staggerContainer } from './framer'
-import { TypingText } from './text'
+// import { staggerContainer } from './framer'
+// import { TypingText } from './text'
 import { useRef } from 'react'
-import { headerVariants, textVariant } from './framer'
+import { headerVariants , textVariant } from './framer'
 import LanguageSelectorModal from './LanguageSelectorModal';
+
+//IMPORTS FOR Language change Functionality
+import i18n from "i18next";
+import { useTranslation } from "react-i18next";
+import { useLanguage } from '../../context/LanguageContext';
 
 
 const Page = () => {
 
+    
+    const { t } = useTranslation("translation", { keyPrefix: 'home' });
+
     const [showModal, setShowModal] = useState(true);
-    const [selectedLanguage, setSelectedLanguage] = useState('');
-    const languages = ['English', 'हिन्दी'];
+    const [selectedLanguageM, setSelectedLanguageM] = useState({});
+    const languages = [{
+                        value : "English",
+                        key : "en" 
+                         },
+                        {
+                            value : "हिन्दी",
+                            key : "hi" 
+                            
+                        } ,
+                        {
+                            value : "ગુજરાતી",
+                            key : "gu" 
+                            
+                        }
+                    ];
 
     useEffect(() => {
         console.log('useEffect is triggered');
@@ -33,10 +55,11 @@ const Page = () => {
     }, []);
 
     const handleLanguageSelect = language => {
-        console.log({ language });
-        setSelectedLanguage(language);
+        // console.log({ language });
+        setSelectedLanguageM(language);
+        localStorage.setItem('lang', language);
+        i18n.changeLanguage(language);
         setShowModal(false);
-        // Perform any language-related tasks here
     };
 
     const ref = useRef(null);
@@ -68,7 +91,6 @@ const Page = () => {
             )}
 
 
-
             <div className={`container-page1 page-container ${showModal ? 'blur-background' : ''}`}>
                 <div className='img-container'>
 
@@ -77,7 +99,7 @@ const Page = () => {
                         style={{ display: isLoading ? 'none' : 'block' }}
                     >
                         <source src={videoFile} type="video/mp4" />
-                        Sorry, your browser doesn't support videos.
+                        {t('video_unsupported')}
                     </video>
 
                 </div>
@@ -91,19 +113,19 @@ const Page = () => {
                             <motion.div className="text-top"
                                 whileHover={{ scale: 1.1, originX: 0 }} transition={{ type: 'spring', stiffness: 300 }}
                             >
-                                TAKE A </motion.div>
+                                {t('take_a')} </motion.div>
                             <motion.div className='text-top text-top-deco'
                                 whileHover={{ scale: 1.1, originX: 0 }} transition={{ type: 'spring', stiffness: 300 }}
                             >
-                                STEP AHEAD</motion.div>
+                                {t('step_ahead')}</motion.div>
                             <motion.div className='text-top'
                                 whileHover={{ scale: 1.1, originX: 0 }} transition={{ type: 'spring', stiffness: 300 }}
                             >
-                                IN YOUR</motion.div>
+                                {t('in_your')}</motion.div>
                             <motion.div className='text-top text-top-deco'
                                 whileHover={{ scale: 1.1, originX: 0 }} transition={{ type: 'spring', stiffness: 300 }}
                             >
-                                BUSINESS</motion.div>
+                                {t('business')}</motion.div>
                         </motion.div>
                         <div className='hero-btn-wrap'>
                             {/* <motion.a href='#start-test' className='btn'
@@ -118,7 +140,7 @@ const Page = () => {
                                     whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 300 }}
                                     whileTap={{ scale: 0.9, backgroundColor: '#a4acff', color: 'rgb(37, 23, 107)' }}
 
-                                >START TEST<span className='arrow'>  &rarr;</span></motion.a></Link>
+                                >{t('start_test')}<span className='arrow'>  &rarr;</span></motion.a></Link>
                         </div>
 
                     </div>

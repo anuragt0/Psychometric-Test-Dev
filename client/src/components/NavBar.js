@@ -15,7 +15,7 @@ import { useTranslation } from "react-i18next";
 import '../library/i18n';
 import { MdOutlineArrowDropDown } from 'react-icons/md';
 
-
+import { useLanguage } from '../context/LanguageContext';
 
 
 const Navbar = () => {
@@ -24,54 +24,34 @@ const Navbar = () => {
 
   //? Language Functionality Starts *Translation* ............................................................
 
+
+
   const { t } = useTranslation("translation", { keyPrefix: 'navBar' });
 
+  const { selectedLanguage , setSelectedLanguage , resetLanguage } = useLanguage();
 
-
-  //used to get language Stored in LocalStorage //*should be in every Page having Language Functionality 
-  useEffect(() => {
-    let currentLang = localStorage.getItem('lang');
-    i18n.changeLanguage(currentLang);
-
-    // console.log(t('array'  , { returnObjects: true }));
-
-  }, []);
-
-
-  //? Language Functionality Ends *Translation* .................................................................
-
-
-  //? Language Functionality Starts .................................................................
-
-  //   //handles Click on Language changes Functionality
-  //   const changeLang = (l)=>{
-  //   return ()=>{
-  //     i18n.changeLanguage(l);
-
-  //     // Now saving current language on LocalStorage
-  //     localStorage.setItem('lang' , l );
-  //   }
-  // };
-
-  //used to get language Stored in LocalStorage //*should be in every Page having Language Functionality 
-  useEffect(() => {
-    let currentLang = localStorage.getItem('lang');
-    i18n.changeLanguage(currentLang);
-
-    // console.log(t('array'  , { returnObjects: true }));
-
-  }, []);
-
-  const [selectedLanguage, setSelectedLanguage] = useState(localStorage.getItem('lang') || 'en');
 
   const handleLanguageChange = (language) => {
     i18n.changeLanguage(language);
-    localStorage.setItem('lang', language);
+    resetLanguage();
     setSelectedLanguage(language);
+    localStorage.setItem('lang', language);
   };
 
+  //used to get language Stored in LocalStorage //*should be in every Page having Language Functionality 
+  useEffect(() => {
+    let currentLang = localStorage.getItem('lang');
+    i18n.changeLanguage(currentLang);
 
-  //? Language Functionality Ends .................................................................
+    // console.log(t('array'  , { returnObjects: true }));
+
+  }, []);
+
+
+  // //? Language Functionality Ends *Translation* .................................................................
+
+
+
 
   const [isAdmin, setIsAdmin] = useState(false)
 
@@ -219,6 +199,8 @@ const Navbar = () => {
                 >
                   <option className="nav-item active" value="en">English</option>
                   <option className="nav-item active" value="hi">  हिन्दी  </option>
+                  <option className="nav-item active" value="gu">  ગુજરાતી  </option>
+
                   {/* Add more options for other languages */}
 
                 </select>

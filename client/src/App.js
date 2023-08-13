@@ -14,33 +14,7 @@ import Analytics from "./components/Admin/Analytics";
 import AdminQuestions from "./components/Admin/AdminQuestions";
 import AdminUsers from "./components/Admin/AdminUsers";
 
-
-//IMPORTS FOR Language change Functionality
-import i18n from "i18next";
-import { useTranslation } from "react-i18next";
-import './library/i18n';
-
-
 function App() {
-
-
-//? Language Functionality Starts ............................................................
-  
-const { t } = useTranslation("translation", { keyPrefix: 'home' } );
-  
-//used to get language Stored in LocalStorage //*should be in every Page having Language Functionality 
-useEffect(()=>{
-  let currentLang = localStorage.getItem('lang');
-  i18n.changeLanguage(currentLang);
-
-  // console.log(t('array'  , { returnObjects: true }));
-
-},[]);
-
-
-//? Language Functionality Ends .................................................................
-
-
 
   return (
     <Router>
