@@ -112,18 +112,22 @@ useEffect(()=>{
   return (
     <nav className={`${css.outerNav} navbar navbar-expand-lg fixed-top`}
     style={{ position: "sticky", top: 0, zIndex: 100 }}>
+
+       <div className={`${css.hamDisplay}`}>
       <Link to="/" style={{ marginRight: "1rem" }}>
         <img src={logo} alt="yi-logo" style={{"width": "3rem",
     "marginRight": "2%"}} />
+
       </Link>
       <button
         type="button"
-        className="navbar-toggler"
+        className={`${css.navStyle} navbar-toggler`}
         data-bs-toggle="collapse"
         data-bs-target="#navbarCollapse"
       >
         <span className="navbar-toggler-icon"></span>
       </button>
+      </div>
 
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <ul className="navbar-nav mr-auto text-ff1">
