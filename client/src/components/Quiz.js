@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { server_origin } from '../utilities/constants';
 import { useNavigate } from 'react-router-dom';
 import "../css/quiz.css";
-import imgbg from "../images/bg.png";
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import { SyncLoader } from 'react-spinners'; // Import the ClipLoader from "react-spinners"
 
 import 'react-circular-progressbar/dist/styles.css';
@@ -89,29 +87,6 @@ function Quiz() {
         setQuestions(questions1);
         setLoading(false);
     };
-
-    // const getQuestions = async () => {
-    //     setLoading(true);
-    //     const response = await fetch(`${server_origin}/api/user/get-questions`, {
-    //         method: 'GET',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'auth-token': localStorage.getItem('token')
-    //         },
-    //     });
-    //     const result = await response.json()
-    //     // const questions1 = result.questions;
-
-    //     //! Storing Question Array According to the language in LocalStorage
-    //     const questions1 = t('question'  , { returnObjects: true });
-        
-
-    //     console.log(questions1);
-    //     setQuestions(questions1);
-    //     setLoading(false);
-
-    // }
-
 
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [clickedOption, setClickedOption] = useState(5);

@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { server_origin } from '../utilities/constants';
 import { motion } from 'framer-motion'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGlobe } from '@fortawesome/free-solid-svg-icons';
+
+
 // import img from "../../assets/images/yi_logo.png";
 
 // My css
@@ -191,9 +195,11 @@ const Navbar = () => {
                         transition={{
                           type: 'spring', stiffness: 300
                         }}> */}
-              <div className={`${css.languageContainer}`}>
+              <div className={`${css.languageContainer} mx-3`}>
+              <FontAwesomeIcon icon={faGlobe} />
                 <select
                   className={`language-select ${css.languageSelect} ${css.btnStyle}`}
+                  style={{cursor:"pointer"}}
                   value={selectedLanguage}
                   onChange={(e) => handleLanguageChange(e.target.value)}
                 >
@@ -204,9 +210,7 @@ const Navbar = () => {
                   {/* Add more options for other languages */}
 
                 </select>
-                {/* <MdOutlineArrowDropDown/> */}
-
-                {/* </motion.div> */}
+            
               </div>
             </li>
           )}

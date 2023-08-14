@@ -23,6 +23,7 @@
   .languageContainer {
     display: flex;
     align-items: center;
+    /* cursor: pointer; */
   }
 
   .btnStyle{
@@ -56,6 +57,8 @@
 }
 
 .language-select {
+    
+
   font-size: 14px;
   padding: 5px 10px;
   border:none;
