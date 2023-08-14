@@ -3,6 +3,8 @@ import { server_origin } from '../utilities/constants';
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, } from "react-hot-toast";
+import { SyncLoader } from 'react-spinners'; // Import the ClipLoader from "react-spinners"
+
 import "../css/instructions.css"
 
 
@@ -34,10 +36,12 @@ function InstructionsPage() {
 
     const navigate = useNavigate();
     const [isUserAuthenticated, setIsUserAuthenticated] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         //*Validate the token to see if the page is accessible to the user
         const validateUserToken = async () => {
+            setLoading(true);
             const response = await fetch(`${server_origin}/api/user/verify-user`, {
                 method: 'POST',
                 headers: {
@@ -46,6 +50,7 @@ function InstructionsPage() {
                 },
             });
             let response1 = await response.json();
+            setLoading(false);
             console.log('ValidateUserToken response: ', response1);
             if (response1.success === true) {
                 setIsUserAuthenticated(true);
@@ -79,7 +84,7 @@ function InstructionsPage() {
 
     return (
         <div className="instructions-page">
-            {!isUserAuthenticated ? "" : (
+            {isUserAuthenticated && !loading ? (
                 <>
                     <h1>{t('testInstructions')}</h1>
                     <p>{t('welcomeMessage')}</p>
@@ -114,6 +119,12 @@ function InstructionsPage() {
                         }} className='btn btn-primary'>{t('startTestButton')}</button>
                     </div>
                 </>
+            ):(
+                loading && (
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
+                <SyncLoader size={30} color="#fb2576" />
+                </div>
+                )
             )}
         </div>
     );
