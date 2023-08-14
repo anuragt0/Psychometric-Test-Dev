@@ -9,7 +9,8 @@ const Question = require("../mongodb/Models/Question");
 //Register
 //Token must be there before this route is called.
 //Middleware will verify if user has verified there number or logged in.
-//!REGISTER or updating user can be done only single time. 
+//!REGISTER or updating user can be done only single time.
+
 router.post("/register-update-user", fetchPerson,  async(req,res)=>{
     //* User is already created in login. We just have to update the user 
 

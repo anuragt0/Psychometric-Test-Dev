@@ -181,16 +181,6 @@ const Login = () => {
 
     const handleSendOtpClick = async () => {
         setLoading(true);
-        //clicked on  LOGIN button
-        if (mobileNumber === "9898989898") {
-            //DUMMY USER. Login without OTP
-            toast.success("Logged in as testing user");
-            // console.log(process.env.REACT_APP_AUTH_DOMAIN);
-            localStorage.setItem('token', process.env.REACT_APP_TEST_TOKEN);
-            navigate("/");
-            setLoading(false);
-            return;
-        }
 
         // Check if the mobile is already registered
         const response = await fetch(`${server_origin}/api/user/check-mobile-registered`, {
