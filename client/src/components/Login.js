@@ -152,9 +152,9 @@ const Login = () => {
                 toast.error(t('toast.enterCorrectOTPToast'));
                 console.log(err);
                 if (err.code === "auth/code-expired") {
-                    setOtpError("OTP has expired. Please request a new OTP.");
+                    setOtpError(t('toast.otpExpired'));
                 } else {
-                    setOtpError("Invalid OTP");
+                    setOtpError(t('toast.otpInvalid'));
                 }
                 setLoading(false);
             });
