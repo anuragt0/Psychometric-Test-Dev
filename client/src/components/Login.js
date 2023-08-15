@@ -119,7 +119,7 @@ const Login = () => {
                 setLoading(false);
                 // setOTPSent(true);
                 setComponentState(0);
-                toast.success(`${t("otpSentToast")} to mobile number ${formatPh} `);
+                toast.success(`${t("toast.otpSentToast")}  ${formatPh} `);
             })
             .catch((error) => {
                 // toast.error("Please refresh the page and try again!");
@@ -143,7 +143,7 @@ const Login = () => {
                 // console.log("RESRES: ", res);
                 setOtpVerified(true);
                 setLoading(false);
-                toast.success(t("otpVerifiedToast"))
+                toast.success(t("toast.otpVerifiedToast"))
                 // OTP is verified - Show Enter Password create component
                 setComponentState(2);
             })

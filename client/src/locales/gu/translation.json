@@ -55,7 +55,7 @@
             "loggedInToast": "સફળતાથી લૉગઇન થયેલ",
             "enterCorrectOTPToast": "કૃપા કરીને યોગ્ય OTP દાખલ કરો",
             "otpVerifiedToast": "OTP સફળતાથી ચકાસ્યો",
-            "otpSentToast": "OTP સફળતાથી મોકલ્યો છે",
+            "otpSentToast": "OTP મોબાઇલ નંબર પર સફળતાપૂર્વક મોકલાયો છે",
             "invalidMobileToast": "કૃપા કરીને માન્ય મોબાઇલ નંબર દાખલ કરો",
             "capthchaExpiredToast": "કૅપ્ચા સમયસમાપ્ત થયેલ છે. પૃષ્ઠને રિફ્રેશ કરીને પછી ફરી પ્રયાસ કરો"
         },
