@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { FiDownload, FiBarChart2 } from 'react-icons/fi'; // Import the FiDownload and FiBarChart2 icons from react-icons
 import { toast, Toaster } from "react-hot-toast";
 import { SyncLoader } from 'react-spinners'; // Import the ClipLoader from "react-spinners"
+import { motion } from 'framer-motion'
+
 
 import Graph from "./charts/Graph";
 import PieChart from "./charts/PieChart";
@@ -166,49 +168,78 @@ useEffect(()=>{
             {responses.length !== 0 && !loading ? (
                 <div className="result-page" ref={pdfRef}>
                     <div className="header">
-                    <h2 className="page-heading" >
-                    <FiBarChart2 className="icon-bar-chart my-5" />  {t('main.main_heading1')}
-                    </h2>
+                        <motion.h2 className="page-heading" 
+                                whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 300 }}
+                        >
+                            <FiBarChart2 className="icon-bar-chart my-5" />  {t('main.main_heading1')}
+                        </motion.h2>
                     </div>
                     <div className='chart-section'>
-                        <div className="chart">
+                        <motion.div className="chart"
+                            whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 200 }}
+                        >
                             <h1>{t('graph.heading')}</h1>
                             <h4 className="chart-subtitle">{t('graph.sub_heading')}</h4>
                             <Graph responses={responses} />
-                        </div>
-                        <div className="chart">
+                        </motion.div>
+                        <motion.div className="chart"
+                            whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 200 }}
+                        >
                             <h1>{t('pie.heading')}</h1>
                             <h4 className="chart-subtitle">{t('pie.sub_heading')}</h4>
                             <PieChart responses={responses} />
-                        </div>
-                        <div className="chart">
+                        </motion.div>
+                        <motion.div className="chart"
+                            whileHover={{ scale: 1.1 }} transition={{ type:'spring' , stiffness: 200 }}
+                        >
                             <h1>{t('radialBar.heading')}</h1>
                             <RadialBarChartComponent responses={responses} />
-                        </div>
+                        </motion.div>
                     </div>
                     <div className="content-section">
-                        <h3 style={{color:"#1D5B79"}}>{t('main.text_heading')}</h3>
+                        <motion.h3 whileHover={{ scale: 1.03 }} transition={{ type: 'spring', stiffness: 300 }} 
+                            style={{color:"#1D5B79"}}>
+                                {t('main.text_heading')}
+                        </motion.h3>
                         <p>
                             {t('main.text1')} <b>{testDate}</b> {t('main.text2')}
                         </p>
-                        <h3 style={{color:"#1D5B79"}}>{t('graph.text_heading')}</h3>
+                        <motion.h3 whileHover={{ scale: 1.03 }} transition={{ type: 'spring', stiffness: 300 }} 
+                            style={{color:"#1D5B79"}}>
+                                {t('graph.text_heading')}
+                        </motion.h3>
                         <p>
                             {t('graph.text_content')}
                         </p>
-                        <h3 style={{color:"#1D5B79"}}>{t('pie.text_heading')}</h3>
+                        <motion.h3 whileHover={{ scale: 1.03 }} transition={{ type: 'spring', stiffness: 300 }} 
+                            style={{color:"#1D5B79"}}>
+                                {t('pie.text_heading')}
+                        </motion.h3>
                         <p>
                             {t('pie.text_content')}
                         </p>
-                        <h3 style={{color:"#1D5B79"}}>{t('radialBar.text_heading')}</h3>
+                        <motion.h3 whileHover={{ scale: 1.03 }} transition={{ type: 'spring', stiffness: 300 }}  
+                            style={{color:"#1D5B79"}}>
+                                {t('radialBar.text_heading')}
+                        </motion.h3>
                         <p>
                             {t('radialBar.text_content')}
                         </p>
                         {/* ... Add more content about the test results as needed ... */}
                     </div>
-                    <button  className="download-button" onClick={handleDownloadClick} disabled={downloading}>
+                    <motion.div
+                            whileHover={{ scale: 1.04 }} transition={{ type: 'spring', stiffness: 300 }}
+                            // whileTap={{ scale: 0.9 }}
+                    >
+                            <button  className="download-button" onClick={handleDownloadClick} disabled={downloading}>
+                                    <FiDownload className="download-icon" />
+                                    {downloading? t('toast.pleaseWait'): t('main.download') } 
+                            </button>  
+                    </motion.div>
+                    {/* <button  className="download-button" onClick={handleDownloadClick} disabled={downloading}>
                             <FiDownload className="download-icon" />
                             {downloading? t('toast.pleaseWait'): t('main.download') } 
-                        </button>
+                    </button> */}
                 </div>
             ) : (
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>

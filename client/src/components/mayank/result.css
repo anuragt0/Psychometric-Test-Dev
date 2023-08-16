@@ -16,13 +16,19 @@
     margin-right: 0.5rem;
     color: #007BFF; /* Customize the icon color */
   }
+
+
   
   .download-button {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 1rem 2rem;
-    background-color: #007BFF;
+    /* background-color: #007BFF; */
+
+    background: linear-gradient(180deg, #007BFF 0%, #0056b3 100%);
+    transition: background 0.2s ease;
+
     color: white;
     border: none;
     border-radius: 8px;
@@ -32,19 +38,27 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   .download-button:hover {
-    background-color: #0056b3;
+    background: linear-gradient(180deg, #0056b3 0%, #007BFF 100%);    
   }
   
+  .download-button[disabled]{
+    background: linear-gradient(180deg, #019840 0%, #00ff5e98 100%);    
+    
+    /* Bright pink color for disabled buttons */
+    color: #ffffff;    /* White text for better visibility */
+    cursor: not-allowed;
+
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+
+
   .download-icon {
     margin-right: 0.5rem;
     font-size: 1.2rem;
   }
 
-  .download-button[disabled]{
-    background-color: #9ED2BE; /* Bright pink color for disabled buttons */
-    color: #ffffff; /* White text for better visibility */
-    cursor: not-allowed;
-  }
+
   
   .chart-section {
     display : flex ; 
@@ -92,4 +106,8 @@
   }
   
 
-  
+
+
+
+
+ 
