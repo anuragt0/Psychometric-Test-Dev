@@ -169,56 +169,57 @@ useEffect(()=>{
                 <div className="result-page" ref={pdfRef}>
                     <div className="header">
                         <motion.h2 className="page-heading" 
-                                whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 300 }}
+                                whileHover={{ scale: 1.025 }} transition={{ type: 'spring', stiffness: 300 }}
                         >
                             <FiBarChart2 className="icon-bar-chart my-5" />  {t('main.main_heading1')}
                         </motion.h2>
                     </div>
                     <div className='chart-section'>
                         <motion.div className="chart"
-                            whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 200 }}
+                            whileHover={{ scale: 1.025 }} transition={{ type: 'spring', stiffness: 200 }}
                         >
-                            <h1>{t('graph.heading')}</h1>
+                            {/* <h1>{t('graph.heading')}</h1> */}
                             <h4 className="chart-subtitle">{t('graph.sub_heading')}</h4>
                             <Graph responses={responses} />
                         </motion.div>
                         <motion.div className="chart"
-                            whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 200 }}
+                            whileHover={{ scale: 1.025 }} transition={{ type: 'spring', stiffness: 200 }}
                         >
-                            <h1>{t('pie.heading')}</h1>
+                            {/* <h1>{t('pie.heading')}</h1> */}
                             <h4 className="chart-subtitle">{t('pie.sub_heading')}</h4>
                             <PieChart responses={responses} />
                         </motion.div>
                         <motion.div className="chart"
-                            whileHover={{ scale: 1.1 }} transition={{ type:'spring' , stiffness: 200 }}
+                            whileHover={{ scale: 1.025 }} transition={{ type:'spring' , stiffness: 200 }}
                         >
-                            <h1>{t('radialBar.heading')}</h1>
+                            {/* <h1>{t('radialBar.heading')}</h1> */}
+                            <h4 className="chart-subtitle">{t('radialBar.sub_heading')}</h4>
                             <RadialBarChartComponent responses={responses} />
                         </motion.div>
                     </div>
                     <div className="content-section">
-                        <motion.h3 whileHover={{ scale: 1.03 }} transition={{ type: 'spring', stiffness: 300 }} 
+                        <motion.h3 whileHover={{ scale: 1.01 }} transition={{ type: 'spring', stiffness: 300 }} 
                             style={{color:"#1D5B79"}}>
                                 {t('main.text_heading')}
                         </motion.h3>
                         <p>
                             {t('main.text1')} <b>{testDate}</b> {t('main.text2')}
                         </p>
-                        <motion.h3 whileHover={{ scale: 1.03 }} transition={{ type: 'spring', stiffness: 300 }} 
+                        <motion.h3 whileHover={{ scale: 1.01 }} transition={{ type: 'spring', stiffness: 300 }} 
                             style={{color:"#1D5B79"}}>
                                 {t('graph.text_heading')}
                         </motion.h3>
                         <p>
                             {t('graph.text_content')}
                         </p>
-                        <motion.h3 whileHover={{ scale: 1.03 }} transition={{ type: 'spring', stiffness: 300 }} 
+                        <motion.h3 whileHover={{ scale: 1.01 }} transition={{ type: 'spring', stiffness: 300 }} 
                             style={{color:"#1D5B79"}}>
                                 {t('pie.text_heading')}
                         </motion.h3>
                         <p>
                             {t('pie.text_content')}
                         </p>
-                        <motion.h3 whileHover={{ scale: 1.03 }} transition={{ type: 'spring', stiffness: 300 }}  
+                        <motion.h3 whileHover={{ scale: 1.01 }} transition={{ type: 'spring', stiffness: 300 }}  
                             style={{color:"#1D5B79"}}>
                                 {t('radialBar.text_heading')}
                         </motion.h3>
@@ -228,7 +229,7 @@ useEffect(()=>{
                         {/* ... Add more content about the test results as needed ... */}
                     </div>
                     <motion.div
-                            whileHover={{ scale: 1.04 }} transition={{ type: 'spring', stiffness: 300 }}
+                            whileHover={{ scale: 1.01 }} transition={{ type: 'spring', stiffness: 300 }}
                             // whileTap={{ scale: 0.9 }}
                     >
                             <button  className="download-button" onClick={handleDownloadClick} disabled={downloading}>
