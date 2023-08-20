@@ -19,7 +19,7 @@
       width: 100%;
       align-items: center;
       padding: 1%;
-      min-height: 80px;
+      min-height: 50px;
       font-size: 1.2rem;
       font-weight: 550;
       font-family: sans-serif;
@@ -29,9 +29,10 @@
       margin-right: 5px;
     }
     .option-container{
+      padding-top: 10%;
       display: row;
       margin: 15px;
-      margin-top: 1.5%;
+      margin-top: 1.8%;
     }
     .buttons{
       height: 8%;
