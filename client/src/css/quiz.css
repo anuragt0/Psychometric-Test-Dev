@@ -84,6 +84,10 @@
       width:100px;
       position: absolute;
     }
+    .submit-button:hover{
+        background-color: purple;
+        color: black
+    }
     #next-button,
     .submit-button{
     margin-left: 80%;
