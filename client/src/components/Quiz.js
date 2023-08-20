@@ -196,6 +196,8 @@ function Quiz() {
         color='#f11946'
         progress={progress}
         height={4}
+        shadow={false}
+        style={{position:"absolute", top: "67px"}}
         onLoaderFinished={() => setProgress(0)}
       />
             {isUserAuthenticated && questions.length !== 0 && !loading ? <>
