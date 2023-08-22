@@ -17,6 +17,7 @@ import { useTranslation } from 'react-i18next';
 
 
 function Quiz() {
+    window.scrollTo(0,0);
 
     const { t } = useTranslation("translation", { keyPrefix: 'quiz' } );
 
@@ -237,9 +238,24 @@ function Quiz() {
                     
 
                 <div className="right my-5">
-                    <div className="box">
-
+                    <div className="cont">
+                    <div className="progress-bar">
+    <div className="step-container">
+      {[0,1, 2, 3, 4, 5].map((step) => (
+        <>
+          {step !== 0 && <div className={`line ${currentQuestionIndex >= (step) * 5 ? 'completed' : ''} line-color-${currentQuestionIndex >= step*5 ? 'completed' : ''}`}></div>}
+          
+          <div className={`step ${currentQuestionIndex >= (step ) * 5 ? 'completed' : ''}`}>
+            {step}
+          </div>
+        </>
+      ))}
+    </div>
+  </div>
                     </div>
+                <div className="box">
+                      
+                </div>
                     {/* <div className="box1"> */}
                     <img src={imageArray[currentQuestionIndex]} alt="img" /> 
                     {/* </div> */}
