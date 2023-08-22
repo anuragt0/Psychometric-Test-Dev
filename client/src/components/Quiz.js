@@ -35,8 +35,6 @@ function Quiz() {
     },[]);
 
 
-
-
     const navigate = useNavigate();
     const [questions, setQuestions] = useState([]);
     const [result, setResult] = useState([]);
@@ -90,6 +88,40 @@ function Quiz() {
         console.log(questions1);
         setQuestions(questions1);
         setLoading(false);
+
+
+        //? tired -- for implementing lanuage change functionality on every question separately
+        // const questions123 = [
+        //     t('question.question_01' , { returnObjects: true }),
+        //     t('question.question_02' , { returnObjects: true }),
+        //     t('question.question_03' , { returnObjects: true }),
+        //     t('question.question_04' , { returnObjects: true }),
+        //     t('question.question_05' , { returnObjects: true }),
+        //     t('question.question_06' , { returnObjects: true }),
+        //     t('question.question_07' , { returnObjects: true }),
+        //     t('question.question_08' , { returnObjects: true }),
+        //     t('question.question_09' , { returnObjects: true }),
+        //     t('question.question_10' , { returnObjects: true }),
+        //     t('question.question_11' , { returnObjects: true }),
+        //     t('question.question_12' , { returnObjects: true }),
+        //     t('question.question_13' , { returnObjects: true }),
+        //     t('question.question_14' , { returnObjects: true }),
+        //     t('question.question_15' , { returnObjects: true }),
+        //     t('question.question_16' , { returnObjects: true }),
+        //     t('question.question_17' , { returnObjects: true }),
+        //     t('question.question_18' , { returnObjects: true }),
+        //     t('question.question_19' , { returnObjects: true }),
+        //     t('question.question_20' , { returnObjects: true }),
+        //     t('question.question_21' , { returnObjects: true }),
+        //     t('question.question_22' , { returnObjects: true }),
+        //     t('question.question_23' , { returnObjects: true }),
+        //     t('question.question_24' , { returnObjects: true }),
+        //     t('question.question_25' , { returnObjects: true }),
+        //     t('question.question_26' , { returnObjects: true })
+        // ]
+        // console.log(questions123);
+        //? tired -- for implementing lanuage change functionality on every question separately
+
     };
 
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -181,13 +213,13 @@ function Quiz() {
     }
 
 
-    const imageArray = [require("../images/1.jpg"), require("../images/2.PNG"), require("../images/3.PNG")
-        , require("../images/4.PNG"), require("../images/5.jpg"), require("../images/6.jpg"), require("../images/7.PNG")
-        , require("../images/8.PNG"), require("../images/9.PNG"), require("../images/10.PNG"), require("../images/11.PNG")
-        , require("../images/12.PNG"), require("../images/13.PNG"), require("../images/14.PNG"), require("../images/15.PNG")
-        , require("../images/16.jpg"), require("../images/17.PNG"), require("../images/18.jpg"), require("../images/19.PNG")
-        , require("../images/20.jpg"), require("../images/21.PNG"), require("../images/22.PNG"), require("../images/23.PNG")
-        , require("../images/24.PNG"), require("../images/25.PNG"), require("../images/26.PNG")];
+    const imageArray = [require("../images/1.jpg"), require("../images/2.png"), require("../images/3.png")
+        , require("../images/4.png"), require("../images/5.jpg"), require("../images/6.jpg"), require("../images/7.png")
+        , require("../images/8.png"), require("../images/9.png"), require("../images/10.png"), require("../images/11.png")
+        , require("../images/12.png"), require("../images/13.png"), require("../images/14.png"), require("../images/15.png")
+        , require("../images/16.jpg"), require("../images/17.png"), require("../images/18.jpg"), require("../images/19.png")
+        , require("../images/20.jpg"), require("../images/21.png"), require("../images/22.png"), require("../images/23.png")
+        , require("../images/24.png"), require("../images/25.png"), require("../images/26.png")];
 
    
     return (
