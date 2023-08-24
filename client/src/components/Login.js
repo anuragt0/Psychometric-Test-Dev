@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { server_origin } from '../utilities/constants';
+import { useLanguage } from '../context/LanguageContext';
 
 
 import { useNavigate } from "react-router-dom";
@@ -27,6 +28,8 @@ const Login = () => {
     //*                   2: EnterPasswordCreateComponenent
     const [componentState, setComponentState] = useState(-1);
     //*
+
+    const { userTestResponses} = useLanguage();
 
 
     //* 3 Inputs mobile, otp and password
@@ -202,8 +205,11 @@ const Login = () => {
         }
         // Not registered before
         // Render EnterOTP component
-        setLoading(false);
-        onSignup();
+        navigate("/test/register");
+        toast.warning("This number is not registered")
+        return;
+        // setLoading(false);
+        // onSignup();
     };
 
     const handleVerifyOtpClick = () => {
@@ -215,7 +221,7 @@ const Login = () => {
         //* Check the password
         setLoading(true);
         // Check if the password is correct
-        const response = await fetch(`${server_origin}/api/user/check-password`, {
+        const response = await fetch(`${server_origin}/api/user/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -223,13 +229,24 @@ const Login = () => {
             body: JSON.stringify({ mobile: mobileNumber, password: password })
         });
         let response1 = await response.json();
-        console.log("Check password response", response1);
+        localStorage.setItem("token", response1.token)
 
         if (response1.success === true) {
+            
             //* Password is correct
+            //* Update the responses
+            const response = await fetch(`${server_origin}/api/user/update-response`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'auth-token': localStorage.getItem("token")
+                },
+                body: JSON.stringify({responses: userTestResponses})
+            });
+            let response1 = await response.json();
             toast.success(t('toast.loggedInToast'));
             localStorage.setItem('token', response1.token);
-            navigate('/test/instructions');
+            navigate('/test/result');
         }
         else {
             //* Wrong password

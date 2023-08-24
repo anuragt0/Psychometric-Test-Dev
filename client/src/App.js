@@ -6,6 +6,7 @@ import Page from "../src/components/neha/Page";
 import Login from './components/Login';
 import Register from './components/Register';
 import Result_M from './components/mayank/Result_M';
+import Congrats from './components/Congrats.js';
 
 import Instructions from './components/Instructions';
 import Quiz from './components/Quiz';
@@ -24,11 +25,12 @@ function App() {
         <Routes>
         {/* User */}
           <Route path="/" element={<Page />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/test/instructions" element={<Instructions/>} />
           <Route path="/test/start" element={<Quiz/>} />
           <Route path="/test/register" element={<Register/>} />
+          <Route path="/test/login" element={<Login/>} />
           <Route path="/test/result" element={<Result_M/>} />
+          <Route path="/test/submit" element={<Congrats/>} />
 
           {/* Admin */}
           <Route path="/admin/analytics" element={<Analytics />} />

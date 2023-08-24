@@ -13,10 +13,6 @@ const UserSchema = new mongoose.Schema({
         minLength: 4,
         required: true
     },
-    isRegistered:{
-        type: Boolean,
-        default: false
-    },
     email:{
         type: String
     },

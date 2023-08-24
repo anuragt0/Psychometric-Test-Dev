@@ -1,0 +1,55 @@
+/* CongratulationsPage.css */
+.congratulations-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .congratulations-content {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    color: #333;
+  }
+  
+  p {
+    color: #666;
+    margin: 10px 0;
+  }
+  
+  .buttons-container {
+    margin-top: 20px;
+  }
+  
+  .login-button,
+  .signup-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-button {
+    background-color: #3498db;
+  }
+  
+  .signup-button {
+    background-color: #e74c3c;
+  }
+  
+  .login-button:hover,
+  .signup-button:hover {
+    background-color: #2c3e50;
+  }
+  

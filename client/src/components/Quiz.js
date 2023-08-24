@@ -14,12 +14,16 @@ import { toast, Toaster } from "react-hot-toast";
 import i18n /*, { changeLanguage }*/ from "i18next";
 import { useTranslation } from 'react-i18next';
 
+import { useLanguage } from '../context/LanguageContext';
+
 
 
 function Quiz() {
     window.scrollTo(0,0);
 
     const { t } = useTranslation("translation", { keyPrefix: 'quiz' } );
+    const { userTestResponses, setUserTestResponses} = useLanguage();
+
 
     // when Page Refreshes
     useEffect(()=>{
@@ -30,7 +34,7 @@ function Quiz() {
     const questions1 = t('question'  , { returnObjects: true });
     console.log(questions1);
     setQuestions(questions1);
-    setLoading(false);
+    // setLoading(false);
 
     },[]);
 
@@ -38,43 +42,43 @@ function Quiz() {
     const navigate = useNavigate();
     const [questions, setQuestions] = useState([]);
     const [result, setResult] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [isUserAuthenticated, setIsUserAuthenticated] = useState(false);
+    // const [loading, setLoading] = useState(true);
+    // const [isUserAuthenticated, setIsUserAuthenticated] = useState(false);
 
     const [progress, setProgress] = useState(0);
 
     useEffect(() => {
         //*Validate the token to see if the page is accessible to the user
-        const validateUserToken = async () => {
-            const response = await fetch(`${server_origin}/api/user/verify-user`, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'auth-token': localStorage.getItem('token'),
-              },
-            });
-            let response1 = await response.json();
-            console.log('ValidateUserToken response: ', response1);
-            if (response1.success === true) {
-              setIsUserAuthenticated(true);
-            } else {
-              toast.error(t('toast.loginToContinue'), {
-                  style: {
-                    border: '1px solid #713200',
-                    padding: '16px',
-                    color: '#713200',
-                  },
-                  iconTheme: {
-                    primary: '#713200',
-                    secondary: '#FFFAEE',
-                  },
-                });
-              navigate('/login');
-            }
-          };
+        // const validateUserToken = async () => {
+        //     const response = await fetch(`${server_origin}/api/user/verify-user`, {
+        //       method: 'POST',
+        //       headers: {
+        //         'Content-Type': 'application/json',
+        //         'auth-token': localStorage.getItem('token'),
+        //       },
+        //     });
+        //     let response1 = await response.json();
+        //     console.log('ValidateUserToken response: ', response1);
+        //     if (response1.success === true) {
+        //       setIsUserAuthenticated(true);
+        //     } else {
+        //       toast.error(t('toast.loginToContinue'), {
+        //           style: {
+        //             border: '1px solid #713200',
+        //             padding: '16px',
+        //             color: '#713200',
+        //           },
+        //           iconTheme: {
+        //             primary: '#713200',
+        //             secondary: '#FFFAEE',
+        //           },
+        //         });
+        //       navigate('/login');
+        //     }
+        //   };
         
-          // Run the effect only once on component mount
-          validateUserToken();
+        //   // Run the effect only once on component mount
+        //   validateUserToken();
           getQuestions();
 
          
@@ -85,9 +89,9 @@ function Quiz() {
     const getQuestions = ()=>{
         //! Storing Question Array According to the language in LocalStorage
         const questions1 = t('question'  , { returnObjects: true });
-        console.log(questions1);
+        // console.log(questions1);
         setQuestions(questions1);
-        setLoading(false);
+        // setLoading(false);
 
 
         //? tired -- for implementing lanuage change functionality on every question separately
@@ -129,6 +133,9 @@ function Quiz() {
 
 
     const nextQuestion = () => {
+        if(currentQuestionIndex%5===0){
+            toast(`${questions.length-currentQuestionIndex-1} questions remaining`);
+        }
         
     
         if (clickedOption === 5 && !result[currentQuestionIndex]) {
@@ -188,27 +195,31 @@ function Quiz() {
         // console.log("Submit quiz");
         // console.log(result);
 
-        const response = await fetch(`${server_origin}/api/user/update-response`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'auth-token': localStorage.getItem("token")
-            },
-            body: JSON.stringify({ responses: result })
-        });
-        let response1 = await response.json();
-        // console.log( response1);
-        if (response1.success == true) {
-            toast.success(t('toast.testSubmittedSuccessfully'));
-            navigate("/test/register");
-        }
-        else {
-            toast.error(t('toast.submitError'));
-        }
+        // const response = await fetch(`${server_origin}/api/user/update-response`, {
+        //     method: 'PUT',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         'auth-token': localStorage.getItem("token")
+        //     },
+        //     body: JSON.stringify({ responses: result })
+        // });
+        // let response1 = await response.json();
+        // // console.log( response1);
+        // if (response1.success == true) {
+        //     toast.success(t('toast.testSubmittedSuccessfully'));
+        //     navigate("/test/register");
+        // }
+        // else {
+        //     toast.error(t('toast.submitError'));
+        // }
 
-        if (document.fullscreenElement) {
-            document.exitFullscreen();
-        }
+        //*SAVE THE USER RESPONSES IN CONTEXT TO USE THEM AFTER VERIFICATION
+        setUserTestResponses(result);
+        navigate("/test/submit");
+
+        // if (document.fullscreenElement) {
+        //     document.exitFullscreen();
+        // }
 
     }
 
@@ -233,7 +244,8 @@ function Quiz() {
         style={{position:"absolute", top: "67px"}}
         onLoaderFinished={() => setProgress(0)}
       />
-            {isUserAuthenticated && questions.length !== 0 && !loading ? <>
+            {/* {isUserAuthenticated && questions.length !== 0 && !loading ? <> */}
+            { questions.length !== 0 ? <>
                 <div className="left">   
                         <div className="question">
                             <span id="question-number">{currentQuestionIndex + 1}. </span>
@@ -295,7 +307,7 @@ function Quiz() {
                 </div>
 
             </> : <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
-                <SyncLoader size={30} color="#fb2576" />
+                {/* <SyncLoader size={30} color="#fb2576" /> */}
             </div>
             }
         </div>

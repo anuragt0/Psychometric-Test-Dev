@@ -48,19 +48,14 @@ useEffect(()=>{
 
     const [responses, setResponses] = useState([])
     const [testDate, setTestDate] = useState("");
+    const [userName, setUserName] = useState("");
     const [loading, setLoading] = useState(true);
     const [downloading, setDownloading] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchData = async () => {
-            await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulating 2 seconds delay
-            setLoading(false); // Set loading to false once the data is fetched or async task is completed
-          };
-      
-          fetchData();
 
-        getResult();
+          getResult();
 
     }, [])
 
@@ -77,36 +72,23 @@ useEffect(()=>{
             },
         });
         let response1 = await response.json();
-        // console.log("response1: ", response1);
+        console.log("response1asdfasdfasd: ", response1);
 
         if (response1.success === false) {
             toast.error(t('toast.errorFetchResult'));
-            navigate("/login");
+            navigate("/test/login");
             return;
         }
-        if(response1.userDoc.isRegistered===false ){
-            // two conditions: 1. User given the test but not registered
-            // 2. User not given the test
-            if(response1.userDoc.testResponse.length!==0){
-                // user given the test
-                toast.error(t('toast.registerToViewResults'));
-                navigate("/test/register");
-                return;
-            }
-            else{
-                //user has not given the test
-                toast.error(t('toast.noTestTaken'));
-                navigate("/test/instructions");
-                return;
-            }
-
+        if(response1.userDoc.testResponse.length!==26){
+            toast.warning(`You have not submitted any test yet!`);
+            navigate("/test/instructions");
+            return;
         }
         setResponses(response1.userDoc.testResponse);
         setTestDate(formatDateWithCustomTime(response1.userDoc.lastTestDate));
+        setUserName(response1.userDoc.name);
         console.log(formatDateWithCustomTime(response1.userDoc.lastTestDate));
-        // console.log(response1.userDoc.testResponse);
-        // console.log(response1.userDoc);
-        // setLoading(false);
+        setLoading(false);
     }
 
     //* Download Functionallity Start*//
@@ -171,7 +153,8 @@ useEffect(()=>{
                         <motion.h2 className="page-heading" 
                                 whileHover={{ scale: 1.025 }} transition={{ type: 'spring', stiffness: 300 }}
                         >
-                            <FiBarChart2 className="icon-bar-chart my-5" />  {t('main.main_heading1')}
+                            {/* <FiBarChart2 className="icon-bar-chart my-5" />  {t('main.main_heading1') + " for " + userName} */}
+                            <FiBarChart2 className="icon-bar-chart my-5" />  {t('main.main_heading1') }
                         </motion.h2>
                     </div>
                     <div className='chart-section'>
