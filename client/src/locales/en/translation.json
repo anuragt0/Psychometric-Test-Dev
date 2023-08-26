@@ -83,9 +83,42 @@
     "toast": {
       "test_not_given": "You have not given the test yet!",
       "not_login": "Invalid token! Please login and try again.",
-      "registered": "Thanks for registering!gender",
-      "not_registered": "Cannot register, try again later"
+      "registered": "Thanks for registering",
+      "not_registered": "Cannot register, try again later",
+
+      "cannotUpdatePasswordToast": "Cannot update password. Please try again later",
+      "passwordCreatedToast": "Password created successfully",
+      "passwordNotMatchToast": "Please make sure passwords match",
+      "wrongPasswordToast": "Wrong password",
+      "loggedInToast": "Logged in successfully",
+      "enterCorrectOTPToast": "Please enter correct OTP",
+      "otpVerifiedToast": "OTP verified successfully",
+      "otpSentToast": "OTP sent successfully to mobile number ",
+      "invalidMobileToast": "Please enter valid mobile number",
+      "capthchaExpiredToast": "Captcha expired. Refresh the page and try again later",
+      "otpExpired": "OTP has expired. Please request a new OTP.",
+      "otpInvalid": "Invalid OTP"
     },
+
+
+    "enterPhone": "Please enter your mobile number to continue",
+    "enterPasswordToLogin": "Please enter your password to continue",
+    "enterPasswordToCreate": "Please enter a password",
+    "enterOTP": "Please enter the OTP sent to your mobile number ",
+    "waitButton": "Please wait...",
+    "MobilePlaceholder": "Mobile Number",
+    "loginButton": "Login",
+    "passwordPlaceholder": "Password",
+    "confirmPasswordPlaceholder": "Confirm Password",
+    "PasswordNotMatch": "Passwords do not match",
+    "saveContinueButton": "Save and continue",
+    "forgotPassword": "Forgot Password?",
+    "submitButton": "Submit",
+    "otpPlaceholder": "Enter OTP",
+    "verifyOTPButton": "Verify and login",
+    "mobilePlaceholder": "Enter 10 digit mobile number",
+
+
     "register_to_view": "Register to know your ",
     "results": "Results",
     "name": "Name",
