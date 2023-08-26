@@ -42,7 +42,7 @@ const RegistrationPage = () => {
 
     useEffect(() => {
         if(userTestResponses.length!==26){
-            toast.error("Please first give the test");
+            toast.error("You have not given the test yet");
             navigate("/test/instructions");
             return;
         }
@@ -380,9 +380,10 @@ const RegistrationPage = () => {
                             onChange={handleChange}
                             required
                         >
-                            <option value={2}>{t('male')}</option>
-                            <option value={3}>{t('female')}</option>
-                            <option value={1}>{"Other"}</option>
+                            <option value={0}>{"Select Gender"}</option>
+                            <option value={1}>{t('male')}</option>
+                            <option value={2}>{t('female')}</option>
+                            <option value={3}>{"Other"}</option>
                         </select>
                     </div>
 
@@ -470,7 +471,8 @@ const RegistrationPage = () => {
             <div id="recaptcha-container"></div>
             <div className="registration-heading">
                 {/* <h1>{t('register_to_view')}<span style={{ color: "#e31b66" }}>{t('results')}</span> </h1> */}
-                <h3 style={{color: "#5b564e"}}>A world of <span style={{ color: "#1A5D1A" }}>insightful information</span> is at your fingertips, awaiting your grasp with just <span style={{ color: "#1A5D1A" }}>one final step to take.</span>  </h3>
+                <h2>Register</h2>
+                <h3 style={{color: "#5b564e"}}>Your personalized <span style={{ color: "#1A5D1A" }}>personality insights </span>report is just a step away. </h3>
             </div>
 
             {componentState === 1 && EnterPhoneComponent()}

@@ -80,7 +80,7 @@ useEffect(()=>{
             return;
         }
         if(response1.userDoc.testResponse.length!==26){
-            toast.warning(`You have not submitted any test yet!`);
+            toast.error(`You have not completed the test yet!`);
             navigate("/test/instructions");
             return;
         }
