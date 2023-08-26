@@ -1,4 +1,5 @@
 import React , {useEffect } from 'react';
+import './App.css'
 import { Toaster } from "react-hot-toast";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/NavBar';
