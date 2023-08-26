@@ -133,25 +133,30 @@ function Quiz() {
 
 
     const nextQuestion = () => {
-        if(currentQuestionIndex%5===0){
-            toast(`${questions.length-currentQuestionIndex-1} questions remaining`);
-        }
-        
+        // if(currentQuestionIndex!==0 && currentQuestionIndex%5===0){
+            // const remainingQuestions = questions.length-currentQuestionIndex-1;
+            // const totalNumberOfQuestions = questions.length;
+            // const percentageRemaining = (remainingQuestions)/totalNumberOfQuestions*100;
+            // toast(`${percentageRemaining}% remaining`);
+        // }
     
         if (clickedOption === 5 && !result[currentQuestionIndex]) {
             toast.error(t('toast.selectAtLeastOneOption'));
             return;
         }
+        console.log(currentQuestionIndex);
         if (currentQuestionIndex < questions.length - 1) {
             window.scrollTo(0,0);
             setCurrentQuestionIndex((currentQuestionIndex)=>{
                 const totalQuestions = questions.length;
-                const progressPercentage = ((currentQuestionIndex + 1) / totalQuestions) * 100;
+                let progressPercentage = ((currentQuestionIndex + 1) / totalQuestions) * 100;
+                if(currentQuestionIndex === questions.length-2) progressPercentage = 100;
                 setProgress(progressPercentage);
                 return currentQuestionIndex + 1;
             });
             setClickedOption(5);
         }
+       
         
     }
 
@@ -172,7 +177,6 @@ function Quiz() {
     const handleChangeOption = (i) =>{
         setClickedOption(i + 1); updateResult(i + 1);
         if(currentQuestionIndex==questions.length-1){
-            setProgress(100);
             toast.success(t("toast.testCompleted"))
         }
 

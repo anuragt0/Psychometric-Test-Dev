@@ -72,7 +72,7 @@ useEffect(()=>{
             },
         });
         let response1 = await response.json();
-        console.log("response1asdfasdfasd: ", response1);
+        // console.log("response1asdfasdfasd: ", response1);
 
         if (response1.success === false) {
             toast.error(t('toast.errorFetchResult'));

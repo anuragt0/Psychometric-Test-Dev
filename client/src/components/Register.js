@@ -466,17 +466,18 @@ const RegistrationPage = () => {
     }
 
     return (
-        <>
+        <div className='register-outer-div'>
             <div id="recaptcha-container"></div>
-            <div className="registration-page">
-                <h1>{t('register_to_view')}<span style={{ color: "#e31b66" }}>{t('results')}</span> </h1>
+            <div className="registration-heading">
+                {/* <h1>{t('register_to_view')}<span style={{ color: "#e31b66" }}>{t('results')}</span> </h1> */}
+                <h3 style={{color: "#5b564e"}}>A world of <span style={{ color: "#1A5D1A" }}>insightful information</span> is at your fingertips, awaiting your grasp with just <span style={{ color: "#1A5D1A" }}>one final step to take.</span>  </h3>
             </div>
 
             {componentState === 1 && EnterPhoneComponent()}
             {componentState === 2 && EnterOTPComponent()}
             {componentState === 3 && RegisterComponent()}
 
-        </>
+        </div>
     );
 };
 

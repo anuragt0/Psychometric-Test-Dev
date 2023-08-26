@@ -65,6 +65,26 @@ router.post("/login", async (req,res)=>{
         res.status(500).json({success: false, message: err});
     }
 })
+
+router.post("/update-password", async (req, res)=>{
+    const mobile = req.body.mobile;
+    const newPassword = req.body.password;
+
+    try {
+        const userDoc = await User.findOneAndUpdate({mobile: mobile}, {password: newPassword}, {new: true});
+
+        if(userDoc === null){
+            return res.status(404).json({success: false, message: "User not found"});
+        }
+
+        res.status(200).json({success: true, message: "User updated successfully", userDoc});
+
+    } catch (error) {
+        res.status(500).json({success: false, message: err});
+    }
+
+})
+
 //!Generate token also here
 router.post("/check-password", async(req,res)=>{
     try{
@@ -99,8 +119,8 @@ router.post("/verify-user", fetchPerson, async (req,res)=>{
 })
 
 router.post("/get-user", fetchPerson, async (req,res)=>{
-    console.log("here", req.mongoID);
-    console.log("SDFSD");
+    // console.log("here", req.mongoID);
+    // console.log("SDFSD");
     try {
         const userDoc = await User.findById(req.mongoID);
         res.json({success: true, message: "User fetched successfully", userDoc});

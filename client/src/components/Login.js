@@ -129,6 +129,7 @@ const Login = () => {
                 // toast.error("Please refresh the page and try again!");
                 setOtpError(`Some error occured Please try again later. ${error.message}`)
                 console.log("error1: ", error.message);
+
                 // if(!otpError)
                 // toast(error.message);
                 // toast.error("Some error occured.");
@@ -219,6 +220,7 @@ const Login = () => {
 
     const handleCheckPasswordButtonClick = async () => {
         //* Check the password
+        console.log("Inside function");
         setLoading(true);
         // Check if the password is correct
         const response = await fetch(`${server_origin}/api/user/login`, {
@@ -228,24 +230,26 @@ const Login = () => {
             },
             body: JSON.stringify({ mobile: mobileNumber, password: password })
         });
-        let response1 = await response.json();
-        localStorage.setItem("token", response1.token)
+        const response1 = await response.json();
+        const token = response1.token;
 
         if (response1.success === true) {
+            localStorage.setItem("token", token);
+            console.log("response here: ", response1);
+            console.log("Inside if block");
             
             //* Password is correct
             //* Update the responses
-            const response = await fetch(`${server_origin}/api/user/update-response`, {
+            const responseUpdate = await fetch(`${server_origin}/api/user/update-response`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-                    'auth-token': localStorage.getItem("token")
+                    'auth-token': token
                 },
                 body: JSON.stringify({responses: userTestResponses})
             });
-            let response1 = await response.json();
+            let response2 = await responseUpdate.json();
             toast.success(t('toast.loggedInToast'));
-            localStorage.setItem('token', response1.token);
             navigate('/test/result');
         }
         else {
@@ -267,7 +271,6 @@ const Login = () => {
     const handleCreatePasswordButton = async () => {
         //* Create new password?
         //* After this user is logged in and token is saved
-        console.log("Password: ", password);
         if (password !== confirmPassword) {
             toast.warning(t('toast.passwordNotMatchToast'));
             return;
@@ -275,7 +278,7 @@ const Login = () => {
 
         // Create password and generate token and login
         //!Number already registered ??? update password and generate token ::: Create Password with mobile entry in DB and generate token
-        const response = await fetch(`${server_origin}/api/user/login-create-password`, {
+        const response = await fetch(`${server_origin}/api/user/update-password`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -285,8 +288,24 @@ const Login = () => {
         let response1 = await response.json();
         if (response1.success) {
             toast.success(t('toast.passwordCreatedToast'));
-            localStorage.setItem("token", response1.token);
-            navigate("/test/instructions");
+            // localStorage.setItem("token", response1.token);
+            // navigate("/test/result");
+
+            const response = await fetch(`${server_origin}/api/user/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ mobile: mobileNumber, password: password })
+            });
+            const response1 = await response.json();
+            const token = response1.token;
+            if(response1.success){
+                localStorage.setItem("token", token);
+                // toast()
+                navigate("/test/result");
+            }
+
         }
         else {
             toast.error(t('toast.cannotUpdatePasswordToast'));
@@ -422,11 +441,11 @@ const Login = () => {
         <>
             <div id="recaptcha-container"></div>
 
-            <div className='welcome-heading'>
+            {/* <div className='welcome-heading'>
                 <h2 className="fancy-text">
                     {t('welcomeUser')} <img src={namasteIcon} alt="Custom Icon" className="custom-icon" />
                 </h2>
-            </div>
+            </div> */}
 
             <div className="component-slide">
                 {componentState === -1 && EnterPhoneComponent()}
