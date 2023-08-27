@@ -173,13 +173,20 @@
   margin: 0 1px; /* Adjust spacing between lines */
   
 }
+.red-line {
+  position: absolute;
+  height: 2px; /* Height of the connecting line */
+  width: 0px;
+  background-color: red; /* Color of the connecting line */
+  margin: 0 36px; /* Adjust spacing between lines */
+  transition: width 0.5s; /*Smooth transition for width changes*/
+}
+
 
 .line:last-child {
   flex: 0; /* Remove the last line's flex to prevent extra spacing */
 }
-.line.completed {
-  background-color: red;
-}
+
 
   
     @media screen and (max-width: 768px) {

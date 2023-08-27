@@ -236,6 +236,8 @@ function Quiz() {
         , require("../images/20.jpg"), require("../images/21.PNG"), require("../images/22.PNG"), require("../images/23.PNG")
         , require("../images/24.PNG"), require("../images/25.PNG"), require("../images/26.PNG")];
 
+        const stepProgress = (currentQuestionIndex % 5) / 5;
+        const redLineWidth = `${(45/10)*stepProgress}%`;
    
     return (
 
@@ -291,15 +293,17 @@ function Quiz() {
     <div className="step-container">
       {[0,1, 2, 3, 4, 5].map((step) => (
         <>
-          {step !== 0 && <div className={`line ${currentQuestionIndex >= 1 ? 'completed' : ''}`} style={{ backgroundColor: currentQuestionIndex >= step * 5 ? 'red' : '#ccc' }}></div>}
-          
+          {step !== 0 && <div className="line"></div>}
+          <div className="red-line" style={{ width: redLineWidth }}></div>
           <div className={`step ${currentQuestionIndex >= (step ) * 5 ? 'completed' : ''}`}>
+          
             {step}
           </div>
         </>
       ))}
     </div>
   </div>
+  
                     </div>
                 <div className="box">
                       
