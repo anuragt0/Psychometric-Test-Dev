@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { server_origin } from '../utilities/constants';
 import { useNavigate } from 'react-router-dom';
 import "../css/quiz.css";
-import { SyncLoader } from 'react-spinners'; // Import the ClipLoader from "react-spinners"
 import LoadingBar from 'react-top-loading-bar'
 
 import 'react-circular-progressbar/dist/styles.css';
@@ -16,27 +15,33 @@ import { useTranslation } from 'react-i18next';
 
 import { useLanguage } from '../context/LanguageContext';
 
+// PROMPT
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import the CSS
+
+
+
 
 
 function Quiz() {
-    window.scrollTo(0,0);
+    // window.scrollTo(0, 0);
 
-    const { t } = useTranslation("translation", { keyPrefix: 'quiz' } );
-    const { userTestResponses, setUserTestResponses} = useLanguage();
+    const { t } = useTranslation("translation", { keyPrefix: 'quiz' });
+    const { userTestResponses, setUserTestResponses } = useLanguage();
 
 
     // when Page Refreshes
-    useEffect(()=>{
-      let currentLang = localStorage.getItem('lang');
-      i18n.changeLanguage(currentLang);
-    //   console.log(currentLang);
-    //! Storing Question Array According to the language in LocalStorage
-    const questions1 = t('question'  , { returnObjects: true });
-    console.log(questions1);
-    setQuestions(questions1);
-    // setLoading(false);
+    useEffect(() => {
+        let currentLang = localStorage.getItem('lang');
+        i18n.changeLanguage(currentLang);
+        //   console.log(currentLang);
+        //! Storing Question Array According to the language in LocalStorage
+        const questions1 = t('question', { returnObjects: true });
+        console.log(questions1);
+        setQuestions(questions1);
+        // setLoading(false);
 
-    },[]);
+    }, []);
 
 
     const navigate = useNavigate();
@@ -47,48 +52,38 @@ function Quiz() {
 
     const [progress, setProgress] = useState(0);
 
-    useEffect(() => {
-        //*Validate the token to see if the page is accessible to the user
-        // const validateUserToken = async () => {
-        //     const response = await fetch(`${server_origin}/api/user/verify-user`, {
-        //       method: 'POST',
-        //       headers: {
-        //         'Content-Type': 'application/json',
-        //         'auth-token': localStorage.getItem('token'),
-        //       },
-        //     });
-        //     let response1 = await response.json();
-        //     console.log('ValidateUserToken response: ', response1);
-        //     if (response1.success === true) {
-        //       setIsUserAuthenticated(true);
-        //     } else {
-        //       toast.error(t('toast.loginToContinue'), {
-        //           style: {
-        //             border: '1px solid #713200',
-        //             padding: '16px',
-        //             color: '#713200',
-        //           },
-        //           iconTheme: {
-        //             primary: '#713200',
-        //             secondary: '#FFFAEE',
-        //           },
-        //         });
-        //       navigate('/login');
-        //     }
-        //   };
-        
-        //   // Run the effect only once on component mount
-        //   validateUserToken();
-          getQuestions();
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+    const [clickedOption, setClickedOption] = useState(5);
 
-         
+    const [showPrompt, setShowPrompt] = useState(false);
+
+    useEffect(() => {
+        // Retrieve the test progress from local storage
+        let savedProgress = localStorage.getItem('testProgress');
+        savedProgress = JSON.parse(savedProgress);
+        if (savedProgress !== null) {
+            setShowPrompt(true);
+            setResult(savedProgress);
+            setCurrentQuestionIndex(savedProgress.length-1)
+            const totalQuestions = 26;
+            let progressPercentage = ((savedProgress.length-1) / totalQuestions) * 100;
+            if (savedProgress.length===26) setProgress(100);
+            else setProgress(progressPercentage);
+            console.log("progressPercentage: ", progressPercentage);
+        }
+        // console.log("herere: ", savedProgress);
+
+
+        getQuestions();
+
+
     }, [])
 
 
     // Dummy getQuestions
-    const getQuestions = ()=>{
+    const getQuestions = () => {
         //! Storing Question Array According to the language in LocalStorage
-        const questions1 = t('question'  , { returnObjects: true });
+        const questions1 = t('question', { returnObjects: true });
         // console.log(questions1);
         setQuestions(questions1);
         // setLoading(false);
@@ -128,55 +123,55 @@ function Quiz() {
 
     };
 
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const [clickedOption, setClickedOption] = useState(5);
+
 
 
     const nextQuestion = () => {
         // if(currentQuestionIndex!==0 && currentQuestionIndex%5===0){
-            // const remainingQuestions = questions.length-currentQuestionIndex-1;
-            // const totalNumberOfQuestions = questions.length;
-            // const percentageRemaining = (remainingQuestions)/totalNumberOfQuestions*100;
-            // toast(`${percentageRemaining}% remaining`);
+        // const remainingQuestions = questions.length-currentQuestionIndex-1;
+        // const totalNumberOfQuestions = questions.length;
+        // const percentageRemaining = (remainingQuestions)/totalNumberOfQuestions*100;
+        // toast(`${percentageRemaining}% remaining`);
         // }
-    
+
         if (clickedOption === 5 && !result[currentQuestionIndex]) {
             toast.error(t('toast.selectAtLeastOneOption'));
             return;
         }
-        console.log(currentQuestionIndex);
         if (currentQuestionIndex < questions.length - 1) {
-            window.scrollTo(0,0);
-            setCurrentQuestionIndex((currentQuestionIndex)=>{
+            window.scrollTo(0, 0);
+            setCurrentQuestionIndex((currentQuestionIndex) => {
                 const totalQuestions = questions.length;
                 let progressPercentage = ((currentQuestionIndex + 1) / totalQuestions) * 100;
-                if(currentQuestionIndex === questions.length-2) progressPercentage = 100;
+                if (currentQuestionIndex === questions.length - 2) progressPercentage = 100;
                 setProgress(progressPercentage);
                 return currentQuestionIndex + 1;
             });
             setClickedOption(5);
         }
-       
-        
+
+
     }
 
     const previousQuestion = () => {
         if (currentQuestionIndex > 0) {
-            window.scrollTo(0,0);
-            setCurrentQuestionIndex((currentQuestionIndex)=>{
+            window.scrollTo(0, 0);
+            setCurrentQuestionIndex((currentQuestionIndex) => {
                 const totalQuestions = questions.length;
-                const progressPercentage = ((currentQuestionIndex-1 ) / totalQuestions) * 100;
+                const progressPercentage = ((currentQuestionIndex - 1) / totalQuestions) * 100;
                 setProgress(progressPercentage);
-                return currentQuestionIndex-1;
+                return currentQuestionIndex - 1;
             });
             setClickedOption(5);
         }
-        
+
     }
 
-    const handleChangeOption = (i) =>{
-        setClickedOption(i + 1); updateResult(i + 1);
-        if(currentQuestionIndex==questions.length-1){
+    const handleChangeOption = (i) => {
+
+        setClickedOption(i + 1);
+        updateResult(i + 1);
+        if (currentQuestionIndex == questions.length - 1) {
             toast.success(t("toast.testCompleted"))
         }
 
@@ -187,6 +182,7 @@ function Quiz() {
             const updatedResult = [...prevResult];
             updatedResult[currentQuestionIndex] = option;
             // console.log(updatedResult);
+            localStorage.setItem('testProgress', JSON.stringify(updatedResult));
             return updatedResult;
         });
     }
@@ -196,36 +192,46 @@ function Quiz() {
             toast.error(t('toast.answerAllQuestions'));
             return;
         }
-        // console.log("Submit quiz");
-        // console.log(result);
-
-        // const response = await fetch(`${server_origin}/api/user/update-response`, {
-        //     method: 'PUT',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'auth-token': localStorage.getItem("token")
-        //     },
-        //     body: JSON.stringify({ responses: result })
-        // });
-        // let response1 = await response.json();
-        // // console.log( response1);
-        // if (response1.success == true) {
-        //     toast.success(t('toast.testSubmittedSuccessfully'));
-        //     navigate("/test/register");
-        // }
-        // else {
-        //     toast.error(t('toast.submitError'));
-        // }
 
         //*SAVE THE USER RESPONSES IN CONTEXT TO USE THEM AFTER VERIFICATION
         setUserTestResponses(result);
         navigate("/test/submit");
 
-        // if (document.fullscreenElement) {
-        //     document.exitFullscreen();
-        // }
-
     }
+
+    
+  const handleStartOver = () => {
+    // Handle starting over
+    console.log("Start over");
+    setCurrentQuestionIndex(0);
+    setResult([]);
+    setShowPrompt(false);
+    setProgress(100);
+    localStorage.removeItem('testProgress');
+  };
+
+  const handleContinue = () => {
+    // Handle continuing with saved progress
+    console.log("Continue");
+    setShowPrompt(false);
+  };
+
+    const Prompt = () => {
+        confirmAlert({
+          customUI: ({ onClose }) => {
+            return (
+              <div className="custom-ui">
+                <h2>Your previous test <span style={{color:"#1A5D1A"}}>progress was saved</span> </h2>
+                <p>Do you wish to continue or start over?</p>
+                <button onClick={() => { handleContinue(); onClose(); }}>Continue</button>
+                &nbsp;
+                &nbsp;
+                <button onClick={() => { handleStartOver(); onClose(); }}>Start Over</button>
+              </div>
+            );
+          }
+        });
+      };
 
 
     const imageArray = [require("../images/1.jpg"), require("../images/2.PNG"), require("../images/3.PNG")
@@ -242,50 +248,53 @@ function Quiz() {
     return (
 
         <div className='bodyy'>
-        <LoadingBar
-        color='#f11946'
-        progress={progress}
-        height={4}
-        shadow={false}
-        style={{position:"absolute", top: "67px"}}
-        onLoaderFinished={() => setProgress(0)}
-      />
+            <LoadingBar
+                color='#f11946'
+                progress={progress}
+                height={4}
+                shadow={false}
+                style={{ position: "absolute", top: "67px" }}
+                onLoaderFinished={() => setProgress(0)}
+            />
+
+            {showPrompt && Prompt()}
+
             {/* {isUserAuthenticated && questions.length !== 0 && !loading ? <> */}
-            { questions.length !== 0 ? <>
-                <div className="left">   
-                        <div className="question">
-                            <span id="question-number">{currentQuestionIndex + 1}. </span>
-                            <span id="question-txt">{questions[currentQuestionIndex]["questionText"]}</span>
-                        </div>
-                        <div className="option-container">
-                            {questions[currentQuestionIndex].options.map((option, i) => {
-                                return (
-                                    <button
-                                        className={`option-btn ${clickedOption === i + 1 || result[currentQuestionIndex] === i + 1 ? 'checked' : ''}`}
-                                        key={i}
-                                        onClick={()=>{handleChangeOption(i)}}
-                                    >
-                                        {option}
-                                    </button>
-                                )
-                            })}
-                        </div>
-                        <div className="buttons">
-                            {
-                                currentQuestionIndex===questions.length-1?(
-                                    //submit
-                                    <button className='submit-button' onClick={handleSubmit}>{t('controls.submit')}</button>
-                                )
-                                :(
+            {questions.length !== 0 ? <>
+                <div className="left">
+                    <div className="question">
+                        <span id="question-number">{currentQuestionIndex + 1}. </span>
+                        <span id="question-txt">{questions[currentQuestionIndex]["questionText"]}</span>
+                    </div>
+                    <div className="option-container">
+                        {questions[currentQuestionIndex].options.map((option, i) => {
+                            return (
+                                <button
+                                    className={`option-btn ${clickedOption === i + 1 || result[currentQuestionIndex] === i + 1 ? 'checked' : ''}`}
+                                    key={(currentQuestionIndex)*4+i }
+                                    onClick={() => { handleChangeOption(i) }}
+                                >
+                                    {option}
+                                </button>
+                            )
+                        })}
+                    </div>
+                    <div className="buttons">
+                        {
+                            currentQuestionIndex === questions.length - 1 ? (
+                                //submit
+                                <button className='submit-button' onClick={handleSubmit}>{t('controls.submit')}</button>
+                            )
+                                : (
                                     //next button
                                     <button value="Next" id="next-button" onClick={nextQuestion}> {t('controls.next')}</button>
                                 )
-                            }
-                            <button value="Prev" id="prev-button" onClick={previousQuestion}> {t('controls.previous')} </button>
-                        </div>
+                        }
+                        <button value="Prev" id="prev-button" onClick={previousQuestion}> {t('controls.previous')} </button>
                     </div>
+                </div>
 
-                    
+
 
                 <div className="right my-5">
                     <div className="cont">
@@ -305,13 +314,13 @@ function Quiz() {
   </div>
   
                     </div>
-                <div className="box">
-                      
-                </div>
+                    <div className="box">
+
+                    </div>
                     {/* <div className="box1"> */}
-                    <img src={imageArray[currentQuestionIndex]} alt="img" /> 
+                    <img src={imageArray[currentQuestionIndex]} alt="img" />
                     {/* </div> */}
-                    
+
                 </div>
 
             </> : <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
