@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Charmonman&family=Noto+Sans:wght@300&display=swap');
+*{
+font-family: noto sans;
+}
 
 .bodyy{
   margin: 0;
   padding: 0;
   height: 100vh;
-  font-family: Arial, sans-serif;
+  /* font-family: Arial, sans-serif; */
   display: flex;
     }
     .left{
@@ -15,14 +19,14 @@
     flex-direction: column;
     }
     .question{
-      text-align: center;
+      text-align: justify;
       width: 100%;
       align-items: center;
       padding: 1%;
       min-height: 50px;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 550;
-      font-family: sans-serif;
+      /* font-family: sans-serif; */
       color: #4e4d4d;
     }
     #question-number{
@@ -49,7 +53,7 @@
       background-color: #63c62a;
       text-align: justify;
       padding: 8px 15px;
-      font-size: 1.05rem;
+      font-size: 1.0rem;
       outline: none;
       transition: 0.3s;
       margin: 8px;
@@ -57,16 +61,16 @@
       min-height: 60px;
       width: 94%;
       margin-left: 25px;
-      font-family: sans-serif;
+      /* font-family: sans-serif; */
       color: white;
     }
     .checked{
-      background-color: #7db86b;
+      background-color: #45a110;
       color:white;
       box-shadow: 3px 3px 4px 1px rgb(78, 69, 78);
     }
     .option-btn:hover{
-      background-color: #7db86b;
+      background-color: #45a110;
       color:white;
     }
     #next-button, 
@@ -74,7 +78,7 @@
     .submit-button{
       padding:10px;
       border:none;
-      background-color: #63c62a;
+      background-color: #45a110;
       color:white;
       border-radius: 5px;
       box-shadow: 1px 1px 4px 1px #333;
@@ -86,9 +90,9 @@
       position: absolute;
     }
     .submit-button:hover{
-        background-color: #7db86b;
+        background-color: #45a110;
         color: white;
-        border: #7db86b;
+        border: #45a110;
     }
     #next-button,
     .submit-button{
@@ -147,7 +151,7 @@
         flex-direction: column;
         position: absolute;
         margin-top: 0%;
-        padding-top: 0%;
+        padding-top: 10%;
         align-items: center;
         justify-content: center;
       }
@@ -171,7 +175,7 @@
         padding-top: 5%;
       }
       .question{
-        padding-top: 15%;
+        padding-top: 20%;
       }
       
       .buttons{
@@ -189,18 +193,17 @@
         color: #63c62a;
         border:solid 2px #63c62a;
       }
-      .progress-bar{
-        /* background-color: green; */
-        margin-top: 70%;
-        /* position: relative; */
-        margin-left: 10%;
-        width: 80%;
+      .cont{
+        height: 20%;
+        width: 95%;
+        padding-top: 72%;
+        position:absolute;
+      }  
+      .option-container{
+        margin-left: 0%;
+        margin-right: 5%;
       }
-      .step-container{
-        /* background-color: red; */
-        width: 100%;
-        position: relative;
-      }
+     
     }
     
     

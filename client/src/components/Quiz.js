@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import "../css/quiz.css";
 import LoadingBar from 'react-top-loading-bar'
 import Progress from '../components/Progress';
+import '../css/progress.css';
 
 import 'react-circular-progressbar/dist/styles.css';
 
@@ -255,7 +256,7 @@ function Quiz() {
                 height={4}
                 shadow={false}
                 style={{ position: "absolute", top: "67px" }}
-                onLoaderFinished={() => setProgress(0)}
+                // onLoaderFinished={() => setProgress(0)}
             />
 
             {showPrompt && Prompt()}
@@ -299,16 +300,13 @@ function Quiz() {
 
                 <div className="right my-5">
                     <div className="cont">
-  <Progress progress={progress}/>
-  
+                         <Progress progress={progress}/>
                     </div>
                     <div className="box">
 
                     </div>
-                    {/* <div className="box1"> */}
+                    
                     <img src={imageArray[currentQuestionIndex]} alt="img" />
-                    {/* </div> */}
-
                 </div>
 
             </> : <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
