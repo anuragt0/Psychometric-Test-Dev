@@ -3,6 +3,7 @@ import { server_origin } from '../utilities/constants';
 import { useNavigate } from 'react-router-dom';
 import "../css/quiz.css";
 import LoadingBar from 'react-top-loading-bar'
+import Progress from '../components/Progress';
 
 import 'react-circular-progressbar/dist/styles.css';
 
@@ -24,7 +25,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import the CSS
 
 
 function Quiz() {
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
 
     const { t } = useTranslation("translation", { keyPrefix: 'quiz' });
     const { userTestResponses, setUserTestResponses } = useLanguage();
@@ -242,8 +243,8 @@ function Quiz() {
         , require("../images/20.jpg"), require("../images/21.PNG"), require("../images/22.PNG"), require("../images/23.PNG")
         , require("../images/24.PNG"), require("../images/25.PNG"), require("../images/26.PNG")];
 
-        const stepProgress = (currentQuestionIndex % 5) / 5;
-        const redLineWidth = `${(45/10)*stepProgress}%`;
+        const stepProgress = (currentQuestionIndex % 5);
+        const redLineWidth = `${stepProgress}%`;
    
     return (
 
@@ -298,20 +299,7 @@ function Quiz() {
 
                 <div className="right my-5">
                     <div className="cont">
-                    <div className="progress-bar">
-    <div className="step-container">
-      {[0,1, 2, 3, 4, 5].map((step) => (
-        <>
-          {step !== 0 && <div className="line"></div>}
-          <div className="red-line" style={{ width: redLineWidth }}></div>
-          <div className={`step ${currentQuestionIndex >= (step ) * 5 ? 'completed' : ''}`}>
-          
-            {step}
-          </div>
-        </>
-      ))}
-    </div>
-  </div>
+  <Progress progress={progress}/>
   
                     </div>
                     <div className="box">
