@@ -5,13 +5,11 @@ import "../css/register.css";
 import "../css/login.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { toast, } from "react-hot-toast";
-import { faUser, faEnvelope, faMars, faCalendarAlt, faMapMarkerAlt, faCity, faMapPin, faEye, faEyeSlash, faLock } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faEnvelope, faMars, faCalendarAlt, faCity,  faLock, faUnlock } from '@fortawesome/free-solid-svg-icons';
 
 //IMPORTS FOR Language change Functionality
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
-
-import { useLanguage } from '../context/LanguageContext';
 
 
 // Firebase for OTP
@@ -36,16 +34,18 @@ const RegistrationPage = () => {
 
 
     //? Language Functionality Ends .................................................................
+
     const navigate = useNavigate();
 
-    const { userTestResponses} = useLanguage();
-
     useEffect(() => {
-        if(userTestResponses.length!==26){
-            toast.error("You have not given the test yet");
+        let savedProgress = localStorage.getItem('testProgress');
+        savedProgress = JSON.parse(savedProgress);
+        if(savedProgress===null || savedProgress.length!==26){
+            toast.error("Please complete the test to continue");
             navigate("/test/instructions");
             return;
         }
+        setUserTestResponses(savedProgress)
     }, [])
     
 
@@ -66,6 +66,9 @@ const RegistrationPage = () => {
     //* componentState = 2 means EnterOtpComponent
     //* componentState = 3 means RegisterComponent
     const [componentState, setComponentState] = useState(1);
+
+    const [userTestResponses, setUserTestResponses] = useState([]);
+
 
     //*
 
@@ -288,7 +291,7 @@ const RegistrationPage = () => {
                         disabled={loading}
                         onClick={handleSendOtpClick}
                     >
-                        {loading ? t('waitButton') : t('loginButton')}
+                        {loading ? t('waitButton') : "Send OTP"}
                     </button>
 
                 </div>
@@ -460,7 +463,7 @@ const RegistrationPage = () => {
 
 
 
-                    <button type="submit" >{t('register')}</button>
+                    <button type="submit" >{t('register')} <FontAwesomeIcon icon={faUnlock} /></button>
                 </form>
             </div>
         )
@@ -471,8 +474,10 @@ const RegistrationPage = () => {
             <div id="recaptcha-container"></div>
             <div className="registration-heading">
                 {/* <h1>{t('register_to_view')}<span style={{ color: "#e31b66" }}>{t('results')}</span> </h1> */}
-                <h2>Register</h2>
-                <h3 style={{color: "#5b564e"}}>Your personalized <span style={{ color: "#1A5D1A" }}>personality insights </span>report is just a step away. </h3>
+                <h1 style={{textDecoration: "underline"}}>Register</h1>
+                {/* <h3 style={{color: "#5b564e"}}>Your personalized <span style={{ color: "#37840b" }}>personality insights </span>report is just a step away. </h3> */}
+                <h3 style={{color: "#5b564e"}}>Unlock Your Personalized Personality Insights Report
+                <p style={{ color: "#1A5D1A" }}>Discover a deeper understanding of yourself, <em> just a step away</em></p></h3>
             </div>
 
             {componentState === 1 && EnterPhoneComponent()}

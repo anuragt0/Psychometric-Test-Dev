@@ -9,6 +9,13 @@
   .login-form {
     width: 80%;
     max-width: 400px;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+
+
     padding: 20px;
     background-color: white;
     border-radius: 10px;
@@ -21,16 +28,16 @@
   .login-input,
   .otp-input {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 25px;
+    border: 2px solid #5a5656eb;
+    border-radius: 15px;
     outline: none;
   }
   
   .login-input::placeholder,
   .otp-input::placeholder {
-    color: #ccc;
+    color: #988a8a;
   }
   
   .send-otp-button,
@@ -104,19 +111,40 @@
     background-color: #45a110;
 }
 
-
-.forgot-password-link{
+.forgot-password-register {
+    display: flex;
+    justify-content: space-between; /* Push items to both ends */
+    width: 100%; /* Full width of the login-form container */
+}
+/* .forgot-password-link{
     margin-top: 10px;
     font-weight: bold;
+    text-decoration: underline;
+} */
+.forgot-password-link {
+    flex: 1; /* Take up equal space */
+    text-align: left;
 }
 
 .forgot-password-link span {
     cursor: pointer;
     color: #63c62a;
     transition: color 0.3s ease;
+    font-weight:500;
 }
 
 .forgot-password-link:hover span {
+    color: #45a110;
+}
+.register-link {
+    flex: 1; /* Take up equal space */
+    text-align: right;
+    font-weight:500;
+    cursor: pointer;
+    color: #63c62a;
+    transition: color 0.3s ease;
+}
+.register-link:hover span {
     color: #45a110;
 }
 

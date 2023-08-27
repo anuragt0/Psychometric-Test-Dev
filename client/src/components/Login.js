@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { server_origin } from '../utilities/constants';
-import { useLanguage } from '../context/LanguageContext';
+// import { useLanguage } from '../context/LanguageContext';
 
 
 import { useNavigate } from "react-router-dom";
@@ -14,8 +14,8 @@ import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 //IMPORTS FOR Language change Functionality
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
-
-import namasteIcon from "../../src/assests/namaste.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {  faUnlock } from '@fortawesome/free-solid-svg-icons';
 
 
 const Login = () => {
@@ -25,7 +25,7 @@ const Login = () => {
     const [componentState, setComponentState] = useState(-1);
     //*
 
-    const { userTestResponses} = useLanguage();
+    // const { userTestResponses} = useLanguage();
 
 
     //* 3 Inputs mobile, otp and password
@@ -49,6 +49,8 @@ const Login = () => {
 
     const { t } = useTranslation("translation", { keyPrefix: 'login' });
 
+    const [userTestResponses, setUserTestResponses] = useState([]);
+
 
     //used to get language Stored in LocalStorage //*should be in every Page having Language Functionality 
     useEffect(() => {
@@ -60,11 +62,14 @@ const Login = () => {
     }, []);
 
     useEffect(() => {
-        if(userTestResponses.length!==26){
-            toast.error("You have not given the test yet");
+        let savedProgress = localStorage.getItem('testProgress');
+        savedProgress = JSON.parse(savedProgress);
+        if(savedProgress===null || savedProgress.length!==26){
+            toast.error("Please complete the test to continue");
             navigate("/test/instructions");
             return;
         }
+        setUserTestResponses(savedProgress)
     }, [])
 
 
@@ -405,16 +410,21 @@ const Login = () => {
                         onChange={handlePasswordChange}
                         disabled={loading}
                     />
-                    <p className="forgot-password-link" onClick={handleForgotPasswordButtonClick}>
-                        <span>{t('forgotPassword')}</span>
-                    </p>
+                        <div className="forgot-password-register">
+                            <p className="forgot-password-link" onClick={handleForgotPasswordButtonClick}>
+                                <span>{t('forgotPassword')}</span>
+                            </p>
+                            <p className="register-link" onClick={()=>{navigate("/test/register")}}>
+                                <span>Register</span>
+                            </p>
+                        </div>
                     {/*  */}
                     <button
                         className="send-otp-button"
                         onClick={handleLoginClick}
                         disabled = {loading}
                     >
-                        {loading ? t('waitButton') : t('loginButton')}
+                        {loading ? t('waitButton') : t('loginButton')} <FontAwesomeIcon icon={faUnlock} />
                     </button>
 
                 </div>
@@ -494,17 +504,10 @@ const Login = () => {
     return (
         <>
             <div id="recaptcha-container"></div>
-
-            {/* <div className='welcome-heading'>
-                <h2 className="fancy-text">
-                    {t('welcomeUser')} <img src={namasteIcon} alt="Custom Icon" className="custom-icon" />
-                </h2>
-            </div> */}
-
             <div className="registration-heading">
-                {/* <h1>{t('register_to_view')}<span style={{ color: "#e31b66" }}>{t('results')}</span> </h1> */}
-                <h1>Login</h1>
-                <h3 style={{color: "#5b564e"}}>Your personalized <span style={{ color: "#1A5D1A" }}>personality insights </span>report is just a step away. </h3>
+                <h1 style={{textDecoration: "underline"}}>Login</h1>
+                <h3 style={{color: "#5b564e"}}>Unlock Your Personalized Personality Insights Report
+                <p style={{ color: "#1A5D1A" }}>Discover a deeper understanding of yourself, <em> just a step away</em></p></h3>
             </div>
 
             <div className="component-slide">

@@ -178,6 +178,9 @@
 .line:last-child {
   flex: 0; /* Remove the last line's flex to prevent extra spacing */
 }
+
+
+
 /* .line-color-.completed {
   background-color: red;
 } */
