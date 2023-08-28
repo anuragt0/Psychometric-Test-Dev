@@ -127,7 +127,7 @@ const qualities_arr = t(graph_uri+'.qualities',{returnObjects: true});
 
         if (response1.success === false) {
             toast.error(t('toast.errorFetchResult'));
-            navigate("/test/login");
+            navigate("/login");
             return;
         }
         if(response1.userDoc.testResponse.length!==26){

@@ -201,7 +201,7 @@ const RegistrationPage = () => {
             // Already registered
             // Render Password check component
             toast.success("This number is already registered, please login to continue");
-            navigate("/test/login");
+            navigate("/login");
             return;
         }
         // Not registered before
