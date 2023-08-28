@@ -29,26 +29,10 @@ import '../../library/i18n';
 
 function Result_M() {
 
-//? Graph text Content -> "graph": {"text_content": { personalityName:{ Description and Qualities}............
 
-const [personalityName, setPersonalityName] = useState('');
-// Function to receive personalityName from the child component (Graph)
-const handleGraphData = (name) => {
-  setPersonalityName(name);
-};
-const graph_uri = 'graph.text_content.'+personalityName ;
-
-
-//! text guideline for designer --
-// graph --> 1 . content == t(graph_uri + '.description')          its just a String
-//           2.  quailties == t(graph_uri + '.qualities')   use .map because  its an array with exactly five Qualities in it 
-
-//? Graph text Content ends here ..................................................................
-
-
-//? Language Functionality Starts ......................................................................
+  //? Language Functionality Starts ......................................................................
   
-const { t } = useTranslation("translation", { keyPrefix: 'result' } );
+const { t } = useTranslation("translation", { keyPrefix: 'result' });
 
 //used to get language Stored in LocalStorage //*should be in every Page having Language Functionality 
 useEffect(()=>{
@@ -60,6 +44,56 @@ useEffect(()=>{
 
 
 //? Language Functionality Ends .................................................................
+
+
+//?  text Content Start ...............................................
+
+
+const [personalityName, setPersonalityName] = useState('');
+// Function to receive personalityName from the child component (Graph)
+const handleGraphData = (name) => {
+  setPersonalityName(name);
+};
+
+const [categoryName, setCategoryName] = useState('');
+// Function to receive personalityName from the child component (Graph)
+const handlePieData = (name) => {
+  setCategoryName(name);
+};
+
+const [affectingFacttors, setAffectingFacttors] = useState({});
+// Function to receive personalityName from the child component (Graph)
+const handleRadialData = (data) => {
+  setAffectingFacttors(data);
+};
+
+// *"graph": {"text_content": { personalityName:{ Description and Qualities}............
+const graph_uri = 'graph.text_content.'+personalityName ;
+
+const pie_uri = 'pie.text_content.'+categoryName ;
+
+const radial_uri = 'radialBar.text_content'  ;
+
+
+// console.log(pie_uri);
+
+//t(pie_uri ) -> only one paragraph
+
+//! text guideline for designer --
+// graph --> 1 . content == t(graph_uri + '.description')  ***its just a String
+// console.log(t(graph_uri + '.description'));
+//           2.  quailties == t(graph_uri + '.qualities')  ***use .map because  its an array with exactly five Qualities in it 
+const qualities_arr = t(graph_uri+'.qualities',{returnObjects: true});
+// console.log(qualities_arr);
+
+
+//?  text Content ends here  ..................................................................
+
+
+
+
+
+
 
 
 
@@ -188,14 +222,14 @@ useEffect(()=>{
               >
                 {/* <h1>{t('pie.heading')}</h1> */}
                 <h4 className="chart-subtitle">{t('pie.sub_heading')}</h4>
-                <PieChart responses={responses} />
+                <PieChart responses={responses} onPieData={handlePieData} />
               </motion.div>
               <motion.div className="chart"
                 whileHover={{ scale: 1.025 }} transition={{ type: 'spring', stiffness: 200 }}
               >
                 {/* <h1>{t('radialBar.heading')}</h1> */}
                 <h4 className="chart-subtitle">{t('radialBar.sub_heading')}</h4>
-                <RadialBarChartComponent responses={responses} />
+                <RadialBarChartComponent responses={responses} onRadialData={handleRadialData} />
               </motion.div>
             </div>
             <div className="content-section">
@@ -211,23 +245,99 @@ useEffect(()=>{
                 {t('graph.text_heading')}
               </motion.h3>
               <p>
-                {t('graph.text_content')}
+                {t(graph_uri+'.description')}
               </p>
+
+              <motion.h3 whileHover={{ scale: 1.01 }} transition={{ type: 'spring', stiffness: 300 }}
+                style={{ color: "#1D5B79" }}>
+                {t('graph.quality')}
+              </motion.h3>
+              <ul>
+                <li><p>{qualities_arr[0]}</p></li>
+                <li><p>{qualities_arr[1]}</p></li>
+                <li><p>{qualities_arr[2]}</p></li>
+                <li><p>{qualities_arr[3]}</p></li>
+                <li><p>{qualities_arr[4]}</p></li>
+              </ul>
+              
               <motion.h3 whileHover={{ scale: 1.01 }} transition={{ type: 'spring', stiffness: 300 }}
                 style={{ color: "#1D5B79" }}>
                 {t('pie.text_heading')}
               </motion.h3>
               <p>
-                {t('pie.text_content')}
+                {t(pie_uri)}
               </p>
+
               <motion.h3 whileHover={{ scale: 1.01 }} transition={{ type: 'spring', stiffness: 300 }}
                 style={{ color: "#1D5B79" }}>
                 {t('radialBar.text_heading')}
               </motion.h3>
-              <p>
+             
+              <div className="subheading">
+                <motion.h4 whileHover={{ scale: 1.01 }} transition={{ type: 'spring', stiffness: 300 }}
+                style={{ color: "#d78c00" }}>
+                  {t('radialBar.label1')}
+                </motion.h4>
+                <p>{t(radial_uri+'.group_size_or_unanimity?.'+affectingFacttors[0])}</p>
+              </div>
+
+{/*
+  
+  group_size_or_unanimity?
+  cohesion_or_status_of_others?
+  Reciprocity?
+  Commitment_and_Consistency?
+  Scarcity?
+  Authority/_commands? 
+ 
+ */}
+              <div className="subheading">
+                <motion.h4 whileHover={{ scale: 1.01 }} transition={{ type: 'spring', stiffness: 300 }}
+                style={{ color: "#d78c00" }}>
+                  {t('radialBar.label2')}
+                </motion.h4>
+                <p>{t(radial_uri+'.cohesion_or_status_of_others?.'+affectingFacttors[1])}</p>
+              </div>
+
+              <div className="subheading">
+                <motion.h4 whileHover={{ scale: 1.01 }} transition={{ type: 'spring', stiffness: 300 }}
+                style={{ color: "#d78c00" }}>
+                  {t('radialBar.label3')}
+                </motion.h4>
+                <p>{t(radial_uri+'.Reciprocity?.'+affectingFacttors[2])}</p>
+              </div>
+
+              <div className="subheading">
+                <motion.h4 whileHover={{ scale: 1.01 }} transition={{ type: 'spring', stiffness: 300 }}
+                style={{ color: "#d78c00" }}>
+                  {t('radialBar.label4')}
+                </motion.h4>
+                <p>{t(radial_uri+'.Commitment_and_Consistency?.'+affectingFacttors[3])}</p>
+              </div>
+
+              <div className="subheading">
+                <motion.h4 whileHover={{ scale: 1.01 }} transition={{ type: 'spring', stiffness: 300 }}
+                style={{ color: "#d78c00" }}>
+                  {t('radialBar.label5')}
+                </motion.h4>
+                <p>{t(radial_uri+'.Scarcity?.'+affectingFacttors[4])}</p>
+              </div>
+
+              <div className="subheading">
+                <motion.h4 whileHover={{ scale: 1.01 }} transition={{ type: 'spring', stiffness: 300 }}
+                style={{ color: "#d78c00" }}>
+                  {t('radialBar.label6')}
+                </motion.h4>
+                <p>{t(radial_uri+'.Authority/_commands?.'+affectingFacttors[5])}</p>
+              </div>
+
+              
+              
+              
+              {/* <p>
                 {t('radialBar.text_content')}
               </p>
-              {/* ... Add more content about the test results as needed ... */}
+              ... Add more content about the test results as needed ... */}
             </div>
             <motion.div
               whileHover={{ scale: 1.01 }} transition={{ type: 'spring', stiffness: 300 }}
