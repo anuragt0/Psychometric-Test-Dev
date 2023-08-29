@@ -40,12 +40,13 @@ const RegistrationPage = () => {
     useEffect(() => {
         let savedProgress = localStorage.getItem('testProgress');
         savedProgress = JSON.parse(savedProgress);
-        if(savedProgress===null || savedProgress.length!==26){
-            toast.error("Please complete the test to continue");
-            navigate("/test/instructions");
-            return;
-        }
-        setUserTestResponses(savedProgress)
+        // if(savedProgress===null || savedProgress.length!==26){
+        //     toast.error("Please complete the test to continue");
+        //     navigate("/test/instructions");
+        //     return;
+        // }
+        if(savedProgress !== null)
+            setUserTestResponses(savedProgress)
     }, [])
     
 
@@ -242,7 +243,12 @@ const RegistrationPage = () => {
         if (response1.success == true) {
             localStorage.setItem("token", response1.token);
             toast.success(t('toast.registered'));
-            navigate("/test/result");
+            if(localStorage.getItem('testProgress')){
+                navigate("/test/result");
+                localStorage.removeItem("testProgress");
+                return;
+            }
+            navigate("/");
         }
         else {
             toast.error(t('toast.not_register'));

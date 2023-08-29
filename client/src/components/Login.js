@@ -243,24 +243,31 @@ const Login = () => {
         const token = responsee1.token;
         localStorage.setItem("token", token);
 
-        //* Update the responses
-        const responseUpdate = await fetch(`${server_origin}/api/user/update-response`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'auth-token': token
-            },
-            body: JSON.stringify({responses: userTestResponses})
-        });
-        let response2 = await responseUpdate.json();
-        if(response2.success===false){
-            toast.error("Please try again later");
+        //* Update the responses only if test is given already (testProgress is in localStorage)
+        if(localStorage.getItem("testProgress")){
+            const responseUpdate = await fetch(`${server_origin}/api/user/update-response`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'auth-token': token
+                },
+                body: JSON.stringify({responses: userTestResponses})
+            });
+            let response2 = await responseUpdate.json();
+            if(response2.success===false){
+                toast.error("Please try again later");
+                setLoading(false);
+                return;
+            }
+    
+            localStorage.removeItem('testProgress');
+            toast.success(t('toast.loggedInToast'));
             setLoading(false);
+            navigate('/test/result');
             return;
         }
-        toast.success(t('toast.loggedInToast'));
+        navigate('/');
         setLoading(false);
-        navigate('/test/result');
     };
 
     const handleVerifyOtpClick = () => {
