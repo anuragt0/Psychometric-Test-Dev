@@ -64,11 +64,11 @@ const Login = () => {
     useEffect(() => {
         let savedProgress = localStorage.getItem('testProgress');
         savedProgress = JSON.parse(savedProgress);
-        if(savedProgress===null || savedProgress.length!==26){
-            toast.error("Please complete the test to continue");
-            navigate("/test/instructions");
-            return;
-        }
+        // if(savedProgress===null || savedProgress.length!==26){
+        //     toast.error("Please complete the test to continue");
+        //     navigate("/test/instructions");
+        //     return;
+        // }
         setUserTestResponses(savedProgress)
     }, [])
 
@@ -211,7 +211,7 @@ const Login = () => {
         let response1 = await response.json();
         if(response1.success===false){
             // Not registered before
-            navigate("/test/register");
+            navigate("/register");
             toast.error("This number is not registered");
             setLoading(false);
             return;
@@ -374,7 +374,7 @@ const Login = () => {
         let response1 = await response.json();
         if(response1.success===false){
             // Not registered before
-            navigate("/test/register");
+            navigate("/register");
             toast.error("This number is not registered");
             setLoading(false);
             return;
@@ -414,7 +414,7 @@ const Login = () => {
                             <p className="forgot-password-link" onClick={handleForgotPasswordButtonClick}>
                                 <span>{t('forgotPassword')}</span>
                             </p>
-                            <p className="register-link" onClick={()=>{navigate("/test/register")}}>
+                            <p className="register-link" onClick={()=>{navigate("/register")}}>
                                 <span>Register</span>
                             </p>
                         </div>
