@@ -117,7 +117,7 @@ const Home = () => {
                             initial="hidden"
                             whileInView="show">
 
-                       UNLOCK YOUR FULL POTENTIAL & THRIVE IN BUSINESS
+                       <h3 className='text-top'>UNLOCK YOUR FULL POTENTIAL & THRIVE IN BUSINESS</h3>
                        <p>Our comprehensive test and insightful PDF report will empower you to reach new heights in your entrepreneurial journey</p>
 
                         </motion.div>
