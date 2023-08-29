@@ -26,7 +26,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import the CSS
 
 
 function Quiz() {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
 
     const { t } = useTranslation("translation", { keyPrefix: 'quiz' });
     const { userTestResponses, setUserTestResponses } = useLanguage();
@@ -245,31 +245,32 @@ function Quiz() {
     setShowPrompt(false);
   };
 
-    const Prompt = () => {
-        confirmAlert({
-          customUI: ({ onClose }) => {
-            return (
-              <div className="custom-ui">
-                <h2>Your previous test <span style={{color:"#1A5D1A"}}>progress was saved</span> </h2>
-                <p>Do you wish to continue or start over?</p>
-                <button onClick={() => { handleContinue(); onClose(); }}>Continue</button>
-                &nbsp;
-                &nbsp;
-                <button onClick={() => { handleStartOver(); onClose(); }}>Start Over</button>
-              </div>
-            );
-          }
-        });
-      };
+  const Prompt = () => {
+    confirmAlert({
+      customUI: ({ onClose }) => {
+        return (
+          <div className="custom-ui">
+            <h2>Your previous test <span className="highlighted-text">progress was saved</span></h2>
+            <p>Do you wish to continue or start over?</p>
+            <div className="button-container">
+              <button className="continue-button" onClick={() => { handleContinue(); onClose(); }}>Continue</button>
+              <button className="start-over-button" onClick={() => { handleStartOver(); onClose(); }}>Start Over</button>
+            </div>
+          </div>
+        );
+      }
+    });
+  };
+  
 
 
-    const imageArray = [require("../images/1.jpg"), require("../images/2.PNG"), require("../images/3.PNG")
-        , require("../images/4.PNG"), require("../images/5.jpg"), require("../images/6.jpg"), require("../images/7.PNG")
-        , require("../images/8.PNG"), require("../images/9.PNG"), require("../images/10.PNG"), require("../images/11.PNG")
-        , require("../images/12.PNG"), require("../images/13.PNG"), require("../images/14.PNG"), require("../images/15.PNG")
-        , require("../images/16.jpg"), require("../images/17.PNG"), require("../images/18.jpg"), require("../images/19.PNG")
-        , require("../images/20.jpg"), require("../images/21.PNG"), require("../images/22.PNG"), require("../images/23.PNG")
-        , require("../images/24.PNG"), require("../images/25.PNG"), require("../images/26.PNG")];
+    const imageArray = [require("../images/1.jpg"), require("../images/2.png"), require("../images/3.png")
+        , require("../images/4.png"), require("../images/5.jpg"), require("../images/6.jpg"), require("../images/7.png")
+        , require("../images/8.png"), require("../images/9.png"), require("../images/10.png"), require("../images/11.png")
+        , require("../images/12.png"), require("../images/13.png"), require("../images/14.png"), require("../images/15.png")
+        , require("../images/16.jpg"), require("../images/17.png"), require("../images/18.jpg"), require("../images/19.png")
+        , require("../images/20.jpg"), require("../images/21.png"), require("../images/22.png"), require("../images/23.png")
+        , require("../images/24.png"), require("../images/25.png"), require("../images/26.png")];
    
     return (
 
@@ -283,7 +284,7 @@ function Quiz() {
                 // onLoaderFinished={() => setProgress(0)}
             />
 
-            {/* {showPrompt && Prompt()} */}
+            {showPrompt && Prompt()}
 
             {/* {isUserAuthenticated && questions.length !== 0 && !loading ? <> */}
             {questions.length !== 0 ? <>

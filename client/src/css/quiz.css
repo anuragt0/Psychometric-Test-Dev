@@ -62,7 +62,8 @@ font-family: noto sans;
       width: 94%;
       margin-left: 25px;
       /* font-family: sans-serif; */
-      color: white;
+      font-weight: bold;
+      color: rgb(56, 56, 56);
     }
     .checked{
       background-color: #45a110;
@@ -79,7 +80,7 @@ font-family: noto sans;
     .submit-button{
       padding:10px;
       border:none;
-      background-color: rgb(8, 50, 5);
+      background-color: rgb(21, 95, 16);
       color:white;
       border-radius: 5px;
       box-shadow: 1px 1px 4px 1px #333;
@@ -89,6 +90,10 @@ font-family: noto sans;
       transition: 0.2s;
       width:100px;
       position: absolute;
+    }
+    #next-button:hover,
+    #prev-button:hover{
+        background-color: rgb(13, 67, 10);
     }
     .submit-button:hover{
         background-color: rgb(8, 50, 5);
@@ -166,6 +171,49 @@ font-family: noto sans;
   display: inline-block;
   
 }
+
+
+
+/* PROMPT CSS */
+
+.custom-ui {
+    /* text-align: center; */
+    padding: 20px;
+  }
+  
+  .highlighted-text {
+    color: #1A5D1A;
+  }
+  
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .continue-button, .start-over-button {
+    background-color: #1A5D1A;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 200px; /* Limit the maximum width for larger screens */
+  }
+  
+  @media (min-width: 768px) {
+    .button-container {
+      flex-direction: row;
+    }
+  
+    .continue-button, .start-over-button {
+      width: auto;
+      max-width: none;
+    }
+  }
+  
+/* PROMPT CSS ENDS */
 @keyframes textclip {
   to {
     background-position: 200% center;
