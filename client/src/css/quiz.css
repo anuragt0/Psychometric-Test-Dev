@@ -150,6 +150,11 @@ font-family: noto sans;
   display: flex;
   /* background-color: red; */
 }
+.msg .startImage{
+height: 100px;
+margin-top: 5%;
+
+}
 .animate-charcter
 {
    text-transform: uppercase;
@@ -256,7 +261,7 @@ font-family: noto sans;
         padding-top: 5%;
       }
       .question{
-        padding-top: 20%;
+        margin-top: 60%;
       }
       
       .buttons{
@@ -274,15 +279,28 @@ font-family: noto sans;
         color: #63c62a;
         border:solid 2px #63c62a;
       }
-      .cont{
-        height: 20%;
+      /* .cont{
+        height: 30%;
+        
         width: 95%;
-        padding-top: 72%;
+        padding-top: 70%;
         position:absolute;
-      }  
+      }   */
       .option-container{
         margin-left: 0%;
         margin-right: 5%;
+      }
+      .cont{
+        position: absolute;
+        margin-top: 80%;
+      }
+      .msg{
+        position: absolute;
+        margin-top: 110%;
+      }
+      .msg .startImage{
+       position: absolute;
+       margin-top: 15%;
       }
      
     }
