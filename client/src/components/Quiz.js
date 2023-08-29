@@ -284,7 +284,7 @@ function Quiz() {
                 // onLoaderFinished={() => setProgress(0)}
             />
 
-            {/* {showPrompt && Prompt()} */}
+            {showPrompt && Prompt()}
 
             {/* {isUserAuthenticated && questions.length !== 0 && !loading ? <> */}
             {questions.length !== 0 ? <>
