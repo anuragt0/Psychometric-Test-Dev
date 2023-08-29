@@ -106,7 +106,7 @@ const Home = () => {
                         {t('video_unsupported')}
                     </video> */}
 
-                    <img src={Image1} className='img-home'></img>
+                    <img src={Image1} className='image-top'></img>
 
 
                 </div>
