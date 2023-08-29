@@ -236,13 +236,7 @@ const Navbar = () => {
                   className={`${css.navBtn} text-ff1 navbar-right`}
                   onClick={handleLoginClick}
                 >
-                  <motion.p
-                    whileHover={{ scale: 1.1 }}
-                    transition={{
-                      type: 'spring', stiffness: 300
-                    }}>
                     {t('Login')}
-                  </motion.p>
                 </button>
 
               </>

@@ -58,6 +58,12 @@ margin-top: 20px;
   font-family: 'Sora', sans-serif;
 }
 
+.btn:hover {
+  background-color: #71BF44;
+  color: rgb(255, 255, 255);
+
+}
+
 .btn-bottom {
   width: 300px;
   padding: 12px 40px;
@@ -114,11 +120,7 @@ margin-top: 20px;
   color: rgb(46, 4, 101);
 }
 
-.btn:hover {
-  background-color: #a4acff;
-  color: rgb(255, 255, 255);
 
-}
 
 .socials {
   line-height: 1.7;
@@ -172,6 +174,7 @@ margin-top: 20px;
 
   .container-2{
     margin-top: 0px;
+    width : 40vw;
   }
 
   .image-top {
