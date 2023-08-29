@@ -6,6 +6,7 @@ font-family: noto sans;
 .bodyy{
   margin: 0;
   padding: 0;
+  background: white;
   height: 100vh;
   /* font-family: Arial, sans-serif; */
   display: flex;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { server_origin } from '../utilities/constants';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import "../css/quiz.css";
 import LoadingBar from 'react-top-loading-bar'
 import Progress from '../components/Progress';
@@ -30,6 +30,7 @@ function Quiz() {
 
     const { t } = useTranslation("translation", { keyPrefix: 'quiz' });
     const { userTestResponses, setUserTestResponses } = useLanguage();
+    const location = useLocation(); // Get the current route path
 
 
     // when Page Refreshes
@@ -42,6 +43,11 @@ function Quiz() {
         console.log(questions1);
         setQuestions(questions1);
         // setLoading(false);
+
+        // return ()=>{
+        //     console.log("UNMOUNTS");
+        //     setShowPrompt(false);
+        // }
 
     }, []);
 
@@ -78,12 +84,17 @@ function Quiz() {
                 setProgress(progressPercentage);
                 setProgress2(progressPercentage);
             }
-            console.log("progressPercentage: ", progressPercentage);
+            // console.log("progressPercentage: ", progressPercentage);
         }
         // console.log("herere: ", savedProgress);
 
 
         getQuestions();
+
+        // return ()=>{
+        //     console.log("UNMOUNTS");
+        //     setShowPrompt(false);
+        // }
 
 
     }, [])
@@ -230,7 +241,8 @@ function Quiz() {
     
   const handleStartOver = () => {
     // Handle starting over
-    console.log("Start over");
+    // console.log("Start over");
+    // navigate("/test/start")
     setCurrentQuestionIndex(0);
     setResult([]);
     setShowPrompt(false);
@@ -241,7 +253,8 @@ function Quiz() {
 
   const handleContinue = () => {
     // Handle continuing with saved progress
-    console.log("Continue");
+    // console.log("Continue");
+    // navigate("/test/start");
     setShowPrompt(false);
   };
 
@@ -249,7 +262,7 @@ function Quiz() {
     confirmAlert({
       customUI: ({ onClose }) => {
         return (
-          <div className="custom-ui">
+            <div className="custom-ui">
             <h2>Your previous test <span className="highlighted-text">progress was saved</span></h2>
             <p>Do you wish to continue or start over?</p>
             <div className="button-container">
@@ -261,6 +274,8 @@ function Quiz() {
       }
     });
   };
+
+  
   
 
 
@@ -284,7 +299,8 @@ function Quiz() {
                 // onLoaderFinished={() => setProgress(0)}
             />
 
-            {showPrompt && Prompt()}
+            {showPrompt  && Prompt()}
+
 
             {/* {isUserAuthenticated && questions.length !== 0 && !loading ? <> */}
             {questions.length !== 0 ? <>
