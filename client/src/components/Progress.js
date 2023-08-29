@@ -8,7 +8,7 @@ const Progress = (props) => {
 
     return <ProgressBar completed={Math.trunc(props.progress)}
         className="progress"
-        bgColor="#45a110"
+        bgColor="rgb(8, 50, 5)"
     />;
 
 };
