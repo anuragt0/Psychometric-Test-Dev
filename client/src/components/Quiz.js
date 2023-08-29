@@ -26,7 +26,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import the CSS
 
 
 function Quiz() {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
 
     const { t } = useTranslation("translation", { keyPrefix: 'quiz' });
     const { userTestResponses, setUserTestResponses } = useLanguage();
@@ -245,22 +245,23 @@ function Quiz() {
     setShowPrompt(false);
   };
 
-    const Prompt = () => {
-        confirmAlert({
-          customUI: ({ onClose }) => {
-            return (
-              <div className="custom-ui">
-                <h2>Your previous test <span style={{color:"#1A5D1A"}}>progress was saved</span> </h2>
-                <p>Do you wish to continue or start over?</p>
-                <button onClick={() => { handleContinue(); onClose(); }}>Continue</button>
-                &nbsp;
-                &nbsp;
-                <button onClick={() => { handleStartOver(); onClose(); }}>Start Over</button>
-              </div>
-            );
-          }
-        });
-      };
+  const Prompt = () => {
+    confirmAlert({
+      customUI: ({ onClose }) => {
+        return (
+          <div className="custom-ui">
+            <h2>Your previous test <span className="highlighted-text">progress was saved</span></h2>
+            <p>Do you wish to continue or start over?</p>
+            <div className="button-container">
+              <button className="continue-button" onClick={() => { handleContinue(); onClose(); }}>Continue</button>
+              <button className="start-over-button" onClick={() => { handleStartOver(); onClose(); }}>Start Over</button>
+            </div>
+          </div>
+        );
+      }
+    });
+  };
+  
 
 
     const imageArray = [require("../images/1.jpg"), require("../images/2.png"), require("../images/3.png")
@@ -283,7 +284,7 @@ function Quiz() {
                 // onLoaderFinished={() => setProgress(0)}
             />
 
-            {/* {showPrompt && Prompt()} */}
+            {showPrompt && Prompt()}
 
             {/* {isUserAuthenticated && questions.length !== 0 && !loading ? <> */}
             {questions.length !== 0 ? <>
@@ -325,11 +326,13 @@ function Quiz() {
                 <div className="right my-5">
                     <div className="cont">
                          <Progress progress={progress}/>
+        
                     </div>
                     <div className="msg">
                     <p className="animate-charcter">Hey! Finish the complete quiz and I will <br></br>get back to you with your Report card. </p>
-                    <img src={image2} className="startImage" style={{height:"120px", marginTop:"4%"}}></img>
+                    <img src={image2} className="startImage" ></img>
                     </div>
+                    
                     <div className="box">
 
                     </div>
