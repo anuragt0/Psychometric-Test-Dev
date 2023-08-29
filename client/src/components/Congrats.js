@@ -38,6 +38,7 @@ const Congrats = () => {
       height={height}
       numberOfPieces={600}
       
+      
     />
         {!loading && 
             <div className="congratulations-container">

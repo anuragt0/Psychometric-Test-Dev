@@ -302,6 +302,9 @@ function Quiz() {
                     <div className="cont">
                          <Progress progress={progress}/>
                     </div>
+                    <div className="msg">
+                    
+                    </div>
                     <div className="box">
 
                     </div>
