@@ -328,7 +328,7 @@ function Quiz() {
                     </div>
                     <div className="msg">
                     <p className="animate-charcter">Hey! Finish the complete quiz and I will <br></br>get back to you with your Report card. </p>
-                    <img src={image2} className="startImage" style={{height:"100px", marginTop:"5%"}}></img>
+                    <img src={image2} className="startImage" style={{height:"120px", marginTop:"4%"}}></img>
                     </div>
                     <div className="box">
 

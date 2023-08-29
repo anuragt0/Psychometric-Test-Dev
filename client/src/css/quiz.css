@@ -72,13 +72,14 @@ font-family: noto sans;
     .option-btn:hover{
       background-color: #45a110;
       color:white;
+      transform: scale(105%);
     }
     #next-button, 
     #prev-button,
     .submit-button{
       padding:10px;
       border:none;
-      background-color: #45a110;
+      background-color: rgb(8, 50, 5);
       color:white;
       border-radius: 5px;
       box-shadow: 1px 1px 4px 1px #333;
@@ -90,9 +91,9 @@ font-family: noto sans;
       position: absolute;
     }
     .submit-button:hover{
-        background-color: #45a110;
+        background-color: rgb(8, 50, 5);
         color: white;
-        border: #45a110;
+        border: rgb(8, 50, 5);
     }
     #next-button,
     .submit-button{
@@ -120,13 +121,13 @@ font-family: noto sans;
       height: 7%;
       margin-top: 20%;
       margin-left: 19%;
-      background-color:#63c62a;
+      background-color:rgb(8, 50, 5);
       position: absolute;
     }
     .submit-button{
       background-color: white;
-      color: #63c62a;
-      border:solid 2px #63c62a;
+      color: rgb(8, 50, 5);
+      border:solid 2px rgb(8, 50, 5);
     }
     /* Add these styles to your existing CSS or a separate CSS file */
 
@@ -151,8 +152,8 @@ font-family: noto sans;
     -225deg,
     black 0%,
     black 29%,
-    #63c62a 67%,
-    #63c62a 100%
+    rgb(46, 4, 101) 67%,
+    rgb(46, 4, 101)100%
   );
   background-size: auto auto;
   background-clip: border-box;
