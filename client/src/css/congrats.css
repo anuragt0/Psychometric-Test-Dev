@@ -3,24 +3,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #f0f0f0;
+    height: 80vh;
+    background-color: white;
   }
   
   .congratulations-content {
     text-align: center;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   }
   
-  h2 {
+  .main-heading {
     color: #333;
+    font-weight: bolder;
+    font-size: 80px;
   }
   
   p {
     color: #666;
+    font-weight: 600;
     margin: 10px 0;
   }
   
@@ -36,7 +35,9 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    font-weight: 800;
     color: #fff;
+    box-shadow: 1px 1px 4px 1px #333;
     transition: background-color 0.3s ease;
   }
   
@@ -51,5 +52,22 @@
   .login-button:hover,
   .signup-button:hover {
     background-color: #45a110;
+    
   }
   
+  @media screen and (max-width: 768px) {
+
+    h2 {
+      font-size: 40px;
+    }
+    p {
+      font-size:15px;
+    }
+    .buttons-container {
+      margin-top: 20px;
+      display: flex
+    }
+    .congratulations-container{
+      height: 80vh;
+    }
+  }

@@ -3,6 +3,8 @@ import { server_origin } from '../utilities/constants';
 import { useNavigate } from 'react-router-dom';
 import "../css/quiz.css";
 import LoadingBar from 'react-top-loading-bar'
+import Progress from '../components/Progress';
+import '../css/progress.css';
 
 import 'react-circular-progressbar/dist/styles.css';
 
@@ -24,7 +26,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import the CSS
 
 
 function Quiz() {
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
 
     const { t } = useTranslation("translation", { keyPrefix: 'quiz' });
     const { userTestResponses, setUserTestResponses } = useLanguage();
@@ -51,6 +53,7 @@ function Quiz() {
     // const [isUserAuthenticated, setIsUserAuthenticated] = useState(false);
 
     const [progress, setProgress] = useState(0);
+    const [progress2, setProgress2] = useState(0);
 
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [clickedOption, setClickedOption] = useState(5);
@@ -67,8 +70,14 @@ function Quiz() {
             setCurrentQuestionIndex(savedProgress.length-1)
             const totalQuestions = 26;
             let progressPercentage = ((savedProgress.length-1) / totalQuestions) * 100;
-            if (savedProgress.length===26) setProgress(100);
-            else setProgress(progressPercentage);
+            if (savedProgress.length===26){
+                setProgress(100);
+                setProgress2(100);
+            } 
+            else {
+                setProgress(progressPercentage);
+                setProgress2(progressPercentage);
+            }
             console.log("progressPercentage: ", progressPercentage);
         }
         // console.log("herere: ", savedProgress);
@@ -145,6 +154,7 @@ function Quiz() {
                 let progressPercentage = ((currentQuestionIndex + 1) / totalQuestions) * 100;
                 if (currentQuestionIndex === questions.length - 2) progressPercentage = 100;
                 setProgress(progressPercentage);
+                setProgress2(progressPercentage);
                 return currentQuestionIndex + 1;
             });
             setClickedOption(5);
@@ -160,6 +170,7 @@ function Quiz() {
                 const totalQuestions = questions.length;
                 const progressPercentage = ((currentQuestionIndex - 1) / totalQuestions) * 100;
                 setProgress(progressPercentage);
+                setProgress2(progressPercentage);
                 return currentQuestionIndex - 1;
             });
             setClickedOption(5);
@@ -194,6 +205,23 @@ function Quiz() {
         }
 
         //*SAVE THE USER RESPONSES IN CONTEXT TO USE THEM AFTER VERIFICATION
+        //* check if the user is already logged in, if yes, then save progress now
+        //* Update the responses
+        if(localStorage.getItem("token")){
+            const responseUpdate = await fetch(`${server_origin}/api/user/update-response`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'auth-token': localStorage.getItem("token")
+                },
+                body: JSON.stringify({responses: result})
+            });
+            let response2 = await responseUpdate.json();
+            if(response2.success===false){
+                localStorage.removeItem("token");
+            }
+        }
+
         setUserTestResponses(result);
         navigate("/test/submit");
 
@@ -206,7 +234,8 @@ function Quiz() {
     setCurrentQuestionIndex(0);
     setResult([]);
     setShowPrompt(false);
-    setProgress(100);
+    setProgress(0);
+    setProgress2(100);
     localStorage.removeItem('testProgress');
   };
 
@@ -242,17 +271,19 @@ function Quiz() {
         , require("../images/20.jpg"), require("../images/21.png"), require("../images/22.png"), require("../images/23.png")
         , require("../images/24.png"), require("../images/25.png"), require("../images/26.png")];
 
-
+        const stepProgress = (currentQuestionIndex % 5);
+        const redLineWidth = `${stepProgress}%`;
+   
     return (
 
         <div className='bodyy'>
             <LoadingBar
-                color='#f11946'
-                progress={progress}
+                color='#2a6b04'
+                progress={progress2}
                 height={4}
                 shadow={false}
                 style={{ position: "absolute", top: "67px" }}
-                onLoaderFinished={() => setProgress(0)}
+                // onLoaderFinished={() => setProgress(0)}
             />
 
             {showPrompt && Prompt()}
@@ -296,27 +327,13 @@ function Quiz() {
 
                 <div className="right my-5">
                     <div className="cont">
-                        <div className="progress-bar">
-                            <div className="step-container">
-                                {[0, 1, 2, 3, 4, 5].map((step, i) => (
-                                    <>
-                                        {step !== 0 && <div className={`line ${currentQuestionIndex >= (step) * 5 ? 'completed' : ''} line-color-${currentQuestionIndex >= step * 5 ? 'completed' : ''}`}></div>}
-
-                                        <div key={i} className={`step ${currentQuestionIndex >= (step) * 5 ? 'completed' : ''}`}>
-                                            {step}
-                                        </div>
-                                    </>
-                                ))}
-                            </div>
-                        </div>
+                         <Progress progress={progress}/>
                     </div>
                     <div className="box">
 
                     </div>
-                    {/* <div className="box1"> */}
+                    
                     <img src={imageArray[currentQuestionIndex]} alt="img" />
-                    {/* </div> */}
-
                 </div>
 
             </> : <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>

@@ -22,14 +22,15 @@ function App() {
     <Router>
       <div>
         <Navbar />
+        {/* <Navbar2 /> */}
         <Toaster toastOptions={{ duration: 4000 }} />
         <Routes>
         {/* User */}
           <Route path="/" element={<Home />} />
           <Route path="/test/instructions" element={<Instructions/>} />
           <Route path="/test/start" element={<Quiz/>} />
-          <Route path="/test/register" element={<Register/>} />
-          <Route path="/test/login" element={<Login/>} />
+          <Route path="/register" element={<Register/>} />
+          <Route path="/login" element={<Login/>} />
           <Route path="/test/result" element={<Result_M/>} />
           <Route path="/test/submit" element={<Congrats/>} />
 
