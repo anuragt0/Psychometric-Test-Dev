@@ -7,8 +7,6 @@ import { FiDownload, FiBarChart2 } from 'react-icons/fi'; // Import the FiDownlo
 import { toast, Toaster } from "react-hot-toast";
 import { SyncLoader } from 'react-spinners'; // Import the ClipLoader from "react-spinners"
 import { motion } from 'framer-motion'
-
-
 import Graph from "./charts/Graph";
 import PieChart from "./charts/PieChart";
 import RadialBarChartComponent from './charts/RadialBarChart';
@@ -114,7 +112,7 @@ const qualities_arr = t(graph_uri+'.qualities',{returnObjects: true});
     //!Make separate functions for fetching results and validation
 
     const getResult = async () => {
-        setLoading(true);
+        // setLoading(true);
         const response = await fetch(`${server_origin}/api/user/get-user`, {
             method: 'POST',
             headers: {
@@ -123,14 +121,15 @@ const qualities_arr = t(graph_uri+'.qualities',{returnObjects: true});
             },
         });
         let response1 = await response.json();
-        // console.log("response1asdfasdfasd: ", response1);
+        console.log("response1asdfasdfasd: ", response1);
 
         if (response1.success === false) {
             toast.error(t('toast.errorFetchResult'));
             navigate("/login");
             return;
         }
-        if(response1.userDoc.testResponse.length!==26){
+        console.log("asdflkjasldkfjaskldfjl", response1.userDoc);
+        if(!response1.userDoc.testResponse || response1.userDoc.testResponse.length!==26){
             toast.error(`You have not completed the test yet!`);
             navigate("/test/instructions");
             return;

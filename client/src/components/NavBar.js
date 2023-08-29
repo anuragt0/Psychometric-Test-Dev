@@ -98,6 +98,9 @@ const Navbar = () => {
 
   const handleLogoutClick = (e) => {
     localStorage.removeItem("token");
+    localStorage.removeItem("testProgress");
+    localStorage.removeItem("lang");
+    localStorage.removeItem("hasVisited");
     navigate("/login");
   };
 
