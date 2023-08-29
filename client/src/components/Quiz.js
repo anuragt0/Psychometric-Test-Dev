@@ -5,7 +5,7 @@ import "../css/quiz.css";
 import LoadingBar from 'react-top-loading-bar'
 import Progress from '../components/Progress';
 import '../css/progress.css';
-
+import image2 from '../images/progressImage.svg';
 import 'react-circular-progressbar/dist/styles.css';
 
 
@@ -270,9 +270,6 @@ function Quiz() {
         , require("../images/16.jpg"), require("../images/17.PNG"), require("../images/18.jpg"), require("../images/19.PNG")
         , require("../images/20.jpg"), require("../images/21.PNG"), require("../images/22.PNG"), require("../images/23.PNG")
         , require("../images/24.PNG"), require("../images/25.PNG"), require("../images/26.PNG")];
-
-        const stepProgress = (currentQuestionIndex % 5);
-        const redLineWidth = `${stepProgress}%`;
    
     return (
 
@@ -286,7 +283,7 @@ function Quiz() {
                 // onLoaderFinished={() => setProgress(0)}
             />
 
-            {showPrompt && Prompt()}
+            {/* {showPrompt && Prompt()} */}
 
             {/* {isUserAuthenticated && questions.length !== 0 && !loading ? <> */}
             {questions.length !== 0 ? <>
@@ -330,7 +327,8 @@ function Quiz() {
                          <Progress progress={progress}/>
                     </div>
                     <div className="msg">
-                    
+                    <p className="animate-charcter">Hey! Finish the complete quiz and I will <br></br>get back to you with your Report card. </p>
+                    <img src={image2} className="startImage" style={{height:"100px", marginTop:"5%"}}></img>
                     </div>
                     <div className="box">
 
