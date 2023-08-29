@@ -109,7 +109,7 @@ const Navbar = () => {
     <nav className={`${css.outerNav} navbar navbar-expand-lg fixed-top`}
       style={{ position: "sticky", top: 0, zIndex: 100 }}>
 
-      <div className={`${css.hamDisplay}`}>
+      <div className={`${css.navDisplay}`}>
         <Link to="/" style={{ marginRight: "1rem" }}>
           <img src={logo} alt="yi-logo" style={{
             "width": "3rem",
@@ -119,7 +119,7 @@ const Navbar = () => {
         </Link>
         <button
           type="button"
-          className={`${css.navStyle} navbar-toggler`}
+          className={`${css.hamStyle} navbar-toggler`}
           data-bs-toggle="collapse"
           data-bs-target="#navbarCollapse"
         >

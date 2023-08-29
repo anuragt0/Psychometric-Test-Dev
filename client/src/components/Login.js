@@ -510,12 +510,12 @@ const Login = () => {
 
     return (
         <>
-            <div id="recaptcha-container"></div>
+            {/* <div id="recaptcha-container"></div>
             <div className="registration-heading">
                 <h1 style={{textDecoration: "underline"}}>Login</h1>
                 <h3 style={{color: "#5b564e"}}>Unlock Your Personalized Personality Insights Report
                 <p style={{ color: "#1A5D1A" }}>Discover a deeper understanding of yourself, <em> just a step away</em></p></h3>
-            </div>
+            </div> */}
 
             <div className="component-slide">
                 {componentState === -1 && EnterPhoneComponent()}
