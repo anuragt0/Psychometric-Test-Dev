@@ -275,7 +275,6 @@ const Navbar = () => {
                       type: 'spring', stiffness: 300
                     }}> */}
                     {t('Login')}
-                  {/* </motion.p> */}
                 </button>
 
               </>

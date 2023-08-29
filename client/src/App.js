@@ -3,7 +3,7 @@ import './App.css'
 import { Toaster } from "react-hot-toast";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/NavBar';
-import Page from "../src/components/neha/Page";
+import Home from "../src/components/neha/Home";
 import Login from './components/Login';
 import Register from './components/Register';
 import Result_M from './components/mayank/Result_M';
@@ -26,7 +26,7 @@ function App() {
         <Toaster toastOptions={{ duration: 4000 }} />
         <Routes>
         {/* User */}
-          <Route path="/" element={<Page />} />
+          <Route path="/" element={<Home />} />
           <Route path="/test/instructions" element={<Instructions/>} />
           <Route path="/test/start" element={<Quiz/>} />
           <Route path="/register" element={<Register/>} />
