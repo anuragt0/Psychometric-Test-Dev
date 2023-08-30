@@ -4,6 +4,8 @@ import { server_origin } from '../utilities/constants';
 import { motion } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { toast, Toaster } from "react-hot-toast";
+
 
 
 // import img from "../../assets/images/yi_logo.png";
@@ -101,7 +103,9 @@ const Navbar = () => {
     localStorage.removeItem("testProgress");
     localStorage.removeItem("lang");
     localStorage.removeItem("hasVisited");
-    navigate("/login");
+    toast.success("Logged out successfully");
+    navigate("/")
+    // navigate("/login");
   };
 
 

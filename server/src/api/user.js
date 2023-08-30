@@ -138,7 +138,7 @@ router.post("/check-mobile-registered", async (req,res)=>{
         // console.log(userDoc);
         if(!userDoc){
             //user not found
-            res.status(404).json({success: false, message: "Mobile number not registered"});
+            res.status(200).json({success: false, message: "Mobile number not registered"});
             return;
         }
         res.status(200).json({success: true, message: "Mobile number registered"});

@@ -137,7 +137,7 @@
   cursor: pointer;
   color: #63c62a;
   transition: color 0.3s ease;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .forgot-password-link:hover span {
@@ -148,7 +148,7 @@
   flex: 1;
   /* Take up equal space */
   text-align: right;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   color: #63c62a;
   transition: color 0.3s ease;
