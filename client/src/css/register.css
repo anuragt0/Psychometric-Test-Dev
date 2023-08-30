@@ -2,7 +2,9 @@
     /* background: linear-gradient(135deg, #f2f4f3, #159337); */
     background-size: cover;
     background-repeat: no-repeat;
+    margin : 10% auto;
 }
+
 .registration-page {
     display: flex;
     flex-direction: column;

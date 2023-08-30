@@ -38,7 +38,7 @@ margin-top: 20px;
 
 .text-top {
   text-align: left;
-  line-height: 3rem;
+  /* line-height: 3rem; */
   /* letter-spacing: -1px; */
   color: rgb(8, 50, 5);
   /* font-size: xx-large; */
