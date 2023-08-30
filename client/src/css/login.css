@@ -164,24 +164,12 @@
   margin-top: 50px;
 }
 
-/* .fancy-text {
-    font-size: 32px;
-    font-weight: bold;
-    color: transparent;
-    /* background-image: linear-gradient(45deg, #71BF44, #e36696); */
-/* -webkit-background-clip: text;
-    background-clip: text;
-    animation: animateText 3s linear infinite alternate-reverse;
-  } */
-*/ .custom-icon {
-  width: 40px;
-  /* Adjust the width as needed */
-  height: 40px;
-  /* Adjust the height as needed */
-  margin-right: 10px;
-  /* Add spacing between the icon and text */
-  vertical-align: middle;
-  /* Align the icon vertically with the text */
+
+.custom-icon {
+    width: 40px; /* Adjust the width as needed */
+    height: 40px; /* Adjust the height as needed */
+    margin-right: 10px; /* Add spacing between the icon and text */
+    vertical-align: middle; /* Align the icon vertically with the text */
 }
 
 
