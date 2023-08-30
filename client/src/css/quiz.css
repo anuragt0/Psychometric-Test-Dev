@@ -144,18 +144,25 @@ font-family: noto sans;
   margin-top: 10%;
   display: flex;
 }    
-.msg{
+.msg,
+.msg2,
+.msg3{
   text-align: center;
   justify-content: center;
   font-weight: 900;
   display: flex;
-  /* background-color: red; */
 }
-.msg .startImage{
+.con{
+  position: relative;
+}
+
+.msg .startImage,
+.msg2 .startImage,
+.msg3 .startImage{
 height: 100px;
 margin-top: 5%;
-
 }
+
 .animate-charcter
 {
    text-transform: uppercase;

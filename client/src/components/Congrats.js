@@ -64,7 +64,7 @@ const Congrats = () => {
       <Confetti
          width={window.innerWidth}
          height={window.innerHeight}
-        //  numberOfPieces={600}
+         numberOfPieces={600}
         //  recycle={false}
  />
 

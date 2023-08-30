@@ -6,7 +6,12 @@ import LoadingBar from 'react-top-loading-bar'
 import Progress from '../components/Progress';
 import '../css/progress.css';
 import image2 from '../images/progressImage.svg';
+import image3 from '../images/progressImage2.svg';
+import image4 from '../images/progressImage3.svg';
 import 'react-circular-progressbar/dist/styles.css';
+import Confetti from 'react-confetti';
+import useWindowSize from "@rooks/use-window-size";
+
 
 
 import { toast, Toaster } from "react-hot-toast";
@@ -279,13 +284,17 @@ function Quiz() {
   
 
 
-    const imageArray = [require("../images/1.jpg"), require("../images/2.png"), require("../images/3.png")
-        , require("../images/4.png"), require("../images/5.jpg"), require("../images/6.jpg"), require("../images/7.png")
-        , require("../images/8.png"), require("../images/9.png"), require("../images/10.png"), require("../images/11.png")
-        , require("../images/12.png"), require("../images/13.png"), require("../images/14.png"), require("../images/15.png")
-        , require("../images/16.jpg"), require("../images/17.png"), require("../images/18.jpg"), require("../images/19.png")
-        , require("../images/20.jpg"), require("../images/21.png"), require("../images/22.png"), require("../images/23.png")
-        , require("../images/24.png"), require("../images/25.png"), require("../images/26.png")];
+    const imageArray = [require("../images/1.jpg"), require("../images/2.PNG"), require("../images/3.PNG")
+        , require("../images/4.PNG"), require("../images/5.jpg"), require("../images/6.jpg"), require("../images/7.PNG")
+        , require("../images/8.PNG"), require("../images/9.PNG"), require("../images/10.PNG"), require("../images/11.PNG")
+        , require("../images/12.PNG"), require("../images/13.PNG"), require("../images/14.PNG"), require("../images/15.PNG")
+        , require("../images/16.jpg"), require("../images/17.PNG"), require("../images/18.jpg"), require("../images/19.PNG")
+        , require("../images/20.jpg"), require("../images/21.PNG"), require("../images/22.PNG"), require("../images/23.PNG")
+        , require("../images/24.PNG"), require("../images/25.PNG"), require("../images/26.PNG")];
+
+        const showMsg = progress < 26 ? true : false;
+        const showMsg2 = (progress < 50 && progress > 25) ? true : false;
+        const showMsg3 = (progress === 50) ? true : false;
    
     return (
 
@@ -299,7 +308,7 @@ function Quiz() {
                 // onLoaderFinished={() => setProgress(0)}
             />
 
-            {showPrompt  && Prompt()}
+            {/* {showPrompt  && Prompt()} */}
 
 
             {/* {isUserAuthenticated && questions.length !== 0 && !loading ? <> */}
@@ -342,15 +351,38 @@ function Quiz() {
                 <div className="right my-5">
                     <div className="cont">
                          <Progress progress={progress}/>
-        
+                        
                     </div>
+                    {showMsg && (
                     <div className="msg">
                     <p className="animate-charcter">Hey! Finish the complete quiz and I will <br></br>get back to you with your Report card. </p>
                     <img src={image2} className="startImage" ></img>
                     </div>
+                    )}
+
+                    {showMsg2 && (
+                    <div className="msg2">
+                    <p className="animate-charcter">Great! You have completed 25% of the quiz <br></br>keep doing... </p>
+                    <img src={image3} className="startImage"></img>
+                    </div>
+                    )}
+
+                    {showMsg3 && (
+                    <div className="msg3" >
+                       <div className="con">
+                       <Confetti
+                           width={350}
+                           height={200}
+                           numberOfPieces={100}
+                        />
+                        </div> 
+                    <p className="animate-charcter">Fantastic progress! You're 50% done <br></br>keep it up! </p>
+                    <img src={image4} className="startImage"></img>
+                    </div>
+                    )}
                     
                     <div className="box">
-
+                    
                     </div>
                     
                     <img src={imageArray[currentQuestionIndex]} alt="img" />
