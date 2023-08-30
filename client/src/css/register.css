@@ -1,11 +1,10 @@
 .register-outer-div{
     /* background: linear-gradient(135deg, #f2f4f3, #159337); */
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin : 10% auto;
+    margin : 0 auto;
 }
 
 .registration-page {
+  background-image: url("../images/bg.png");
     display: flex;
     flex-direction: column;
     /* max-width: 400px; */
@@ -92,6 +91,7 @@
     opacity: 0.5;
     cursor: default !important;
   }
+  
   
   /* Responsive styles for small mobile screens */
   @media only screen and (max-width: 480px) {
