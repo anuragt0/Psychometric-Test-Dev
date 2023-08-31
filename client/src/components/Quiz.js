@@ -285,13 +285,13 @@ function Quiz() {
   
 
 
-    const imageArray = [require("../images/1.jpg"), require("../images/2.png"), require("../images/3.png")
-        , require("../images/4.png"), require("../images/5.jpg"), require("../images/6.jpg"), require("../images/7.png")
-        , require("../images/8.png"), require("../images/9.png"), require("../images/10.png"), require("../images/11.png")
-        , require("../images/12.png"), require("../images/13.png"), require("../images/14.png"), require("../images/15.png")
-        , require("../images/16.jpg"), require("../images/17.png"), require("../images/18.jpg"), require("../images/19.png")
-        , require("../images/20.jpg"), require("../images/21.png"), require("../images/22.png"), require("../images/23.png")
-        , require("../images/24.png"), require("../images/25.png"), require("../images/26.png")];
+    const imageArray = [require("../images/1.jpg"), require("../images/2.PNG"), require("../images/3.PNG")
+        , require("../images/4.PNG"), require("../images/5.jpg"), require("../images/6.jpg"), require("../images/7.PNG")
+        , require("../images/8.PNG"), require("../images/9.PNG"), require("../images/10.PNG"), require("../images/11.PNG")
+        , require("../images/12.PNG"), require("../images/13.PNG"), require("../images/14.PNG"), require("../images/15.PNG")
+        , require("../images/16.jpg"), require("../images/17.PNG"), require("../images/18.jpg"), require("../images/19.PNG")
+        , require("../images/20.jpg"), require("../images/21.PNG"), require("../images/22.PNG"), require("../images/23.PNG")
+        , require("../images/24.PNG"), require("../images/25.PNG"), require("../images/26.PNG")];
 
         const showMsg = progress < 26 ? true : false;
         const showMsg2 = (progress > 25 && progress < 50) ? true : false;
