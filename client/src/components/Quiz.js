@@ -268,11 +268,11 @@ function Quiz() {
       customUI: ({ onClose }) => {
         return (
             <div className="custom-ui">
-            <h2>{t('headingText1')} <span className="highlighted-text">{t('headingText2')}</span></h2>
-            <p>{t('headingPara')}</p>
+            <h2>{t('prompt.headingText1')} <span className="highlighted-text">{t('prompt.headingText2')}</span></h2>
+            <p>{t('prompt.headingPara')}</p>
             <div className="button-container">
-              <button className="continue-button" onClick={() => { handleContinue(); onClose(); }}>{t('continue_btn')}</button>
-              <button className="start-over-button" onClick={() => { handleStartOver(); onClose(); }}> {t('start_btn')}</button>
+              <button className="continue-button" onClick={() => { handleContinue(); onClose(); }}>{t('prompt.continue_btn')}</button>
+              <button className="start-over-button" onClick={() => { handleStartOver(); onClose(); }}> {t('prompt.start_btn')}</button>
             </div>
           </div>
         );
