@@ -72,7 +72,7 @@ const Congrats = () => {
       {!loading &&
         <div className="congratulations-container">
           <div className="congratulations-content">
-            <h2 className='main-heading'>Congratulations!</h2>
+            <h2 className='main-heading'>Congratulations!🎉</h2>
             <p className='sub-heading'>You have successfully submitted the test.</p>
             {
               !loggedIn ?

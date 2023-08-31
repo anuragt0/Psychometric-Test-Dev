@@ -95,7 +95,7 @@ const Home = () => {
             )}
 
 
-            <div className={`container-page1 page-container ${showModal ? 'blur-background' : ''}`}>
+            <div className={`container-page1 ${showModal ? 'blur-background' : ''}`}>
                 <div className='img-container'>
 
                     {/* <video className='image-top' controls={false} autoPlay muted
