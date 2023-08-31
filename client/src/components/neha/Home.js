@@ -45,12 +45,13 @@ const Home = () => {
     value: "हिन्दी",
     key: "hi"
 
-  },
-  {
-    value: "ગુજરાતી",
-    key: "gu"
-
   }
+  // ,
+  // {
+  //   value: "ગુજરાતી",
+  //   key: "gu"
+
+  // }
   ];
 
   const [showModal, setShowModal] = useState(false);

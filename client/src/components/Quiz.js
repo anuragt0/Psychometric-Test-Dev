@@ -10,7 +10,7 @@ import image3 from '../images/progressImage2.svg';
 import image4 from '../images/progressImage3.svg';
 import 'react-circular-progressbar/dist/styles.css';
 import Confetti from 'react-confetti';
-import useWindowSize from "@rooks/use-window-size";
+// import useWindowSize from "@rooks/use-window-size";
 
 
 
@@ -268,11 +268,11 @@ function Quiz() {
       customUI: ({ onClose }) => {
         return (
             <div className="custom-ui">
-            <h2>Your previous test <span className="highlighted-text">progress was saved</span></h2>
-            <p>Do you wish to continue or start over?</p>
+            <h2>{t('headingText1')} <span className="highlighted-text">{t('headingText2')}</span></h2>
+            <p>{t('headingPara')}</p>
             <div className="button-container">
-              <button className="continue-button" onClick={() => { handleContinue(); onClose(); }}>Continue</button>
-              <button className="start-over-button" onClick={() => { handleStartOver(); onClose(); }}>Start Over</button>
+              <button className="continue-button" onClick={() => { handleContinue(); onClose(); }}>{t('continue_btn')}</button>
+              <button className="start-over-button" onClick={() => { handleStartOver(); onClose(); }}> {t('start_btn')}</button>
             </div>
           </div>
         );
@@ -356,14 +356,14 @@ function Quiz() {
                     </div>
                     {showMsg && (
                     <div className="msg">
-                    <p className="animate-charcter">Hey! Finish the complete quiz and I will <br></br>get back to you with your Report card. </p>
+                    <p className="animate-charcter">{t('progressBar.msg1A')}<br></br>{t('progressBar.msg1B')}</p>
                     <img src={image2} className="startImage" ></img>
                     </div>
                     )}
 
                     {showMsg2 && (
                     <div className="msg2">
-                    <p className="animate-charcter">Great! You have completed 25% of the quiz <br></br>keep doing... </p>
+                    <p className="animate-charcter">{t('progressBar.msg2A')} <br></br>{t('progressBar.msg2B')}</p>
                     <img src={image3} className="startImage"></img>
                     </div>
                     )}
@@ -377,14 +377,14 @@ function Quiz() {
                            numberOfPieces={100}
                         />
                         </div> 
-                    <p className="animate-charcter">Fantastic progress! You're 50% done <br></br>keep it up! </p>
+                    <p className="animate-charcter">{t('progressBar.msg3A')}<br></br>{t('progressBar.msg2B')}</p>
                     <img src={image4} className="startImage"></img>
                     </div>
                     )}
 
                     {showMsg4 && (
                     <div className="msg3">
-                    <p className="animate-charcter">Well Done! You have completed 75% of the quiz <br></br>You're about to finish... </p>
+                    <p className="animate-charcter">{t('progressBar.wellcome_75per')}<br></br>{t('progressBar.justFinish')} </p>
                     <img src={image3} className="startImage"></img>
                     </div>
                     )}

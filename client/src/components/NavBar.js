@@ -103,7 +103,7 @@ const Navbar = () => {
     localStorage.removeItem("testProgress");
     localStorage.removeItem("lang");
     localStorage.removeItem("hasVisited");
-    toast.success("Logged out successfully");
+    toast.success(t('toast.loggedOutToast'));
     navigate("/")
     // navigate("/login");
   };
