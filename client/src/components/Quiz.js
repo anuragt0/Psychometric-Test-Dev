@@ -5,12 +5,13 @@ import "../css/quiz.css";
 import LoadingBar from 'react-top-loading-bar'
 import Progress from '../components/Progress';
 import '../css/progress.css';
-import image2 from '../images/progressImage.svg';
-import image3 from '../images/progressImage2.svg';
-import image4 from '../images/progressImage3.svg';
+import image2 from '../images/progressImage2.svg';
+import image3 from '../images/progressImage3.svg';
+import image4 from '../images/progressImage4.svg';
+import image5 from '../images/progressImage5.svg';
 import 'react-circular-progressbar/dist/styles.css';
 import Confetti from 'react-confetti';
-import useWindowSize from "@rooks/use-window-size";
+
 
 
 
@@ -31,7 +32,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import the CSS
 
 
 function Quiz() {
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
 
     const { t } = useTranslation("translation", { keyPrefix: 'quiz' });
     const { userTestResponses, setUserTestResponses } = useLanguage();
@@ -295,7 +296,8 @@ function Quiz() {
         const showMsg = progress < 26 ? true : false;
         const showMsg2 = (progress > 25 && progress < 50) ? true : false;
         const showMsg3 = (progress >=50 && progress <76) ? true : false;
-        const showMsg4 = (progress >=76 && progress <=100) ? true : false;
+        const showMsg4 = (progress >=76 && progress <100) ? true : false;
+        const showMsg5 = (progress ===100) ? true : false;
    
     return (
 
@@ -309,7 +311,7 @@ function Quiz() {
                 // onLoaderFinished={() => setProgress(0)}
             />
 
-            {/* {showPrompt  && Prompt()} */}
+            {showPrompt  && Prompt()}
 
 
             {/* {isUserAuthenticated && questions.length !== 0 && !loading ? <> */}
@@ -386,6 +388,13 @@ function Quiz() {
                     <div className="msg3">
                     <p className="animate-charcter">Well Done! You have completed 75% of the quiz <br></br>You're about to finish... </p>
                     <img src={image3} className="startImage"></img>
+                    </div>
+                    )}
+
+                    {showMsg5 && (
+                    <div className="msg4">
+                    <p className="animate-charcter">Successfully Completed the quiz!</p>
+                    <img src={image5} className="startImage"></img>
                     </div>
                     )}
                     

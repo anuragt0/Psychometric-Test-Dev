@@ -165,7 +165,8 @@
 .msg,
 .msg2,
 .msg3,
-.msg4{
+.msg4,
+.msg5{
   text-align: center;
   justify-content: center;
   font-weight: 900;
@@ -178,7 +179,8 @@
 .msg .startImage,
 .msg2 .startImage,
 .msg3 .startImage,
-.msg4 .startImage{
+.msg4 .startImage,
+.msg5 .startImage{
 height: 100px;
 margin-top: 5%;
 }
@@ -324,14 +326,16 @@ margin-top: 5%;
       .msg,
       .msg2,
       .msg3,
-      .msg4{
+      .msg4,
+      .msg5{
         position: absolute;
         margin-top: 115%;
       }
       .msg .startImage,
       .msg2 .startImage,
       .msg3 .startImage,
-      .msg4 .startImage{
+      .msg4 .startImage,
+      .msg5 .startImage{
        position: absolute;
        margin-top: 20%;
       }
