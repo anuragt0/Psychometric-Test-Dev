@@ -293,8 +293,9 @@ function Quiz() {
         , require("../images/24.PNG"), require("../images/25.PNG"), require("../images/26.PNG")];
 
         const showMsg = progress < 26 ? true : false;
-        const showMsg2 = (progress < 50 && progress > 25) ? true : false;
-        const showMsg3 = (progress === 50) ? true : false;
+        const showMsg2 = (progress > 25 && progress < 50) ? true : false;
+        const showMsg3 = (progress >=50 && progress <76) ? true : false;
+        const showMsg4 = (progress >=76 && progress <=100) ? true : false;
    
     return (
 
@@ -371,13 +372,20 @@ function Quiz() {
                     <div className="msg3" >
                        <div className="con">
                        <Confetti
-                           width={350}
-                           height={200}
+                           width={330}
+                           height={180}
                            numberOfPieces={100}
                         />
                         </div> 
                     <p className="animate-charcter">Fantastic progress! You're 50% done <br></br>keep it up! </p>
                     <img src={image4} className="startImage"></img>
+                    </div>
+                    )}
+
+                    {showMsg4 && (
+                    <div className="msg3">
+                    <p className="animate-charcter">Well Done! You have completed 75% of the quiz <br></br>You're about to finish... </p>
+                    <img src={image3} className="startImage"></img>
                     </div>
                     )}
                     

@@ -146,7 +146,8 @@ font-family: noto sans;
 }    
 .msg,
 .msg2,
-.msg3{
+.msg3,
+.msg4{
   text-align: center;
   justify-content: center;
   font-weight: 900;
@@ -158,7 +159,8 @@ font-family: noto sans;
 
 .msg .startImage,
 .msg2 .startImage,
-.msg3 .startImage{
+.msg3 .startImage,
+.msg4 .startImage{
 height: 100px;
 margin-top: 5%;
 }
@@ -269,7 +271,7 @@ margin-top: 5%;
         padding-top: 5%;
       }
       .question{
-        margin-top: 60%;
+        margin-top: 65%;
       }
       
       .buttons{
@@ -287,13 +289,7 @@ margin-top: 5%;
         color: #63c62a;
         border:solid 2px #63c62a;
       }
-      /* .cont{
-        height: 30%;
-        
-        width: 95%;
-        padding-top: 70%;
-        position:absolute;
-      }   */
+      
       .option-container{
         margin-left: 0%;
         margin-right: 5%;
@@ -302,13 +298,19 @@ margin-top: 5%;
         position: absolute;
         margin-top: 80%;
       }
-      .msg{
+      .msg,
+      .msg2,
+      .msg3,
+      .msg4{
         position: absolute;
-        margin-top: 110%;
+        margin-top: 115%;
       }
-      .msg .startImage{
+      .msg .startImage,
+      .msg2 .startImage,
+      .msg3 .startImage,
+      .msg4 .startImage{
        position: absolute;
-       margin-top: 15%;
+       margin-top: 20%;
       }
      
     }
