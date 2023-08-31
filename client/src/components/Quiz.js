@@ -11,12 +11,7 @@ import image4 from '../images/progressImage4.svg';
 import image5 from '../images/progressImage5.svg';
 import 'react-circular-progressbar/dist/styles.css';
 import Confetti from 'react-confetti';
-<<<<<<< HEAD
 // import useWindowSize from "@rooks/use-window-size";
-=======
-
->>>>>>> 7a4be82f27dfb59110165d61d0937d225ba6671f
-
 
 
 import { toast, Toaster } from "react-hot-toast";
