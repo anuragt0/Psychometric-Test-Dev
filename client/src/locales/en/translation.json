@@ -58,7 +58,7 @@
     "pleaseLogin": "PLEASE LOGIN OR REGISTER TO VIEW YOUR RESULT..",
     "viewResult": "Click on below button to view your report",
     "login_btn": "login",
-    "signUp_btn": "Sign Up",
+    "signUp_btn": "Register",
     "viewResult_btn": "View Report",
     "toast": {
       "incompleteTest": "Please complete the test to continue"
