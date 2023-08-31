@@ -370,7 +370,9 @@ const Login = () => {
             return
         }
 
-         // Check if the mobile is already registered
+        //  Check if the mobile is already registered
+        //  Check if the mobile is already registered
+        //  Check if the mobile is already registered
          const response = await fetch(`${server_origin}/api/user/check-mobile-registered`, {
             method: 'POST',
             headers: {
