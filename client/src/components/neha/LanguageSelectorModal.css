@@ -71,3 +71,9 @@
   align-items: center;
   gap: 8px; /* Adjust the gap as needed */
 }
+
+.disabled {
+  color: #aaa;
+  cursor: not-allowed; 
+  pointer-events: none; /* Prevent interactions with disabled labels */
+}

@@ -28,12 +28,13 @@ const LanguageSelectorModal = ({ languages, onSelect }) => {
           <li
             key={language.key}
             onClick={() => handleLanguageClick(language.key)}
-            className="language-option"
+            className={`${language.disabled ? 'disabled' : ''} language-option`}
           >
             <label className='checkbox-label'>
               <input className='input'
                 type="radio"
                 checked={language.key === selectedLanguage}
+                disabled = {language.disabled}
                 readOnly
               />
               {language.value}

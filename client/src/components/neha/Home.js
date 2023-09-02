@@ -32,16 +32,19 @@ const Home = () => {
     const [selectedLanguageM, setSelectedLanguageM] = useState({});
     const languages = [{
         value: "English",
-        key: "en"
+        key: "en",
+        disabled : false
     },
     {
         value: "हिन्दी",
-        key: "hi"
+        key: "hi",
+        disabled : false
 
     },
     {
         value: "ગુજરાતી",
-        key: "gu"
+        key: "gu",
+        disabled : true 
 
     }
     ];
