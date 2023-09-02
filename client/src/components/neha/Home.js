@@ -49,14 +49,14 @@ const Home = () => {
 
     },
     {
-        value: "Bangla" ,
+        value: "বাংলা" ,
         key: "ba",
         disabled : true 
 
     },
     {
-        value: "Priya",
-        key: "pr",
+        value: "ଓଡ଼ିଆ",
+        key: "od",
         disabled : true 
 
     },
@@ -67,19 +67,19 @@ const Home = () => {
 
     },
     {
-        value: "Marathi",
+        value: "मराठी",
         key: "ma",
         disabled : true 
 
     },
     {
-        value: "Tamil",
+        value: "தமிழ்",
         key: "ta",
         disabled : true 
 
     },
     {
-        value: "Konkani",
+        value: "कोंकणी",
         key: "ko",
         disabled : true 
 
