@@ -14,6 +14,8 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   font-family: 'Sora', sans-serif;
   border-radius : 10px;
+  max-height: 40vh;
+  overflow-y: auto; 
   /* color: #A4ACFF; */
 }
 

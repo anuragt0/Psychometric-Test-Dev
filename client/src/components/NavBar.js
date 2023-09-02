@@ -245,7 +245,12 @@ const Navbar = () => {
                 >
                   <option className="nav-item active" value="en">English</option>
                   <option className="nav-item active" value="hi">  हिन्दी  </option>
+                  <option className="nav-item active" value="ba" disabled>  Bangla  </option>
+                  <option className="nav-item active" value="pr" disabled>  Priya  </option>
                   <option className="nav-item active" value="gu" disabled>  ગુજરાતી  </option>
+                  <option className="nav-item active" value="ma" disabled>  Marathi  </option>
+                  <option className="nav-item active" value="ta" disabled> Tamil  </option>
+                  <option className="nav-item active" value="ko" disabled>  Konkani  </option>
 
                   {/* Add more options for other languages */}
 
