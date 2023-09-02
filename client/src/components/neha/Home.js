@@ -36,23 +36,55 @@ const Home = () => {
     // console.log(t('array'  , { returnObjects: true }));
   },[]);
 
-  const [selectedLanguageM, setSelectedLanguageM] = useState({});
-  const languages = [{
-    value: "English",
-    key: "en"
-  },
-  {
-    value: "हिन्दी",
-    key: "hi"
+    const [selectedLanguageM, setSelectedLanguageM] = useState({});
+    const languages = [{
+        value: "English",
+        key: "en",
+        disabled : false
+    },
+    {
+        value: "हिन्दी",
+        key: "hi",
+        disabled : false
 
-  }
-  // ,
-  // {
-  //   value: "ગુજરાતી",
-  //   key: "gu"
+    },
+    {
+        value: "Bangla" ,
+        key: "ba",
+        disabled : true 
 
-  // }
-  ];
+    },
+    {
+        value: "Priya",
+        key: "pr",
+        disabled : true 
+
+    },
+    {
+        value: "ગુજરાતી",
+        key: "gu",
+        disabled : true 
+
+    },
+    {
+        value: "Marathi",
+        key: "ma",
+        disabled : true 
+
+    },
+    {
+        value: "Tamil",
+        key: "ta",
+        disabled : true 
+
+    },
+    {
+        value: "Konkani",
+        key: "ko",
+        disabled : true 
+
+    }
+    ];
 
   const [showModal, setShowModal] = useState(false);
 

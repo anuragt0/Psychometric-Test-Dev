@@ -245,7 +245,7 @@ const Navbar = () => {
                 >
                   <option className="nav-item active" value="en">English</option>
                   <option className="nav-item active" value="hi">  हिन्दी  </option>
-                  {/* <option className="nav-item active" value="gu">  ગુજરાતી  </option> */}
+                  <option className="nav-item active" value="gu" disabled>  ગુજરાતી  </option>
 
                   {/* Add more options for other languages */}
 
