@@ -49,8 +49,38 @@ const Home = () => {
 
     },
     {
+        value: "Bangla" ,
+        key: "ba",
+        disabled : true 
+
+    },
+    {
+        value: "Priya",
+        key: "pr",
+        disabled : true 
+
+    },
+    {
         value: "ગુજરાતી",
         key: "gu",
+        disabled : true 
+
+    },
+    {
+        value: "Marathi",
+        key: "ma",
+        disabled : true 
+
+    },
+    {
+        value: "Tamil",
+        key: "ta",
+        disabled : true 
+
+    },
+    {
+        value: "Konkani",
+        key: "ko",
         disabled : true 
 
     }
