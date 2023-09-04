@@ -8,6 +8,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Result_M from './components/mayank/Result_M';
 import Congrats from './components/Congrats.js';
+import About from './components/About.js';
 
 import Instructions from './components/Instructions';
 import Quiz from './components/Quiz';
@@ -33,6 +34,8 @@ function App() {
           <Route path="/login" element={<Login/>} />
           <Route path="/test/result" element={<Result_M/>} />
           <Route path="/test/submit" element={<Congrats/>} />
+          <Route path="/about" element={<About/>} />
+        
 
           {/* Admin */}
           <Route path="/admin/analytics" element={<Analytics />} />
