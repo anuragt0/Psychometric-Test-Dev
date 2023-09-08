@@ -32,6 +32,7 @@ import caXpert from '../images/caXpert.svg';
                 <img src={aboutImg} alt="img" style={{height:"100%", width:"100%", marginLeft:"10%"}}></img>
             </div>
             <div className="about-cont">
+            
                 <p>
                 Discover your compliance mindset and receive<br></br>
                 personalized strategies to overcome barriers<br></br>
