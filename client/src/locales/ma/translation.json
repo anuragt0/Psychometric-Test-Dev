@@ -1,4 +1,4 @@
-{
+﻿{
   "navBar": {
     "Home": "होम",
     "About": "अबाउट",
@@ -40,13 +40,13 @@
     "welcomeMessage": "परीक्षेत आपले स्वागत आहे! या परीक्षेत 26 प्रश्न आहेत आणि प्रत्येक प्रश्नासाठी चार पर्याय असतील",
     "instructionsHeader": "सूचना:",
     "instructionList": [
-      "Ensure you are in a quiet environment to concentrate on the test.",
-      "Read each question carefully and choose the best option.",
-      "You can change an option only until you submit the test.",
-      "There is no time limit, so take your time and do your best!",
-      "After clicking the \"Start Test\" button, full-screen mode will be enabled.",
-      "This test is designed to assess your knowledge and skills in various areas.",
-      "Please answer each question to the best of your ability."
+      "तुम्ही शांत वातावरणात आहात याची खात्री करा जेणेकरून तुम्ही परीक्षेवर लक्ष केंद्रित करू शकाल.",
+      "प्रत्येक प्रश्न काळजीपूर्वक वाचा आणि सर्वोत्तम पर्याय निवडा.",
+      "तुम्ही चाचणी सबमिट करेपर्यंत तुम्ही कोणताही पर्याय बदलू शकता",
+      "कोणतीही वेळ मर्यादा नाही, म्हणून तुमचा वेळ घ्या आणि सर्वोत्तम प्रयत्न करा!",
+      "बटणावर क्लिक केल्यानंतर,\"परीक्षा सुरू करा\" पूर्ण-स्क्रिन मोड सक्षम होईल. ही परीक्षा तुमच्या ज्ञान आणि कौशल्यांचे मूल्यमापन करण्यासाठी सर्वोत्तम उत्तर द्या. ",
+      "या चाचणीत विविध क्षेत्रांमध्ये आपल्याच्या ज्ञान आणि कौशल्याची मूल्यमापन करण्यात आपले सहाय्य केलेले आहे.",
+      "ही परीक्षा तुमच्या ज्ञान आणि कौशल्यांचे मूल्यमापन करण्यासाठी सर्वोत्तम उत्तर द्या."
     ],
     "note": "नोंद:",
     "noteMessage": "तुम्ही तुमच्या चाचणीदरम्यान लॉजिक मोडमधून बाहेर पडल्यास, तुम्ही ते हुन्हा-सक्षम करण्यासाठी \" गो फुल स्क्रीन” बटणावर क्लिक करू शकता.",
