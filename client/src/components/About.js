@@ -31,10 +31,11 @@ const AboutPage = () => {
         <div className="u-about-page-landing-hero-left">
           <p className="u-about-page-landing-hero-heading">ABOUT</p>
           <p className="u-about-page-landing-hero-subheading">
-            The first pillar of Yi believes that leaders aren’t born; they are
-            made. It calls upon the students of India to recognize the leader in
-            them through various leadership skill development programs, personal
-            development programs and nation-building activities.
+          Discover your compliance mindset and receive personalized 
+          strategies to overcome barriers and achieve success. Our 
+          comprehensive test and insightful PDF report will empower you to 
+          reach new heights in your entrepreneurial journey. Reduce drop-out 
+          rates and unlock your true potential with Compliance Self Help Test.
           </p>
         </div>
         <div className="u-about-page-landing-hero-right">
@@ -48,7 +49,7 @@ const AboutPage = () => {
       {/* 2 hero */}
       <div
         className="u-about-page-landing-hero"
-        style={{ backgroundColor: "rgb(255, 255, 255)" }}
+        style={{ backgroundColor: "#E5E2D3" }}
       >
         <div className="u-about-page-hero-right">
           <img
@@ -60,29 +61,30 @@ const AboutPage = () => {
         <div className="u-about-page-landing-hero-left">
           <p className="u-about-page-landing-hero-heading">ABOUT WEP</p>
           <p className="u-about-page-landing-hero-subheading">
-            The youth carry the baton of building an India that is
-            self-sufficient, informed and on the path to development. The second
-            pillar of Yi aims to give wings to the transformative power of
-            India’s youth through various verticals that delve into present-day
-            issues.
+           WEP has a strong network of partners who provide 
+           support in various areas, including community growth, 
+           content creation, platform development, and outreach 
+           programs and events. With the help of these partners, 
+           WEP aims to create a robust entrepreneurship 
+           ecosystem for women entrepreneurs
           </p>
         </div>
       </div>
       {/* 3 hero */}
       <div
         className="u-about-page-landing-hero"
-        style={{ backgroundColor: "#E5E2D3" }}
+        style={{ backgroundColor: "#71BF44" }}
       >
         <div className="u-about-page-landing-hero-left">
           <p className="u-about-page-landing-hero-heading">
             PARTNER WITH
           </p>
           <p className="u-about-page-landing-hero-subheading">
-            The third pillar of Yi aims to nudge the innate leader in today’s
-            youth to give rise to a better India of tomorrow. It informs,
-            engages and empowers the youth of India through a contributive
-            movement of constructive action, collaborative reasoning and
-            collective voice.
+          CAXPERT is an accounting start-up focussed on shifting 
+          the book-keeping and tax filing needs of individual.
+          focussed on shifting the book-keeping and tax filing 
+          needs of individual. focussed on shifting the book-
+          keeping and tax filing needs of individual.
           </p>
         </div>
         <div className="u-about-page-hero-right">
