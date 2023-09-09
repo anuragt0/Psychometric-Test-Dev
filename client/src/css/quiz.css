@@ -75,13 +75,13 @@
 }
 
 .checked {
-  background-color: #7A9D54;
+  background-color: rgb(21, 95, 16);
   color: white;
   box-shadow: 3px 3px 4px 1px rgb(78, 69, 78);
 }
 
 .option-btn:hover {
-  background-color: #7A9D54;
+  background-color: rgb(21, 95, 16);
   color: white;
   transform: scale(105%);
 }
