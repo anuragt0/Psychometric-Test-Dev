@@ -116,8 +116,7 @@ const Navbar = () => {
       <div className={`${css.navDisplay}`}>
         <Link to="/" style={{ marginRight: "1rem"}}>
           <img src={logo} alt="CAXpert-logo" style={{
-            "width": "3rem",
-            "marginRight": "2%"
+            "width": "7rem",
           }} />
 
         </Link>
@@ -127,7 +126,7 @@ const Navbar = () => {
           data-bs-toggle="collapse"
           data-bs-target="#navbarCollapse"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className={`${css.toggler} navbar-toggler-icon `}></span>
         </button>
       </div>
 
