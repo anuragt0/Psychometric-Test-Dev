@@ -2,7 +2,7 @@ import React from 'react'
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import './home.css'
-import Image1 from './images/hero-img.png'
+import Image1 from './images/home-bg.png'
 
 // import { Footer } from './Footer'
 import { motion } from 'framer-motion'
