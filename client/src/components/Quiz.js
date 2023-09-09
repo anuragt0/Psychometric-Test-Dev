@@ -293,7 +293,8 @@ function Quiz() {
 
         const showMsg = progress < 26 ? true : false;
         const showMsg2 = (progress > 25 && progress < 50) ? true : false;
-        const showMsg3 = (progress >=50 && progress <76) ? true : false;
+        const showMsg3 = (progress ==50 ) ? true : false;
+        const showMsg31 = (progress >50 && progress <76) ? true : false;
         const showMsg4 = (progress >=76 && progress <100) ? true : false;
         const showMsg5 = (progress ===100) ? true : false;
    
@@ -379,6 +380,19 @@ function Quiz() {
                         </div> 
                     <p className="animate-charcter">{t('progressBar.msg3A')}<br></br>{t('progressBar.msg2B')}</p>
                     <img src={image4} className="startImage"></img>
+                    </div>
+                    )}
+                    {showMsg31 && (
+                    <div className="msg3" >
+                       <div className="con">
+                       {/* <Confetti
+                           width={330}
+                           height={180}
+                           numberOfPieces={100}
+                        /> */}
+                        </div> 
+                    <p className="animate-charcter">{t('progressBar.msg1A')}<br></br>{t('progressBar.msg1B')}</p>
+                    <img src={image2} className="startImage"></img>
                     </div>
                     )}
 
