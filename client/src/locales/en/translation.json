@@ -57,7 +57,7 @@
     "textCongrat": "You have successfully submitted the test.",
     "pleaseLogin": "PLEASE LOGIN OR REGISTER TO VIEW YOUR RESULT..",
     "viewResult": "Click on below button to view your report",
-    "login_btn": "login",
+    "login_btn": "Login",
     "signUp_btn": "Register",
     "viewResult_btn": "View Report",
     "toast": {
@@ -421,13 +421,13 @@
       "msg2B": "keep doing... ",
       "msg3A": "Fantastic progress! You're 50% done",
       "msg3B": "keep it up!",
-      "wellcome_75per": "Well Done! You have completed 75% of the quiz",
+      "wellcome_75per": "Well Done! You have completed more than 75% of the quiz",
       "justFinish": "You're about to finish..."
     }
   },
   "result": {
     "main": {
-      "main_heading1": "Psychometric Test results",
+      "main_heading1": "Psychometric Test Results",
       "download": "Download Result",
       "text_heading": "Psychometric Test  Results",
       "text1": "Congratulations! Here are the results of your psychometric test taken on",

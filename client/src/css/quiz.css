@@ -58,7 +58,7 @@
 .option-btn {
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   box-sizing: border-box;
-  background-color: #63c62a;
+  background-color: #F2EE9D;
   text-align: justify;
   padding: 8px 15px;
   font-size: 1.0rem;
@@ -75,14 +75,12 @@
 }
 
 .checked {
-  background-color: #45a110;
-  color: white;
+  background-color: rgb(224, 220, 145);
   box-shadow: 3px 3px 4px 1px rgb(78, 69, 78);
 }
 
 .option-btn:hover {
-  background-color: #45a110;
-  color: white;
+  background-color: rgb(224, 220, 145);
   transform: scale(105%);
 }
 
