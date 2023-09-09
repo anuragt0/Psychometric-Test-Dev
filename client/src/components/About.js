@@ -13,12 +13,12 @@ const AboutPage = () => {
           <p className="u-about-page-landing-slogan">We Are <br></br> UDYAM UPLIFT</p>
         </div>
         <div className="u-about-page-landing-div-right">
-          {/* <p className="u-about-page-landing-slogan">'We Can, We Will'</p> */}
           <img
             src={aboutBg}
             alt=""
             className="u-about-page-landing-slogan-bg"
           />
+          <div className="bg"></div>
         </div>
       </div>
       <div>

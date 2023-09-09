@@ -31,7 +31,6 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import the CSS
 
 
 function Quiz() {
-    window.scrollTo(0, 0);
 
     const { t } = useTranslation("translation", { keyPrefix: 'quiz' });
     const { userTestResponses, setUserTestResponses } = useLanguage();
@@ -401,7 +400,7 @@ function Quiz() {
                     
                     </div>
                     
-                    <img src={imageArray[currentQuestionIndex]} alt="img" />
+                    <img src={imageArray[currentQuestionIndex]} alt="img"/>
                 </div>
 
             </> : <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>

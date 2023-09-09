@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Charmonman&family=Noto+Sans:wght@300&display=swap');
+
 .u-about-page-outer-div {
   margin-top: 9rem;
   margin-bottom: 1.5rem;
@@ -15,19 +17,27 @@
 }
 
 .u-about-page-landing-slogan {
-  font-size: 3.8rem;
-  font-family: sans-serif;
-  text-align: center;
-  margin-left: 2rem;
+  font-size: 4rem;
+  font-family: noto sans;
+  margin-left: 5rem;
+  color: rgb(8, 50, 5);
 }
 
 .u-about-page-landing-slogan-bg {
   position: absolute;
   width: 600px;
   top: -120px;
-  left: 100px;
-  border-radius: 40% 20% 42% 40%;
+  left: 200px;
 }
+.bg{
+    position: absolute;
+    background-image: linear-gradient(black, #71BF44);
+    height: 339px;
+    width: 600px;
+    top: -120px;
+    left: 200px;
+    opacity: 0.4;
+  }
 .u-about-page-landing-hero {
   display: flex;
   border-radius: 0.4rem;
@@ -95,14 +105,29 @@
   .u-about-page-landing-slogan {
     font-size: 2rem;
     position: absolute;
-    left: 2rem;
-    Margin-top:6rem;
+    left: 0rem;
+    text-align:center;
+    color: white;
+    Margin-top:0rem;
+    z-index: 999;
+  }
+
+  .bg{
+    position: absolute;
+    background-image: linear-gradient(black, #71BF44);
+    width: 90%;
+    height: 250px;
+    top: -80px;
+    left: 20px;
+    opacity: 0.4;
   }
 
   .u-about-page-landing-slogan-bg {
-    width: 300px;
+    width: 90%;
+    height: 250px;
     top: -80px;
-    left: 30px;
+    left: 20px;
+    /* opacity: 0.8; */
   }
 
   .u-about-page-landing-hero {
