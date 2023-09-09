@@ -4,10 +4,6 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  /* background: url("./images/bg-mobile.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center; */
 }
 
 /* PAGE 1 */
@@ -17,7 +13,6 @@ body {
   font-family: 'Sora', sans-serif;
   background-color: #E5E2D3;
   height: 100vh;
-  width: 100vw;
 }
 
 .img-container,
@@ -183,6 +178,8 @@ padding-top: 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    height: 100%;
+    /* width: 100%;  */
   }
 
   .container-2{
