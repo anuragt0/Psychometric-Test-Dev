@@ -2,7 +2,7 @@ import React from 'react'
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import './home.css'
-import Image1 from './images/hero-img.png'
+import Image1 from './images/home-bg.png'
 
 // import { Footer } from './Footer'
 import { motion } from 'framer-motion'
@@ -22,6 +22,7 @@ import LanguageSelectorModal from './LanguageSelectorModal';
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from '../../context/LanguageContext';
+import { faL } from '@fortawesome/free-solid-svg-icons'
 
 
 const Home = () => {
@@ -55,6 +56,12 @@ const Home = () => {
 
   },
   {
+    value: "मराठी",
+    key: "ma",
+    disabled: false
+
+  },
+  {
     value: "বাংলা",
     key: "ba",
     disabled: true
@@ -63,12 +70,6 @@ const Home = () => {
   {
     value: "ગુજરાતી",
     key: "gu",
-    disabled: true
-
-  },
-  {
-    value: "मराठी",
-    key: "ma",
     disabled: true
 
   },
