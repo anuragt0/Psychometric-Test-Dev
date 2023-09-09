@@ -158,7 +158,7 @@ const Navbar = () => {
               </Link>
             </motion.div>
           </li>
-          <li className="nav-item active">
+          {/* <li className="nav-item active">
             <motion.div
               whileHover={{ scale: 1.1 }}
               transition={{
@@ -172,7 +172,7 @@ const Navbar = () => {
                 {t('More')}
               </Link>
             </motion.div>
-          </li>
+          </li> */}
           {localStorage.getItem("token") && verifyUser() && (
   <li className="nav-item active">
     <motion.div
