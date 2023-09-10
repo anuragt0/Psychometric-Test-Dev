@@ -1,4 +1,8 @@
-import React from "react";
+import React ,{ useEffect }from "react";
+
+import i18n from "i18next";
+import { useTranslation } from 'react-i18next';
+
 import aboutImg from '../images/about-img.svg'
 import wepLogo from '../images/wep-logo.svg';
 import caXpert from '../images/caXpert.svg';
@@ -6,11 +10,20 @@ import aboutBg from '../images/aboutBg.png';
 import "../css/about.css";
 
 const AboutPage = () => {
+
+  const { t } = useTranslation("translation", { keyPrefix: 'about' });
+
+  useEffect(() => {
+    let currentLang = localStorage.getItem('lang');
+    i18n.changeLanguage(currentLang);
+
+  }, []);
+
   return (
     <div className="u-about-page-outer-div">
       <div className="u-about-page-landing-div">
         <div className="u-about-page-landing-div-left">
-          <p className="u-about-page-landing-slogan">We Are <br></br> UDYAM UPLIFT</p>
+          <p className="u-about-page-landing-slogan">{t('weAre')}<br></br> {t('udyamUplift')} </p>
         </div>
         <div className="u-about-page-landing-div-right">
           <img
@@ -29,13 +42,9 @@ const AboutPage = () => {
         style={{ backgroundColor: "#71BF44" }}
       >
         <div className="u-about-page-landing-hero-left">
-          <p className="u-about-page-landing-hero-heading">ABOUT</p>
+          <p className="u-about-page-landing-hero-heading">{t('aboutWord')}</p>
           <p className="u-about-page-landing-hero-subheading">
-          Discover your compliance mindset and receive personalized 
-          strategies to overcome barriers and achieve success. Our 
-          comprehensive test and insightful PDF report will empower you to 
-          reach new heights in your entrepreneurial journey. Reduce drop-out 
-          rates and unlock your true potential with Compliance Self Help Test.
+            {t('discoverComplianceMindset')}
           </p>
         </div>
         <div className="u-about-page-landing-hero-right">
@@ -59,14 +68,9 @@ const AboutPage = () => {
           />
         </div>
         <div className="u-about-page-landing-hero-left">
-          <p className="u-about-page-landing-hero-heading">ABOUT WEP</p>
+          <p className="u-about-page-landing-hero-heading">{t('aboutWEP')}</p>
           <p className="u-about-page-landing-hero-subheading">
-           WEP has a strong network of partners who provide 
-           support in various areas, including community growth, 
-           content creation, platform development, and outreach 
-           programs and events. With the help of these partners, 
-           WEP aims to create a robust entrepreneurship 
-           ecosystem for women entrepreneurs
+            {t('WEPNetworkPartners')}
           </p>
         </div>
       </div>
@@ -77,14 +81,10 @@ const AboutPage = () => {
       >
         <div className="u-about-page-landing-hero-left">
           <p className="u-about-page-landing-hero-heading">
-            PARTNER WITH
+            {t('partnerWith')}
           </p>
           <p className="u-about-page-landing-hero-subheading">
-          CAXPERT is an accounting start-up focussed on shifting 
-          the book-keeping and tax filing needs of individual.
-          focussed on shifting the book-keeping and tax filing 
-          needs of individual. focussed on shifting the book-
-          keeping and tax filing needs of individual.
+            {t('caxpertDescription')}
           </p>
         </div>
         <div className="u-about-page-hero-right">

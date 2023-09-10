@@ -78,7 +78,6 @@ const Navbar = () => {
       });
 
       const result = await response.json()
-      console.log("here: ", result);
       if (result.isAdmin === true) {
         setIsAdmin(true);
       }
@@ -125,8 +124,11 @@ const Navbar = () => {
           className={`${css.hamStyle} navbar-toggler`}
           data-bs-toggle="collapse"
           data-bs-target="#navbarCollapse"
+          style= {{width: "60px"}}
         >
-          <span className={`${css.toggler} navbar-toggler-icon `}></span>
+          <span className={`${css.toggler} navbar-toggler-icon `}
+         
+          ></span>
         </button>
       </div>
 

@@ -410,9 +410,9 @@ function Quiz() {
                     </div>
                     )}
                     
-                    <div className="box">
+                    {/* <div className="box">
                     
-                    </div>
+                    </div> */}
                     
                     <img src={imageArray[currentQuestionIndex]} alt="img"/>
                 </div>
