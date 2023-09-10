@@ -58,7 +58,7 @@
 .option-btn {
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   box-sizing: border-box;
-  background-color: #F2EE9D;
+  background-color: #90EE90;
   text-align: justify;
   padding: 8px 15px;
   font-size: 1.0rem;
@@ -75,12 +75,15 @@
 }
 
 .checked {
-  background-color: rgb(224, 220, 145);
+  background-color: #4ba94b;
+  color: whitesmoke;
   box-shadow: 3px 3px 4px 1px rgb(78, 69, 78);
 }
 
 .option-btn:hover {
-  background-color: rgb(224, 220, 145);
+  background-color: #4ba94b;
+  /* background-color: #dee3e5; */
+  color: whitesmoke;
   transform: scale(105%);
 }
 
@@ -89,7 +92,7 @@
 .submit-button {
   padding: 10px;
   border: none;
-  background-color: rgb(21, 95, 16);
+  background-color: #4ba94b;
   color: white;
   border-radius: 5px;
   box-shadow: 1px 1px 4px 1px #333;
@@ -103,13 +106,13 @@
 
 #next-button:hover,
 #prev-button:hover {
-  background-color: rgb(13, 67, 10);
+  background-color: #38a038;
 }
 
 .submit-button:hover {
-  background-color: rgb(8, 50, 5);
+  background-color: #4ba94b;
   color: white;
-  border: rgb(8, 50, 5);
+  border: #4ba94b;
 }
 
 #next-button,
