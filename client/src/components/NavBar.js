@@ -78,7 +78,6 @@ const Navbar = () => {
       });
 
       const result = await response.json()
-      console.log("here: ", result);
       if (result.isAdmin === true) {
         setIsAdmin(true);
       }

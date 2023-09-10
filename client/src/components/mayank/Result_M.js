@@ -137,14 +137,14 @@ const qualities_arr = t(graph_uri+'.qualities',{returnObjects: true});
         setResponses(response1.userDoc.testResponse);
         setTestDate(formatDateWithCustomTime(response1.userDoc.lastTestDate));
         setUserName(response1.userDoc.name);
-        console.log(formatDateWithCustomTime(response1.userDoc.lastTestDate));
+        // console.log(formatDateWithCustomTime(response1.userDoc.lastTestDate));
         setLoading(false);
     }
 
     //* Download Functionallity Start*//
     const pdfRef =useRef() ;
     const handleDownloadClick = () => {
-        console.log ("Download Started...");
+        // console.log ("Download Started...");
         setDownloading(true);
         const input = pdfRef.current ;
         html2canvas(input).then((canvas) => {

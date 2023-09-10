@@ -90,7 +90,6 @@ const Home = () => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    console.log('useEffect is triggered');
     let returningUser = localStorage.getItem('hasVisited');
     const timer = setTimeout(() => {
       setShowModal(!returningUser);
@@ -99,7 +98,6 @@ const Home = () => {
   }, []);
 
   const handleLanguageSelect = language => {
-    console.log({ useLanguage });
     setSelectedLanguageM(language);
     localStorage.setItem('lang', language);
     i18n.changeLanguage(language);
