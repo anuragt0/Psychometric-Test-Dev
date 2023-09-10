@@ -28,7 +28,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import the CSS
 
 
 
-
+ 
 
 function Quiz() {
 
