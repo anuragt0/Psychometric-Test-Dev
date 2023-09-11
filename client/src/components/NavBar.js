@@ -115,7 +115,7 @@ const Navbar = () => {
       <div className={`${css.navDisplay}`}>
         <Link to="/" style={{ marginRight: "1rem"}}>
           <img src={logo} alt="CAXpert-logo" style={{
-            "width": "9rem"
+            "width": "11rem"
           }} />
 
         </Link>
