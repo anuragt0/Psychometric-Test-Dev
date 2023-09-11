@@ -44,7 +44,6 @@ function Quiz() {
         //   console.log(currentLang);
         //! Storing Question Array According to the language in LocalStorage
         const questions1 = t('question', { returnObjects: true });
-        console.log(questions1);
         setQuestions(questions1);
         // setLoading(false);
 
@@ -306,7 +305,7 @@ function Quiz() {
                 progress={progress2}
                 height={4}
                 shadow={false}
-                style={{ position: "absolute", top: "67px" }}
+                style={{ position: "absolute", top: "75px" }}
                 // onLoaderFinished={() => setProgress(0)}
             />
 

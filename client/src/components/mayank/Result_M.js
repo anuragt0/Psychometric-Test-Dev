@@ -16,8 +16,6 @@ import "./result.css"
 //for Pdf downloadind Functionality
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-import html2pdf from 'html2pdf.js';
-
 
 // import { UserData } from "./Data";
 
@@ -167,30 +165,6 @@ const qualities_arr = t(graph_uri+'.qualities',{returnObjects: true});
     };
     //* Download Functionallity Ends *//
 
-    const handleDownloadPDF = () => {
-
-        const content = document.getElementById('result-page'); 
-        console.log("here", content);
-    
-        const pdfOptions = {
-          margin: 10,
-          filename: 'result.pdf',
-          image: { type: 'jpeg', quality: 0.98 },
-          html2canvas: { scale: 2 },
-          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-        };
-    
-        html2pdf().from(content).set(pdfOptions).outputPdf((pdf) => {
-          const blob = pdf.output('blob');
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = 'result.pdf';
-          a.click();
-          URL.revokeObjectURL(url);
-        });
-      };
-
     //*Current Date and Time *//
     function getDaySuffix(day) {
         if (day >= 11 && day <= 13) {
@@ -220,10 +194,11 @@ const qualities_arr = t(graph_uri+'.qualities',{returnObjects: true});
 
     return (
 
-      <div id="result-page">
+      <>
+
 
         {responses.length !== 0 && !loading ? (
-          <div  className="result-page" ref={pdfRef}>
+          <div className="result-page" ref={pdfRef}>
             <div className="header">
               <motion.h2 className="page-heading"
                 whileHover={{ scale: 1.025 }} transition={{ type: 'spring', stiffness: 300 }}
@@ -363,16 +338,15 @@ const qualities_arr = t(graph_uri+'.qualities',{returnObjects: true});
               </p>
               ... Add more content about the test results as needed ... */}
             </div>
-            <button className="btn btn-success" onClick={handleDownloadPDF}>Download</button>
-            {/* <motion.div
+            <motion.div
               whileHover={{ scale: 1.01 }} transition={{ type: 'spring', stiffness: 300 }}
             // whileTap={{ scale: 0.9 }}
             >
-              <button className="download-button" onClick={handleDownloadPDF} disabled={downloading}>
+              <button className="download-button" onClick={handleDownloadClick} disabled={downloading}>
                 <FiDownload className="download-icon" />
                 {downloading ? t('toast.pleaseWait') : t('main.download')}
               </button>
-            </motion.div> */}
+            </motion.div>
             {/* <button  className="download-button" onClick={handleDownloadClick} disabled={downloading}>
                             <FiDownload className="download-icon" />
                             {downloading? t('toast.pleaseWait'): t('main.download') } 
@@ -386,7 +360,7 @@ const qualities_arr = t(graph_uri+'.qualities',{returnObjects: true});
 
         {/* <Footer></Footer> */}
 
-      </div>
+      </>
 
     );
 }
