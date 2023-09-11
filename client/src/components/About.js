@@ -24,9 +24,9 @@ const AboutPage = () => {
       <div className="u-about-page-landing-div">
         <div className="u-about-page-landing-div-left">
           <p className="u-about-page-landing-slogan">{t('weAre')}<br></br> {t('udyamUplift')} </p>
-          <p className="u-about-page-landing-about">{t('Do not let psychological barriers hold you back.')} <br></br>
-                                                    {t('Take the Compliance Self Help Test and gain personalized')} <br></br>
-                                                    {t('insights to overcome obstacles and excel in your business ventures.')}</p>
+          <p className="u-about-page-landing-about">Do not let psychological barriers hold you back.<br></br>
+                                                    Take the Compliance Self Help Test and gain personalized <br></br>
+                                                    insights to overcome obstacles and excel in your business ventures.</p>
         </div>
         <div className="u-about-page-landing-div-right">
           <img
