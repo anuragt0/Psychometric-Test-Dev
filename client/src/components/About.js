@@ -24,6 +24,9 @@ const AboutPage = () => {
       <div className="u-about-page-landing-div">
         <div className="u-about-page-landing-div-left">
           <p className="u-about-page-landing-slogan">{t('weAre')}<br></br> {t('udyamUplift')} </p>
+          <p className="u-about-page-landing-about">{t('Do not let psychological barriers hold you back.')} <br></br>
+                                                    {t('Take the Compliance Self Help Test and gain personalized')} <br></br>
+                                                    {t('insights to overcome obstacles and excel in your business ventures.')}</p>
         </div>
         <div className="u-about-page-landing-div-right">
           <img
@@ -39,7 +42,7 @@ const AboutPage = () => {
       {/* 1 hero */}
       <div
         className="u-about-page-landing-hero"
-        style={{ backgroundColor: "#71BF44" }}
+        style={{ backgroundColor: "#E5E2D3" }}
       >
         <div className="u-about-page-landing-hero-left">
           <p className="u-about-page-landing-hero-heading">{t('aboutWord')}</p>
@@ -58,7 +61,7 @@ const AboutPage = () => {
       {/* 2 hero */}
       <div
         className="u-about-page-landing-hero"
-        style={{ backgroundColor: "#E5E2D3" }}
+        style={{ backgroundColor: "#71BF44" }}
       >
         <div className="u-about-page-hero-right">
           <img
@@ -77,7 +80,7 @@ const AboutPage = () => {
       {/* 3 hero */}
       <div
         className="u-about-page-landing-hero"
-        style={{ backgroundColor: "#71BF44" }}
+        style={{ backgroundColor: "#E5E2D3" }}
       >
         <div className="u-about-page-landing-hero-left">
           <p className="u-about-page-landing-hero-heading">
