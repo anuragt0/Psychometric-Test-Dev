@@ -10,17 +10,7 @@
   margin-right: 2%;
 }
 
-/* .navDisplay{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  } */
 
-
-/* .hamStyle{
-    margin-left: 200px;
-    margin-top: -2px;
-  } */
 
 .languageContainer {
   display: flex;
@@ -115,6 +105,9 @@
   .hamStyle {
     /* margin-left: 150px; */
     margin-top: -2px;
+  }
+  .hamStyle:hover{
+    background:#fff !important ;
   }
 
   /* .toggler{

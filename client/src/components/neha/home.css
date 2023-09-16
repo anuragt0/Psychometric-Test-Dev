@@ -7,12 +7,13 @@ body {
 }
 
 /* PAGE 1 */
-
 .container-page1 {
   padding: 0 30px;
   font-family: 'Sora', sans-serif;
   background-color: #E5E2D3;
-  height: 95vh;
+  /* height: 100vh; */
+  min-height: 100vh; /* Use min-height to ensure it covers at least the viewport height */
+
 }
 
 .img-container,

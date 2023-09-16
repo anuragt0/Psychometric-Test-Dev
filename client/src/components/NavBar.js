@@ -1,14 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef} from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { server_origin } from '../utilities/constants';
 import { motion } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { toast, Toaster } from "react-hot-toast";
-
-
-
-// import img from "../../assets/images/yi_logo.png";
 
 // My css
 import css from "../css/navbar.module.css";
@@ -19,8 +15,6 @@ import logo from "../assests/logo.png";
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
 import '../library/i18n';
-import { MdOutlineArrowDropDown } from 'react-icons/md';
-
 import { useLanguage } from '../context/LanguageContext';
 
 
@@ -29,7 +23,6 @@ const Navbar = () => {
   const { pathname } = useLocation(); // Get the current route path
 
   //? Language Functionality Starts *Translation* ............................................................
-
 
 
   const { t } = useTranslation("translation", { keyPrefix: 'navBar' });
@@ -51,8 +44,6 @@ const Navbar = () => {
     let currentLang = localStorage.getItem('lang');
     i18n.changeLanguage(currentLang);
 
-    // console.log(t('array'  , { returnObjects: true }));
-
   }, []);
 
 
@@ -65,6 +56,7 @@ const Navbar = () => {
 
   useEffect(() => {
     verifyUser();
+
   }, [])
 
   const verifyUser = async () => {
@@ -110,7 +102,8 @@ const Navbar = () => {
 
   return (
     <nav className={`${css.outerNav} navbar navbar-expand-lg fixed-top`}
-      style={{ position: "sticky", top: 0, zIndex: 100 }}>
+      style={{ position: "sticky", top: 0, zIndex: 100 }}
+      >
 
       <div className={`${css.navDisplay}`}>
         <Link to="/" style={{ marginRight: "1rem"}}>
@@ -124,7 +117,9 @@ const Navbar = () => {
           className={`${css.hamStyle} navbar-toggler`}
           data-bs-toggle="collapse"
           data-bs-target="#navbarCollapse"
+          id="hamburger-btn"
           style= {{width: "60px"}}
+          
         >
           <span className={`${css.toggler} navbar-toggler-icon `}
          
@@ -132,7 +127,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      <div className="collapse navbar-collapse" id="navbarCollapse">
+      <div className={`collapse navbar-collapse`} id="navbarCollapse">
         <ul className="navbar-nav mr-auto text-ff1">
           <li className="nav-item active">
             <motion.div
@@ -160,21 +155,6 @@ const Navbar = () => {
               </Link>
             </motion.div>
           </li>
-          {/* <li className="nav-item active">
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              transition={{
-                type: 'spring', stiffness: 300
-              }}>
-              <Link
-                className="nav-link active"
-                to="/more"
-                style={{color: "#333", fontWeight: "bold"}}
-              >
-                {t('More')}
-              </Link>
-            </motion.div>
-          </li> */}
           {localStorage.getItem("token") && verifyUser() && (
   <li className="nav-item active">
     <motion.div
