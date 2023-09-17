@@ -21,8 +21,8 @@ h1{
 .img1{
   margin-left: 5%;
   margin-top:5px;
-  width: 18%;
-  height: auto;
+  /* width: 18%;
+  height: auto; */
 }
 .head{
   font-family: 'Noto Serif', serif;
