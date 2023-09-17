@@ -88,7 +88,7 @@ function RadialBarChartComponent({ responses , onRadialData }) {
     { fill: '#547835' },
     { fill: '#d78c00' },
     { fill: '#df6000' },
-    { fill: '#f7f7f7' },
+    { fill: '#fdfbf1' },
   ];
 
   sortedData.forEach((data, index) => {

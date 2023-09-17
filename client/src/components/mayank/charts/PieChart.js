@@ -58,10 +58,16 @@ function PieChartCom ({responses , onPieData}) {
   compliance  = Math.round((compliance/total)*100);
   obedience   = Math.round((obedience/total)*100);
 
+  // const data = [
+  //   { name: t('label1'),value: confirimity , fill:'#FFBA00' },
+  //   { name: t('label2'), value: compliance , fill:'#6CA044'},
+  //   { name: t('label3'), value: obedience , fill:'#A24F10'}
+  // ];
+
   const data = [
-    { name: t('label1'),value: confirimity , fill:'#FFBA00' },
-    { name: t('label2'), value: compliance , fill:'#6CA044'},
-    { name: t('label3'), value: obedience , fill:'#A24F10'}
+    { name: t('label1'),value: confirimity , fill:'#57674a' },
+    { name: t('label2'), value: compliance , fill:'#294826'},
+    { name: t('label3'), value: obedience , fill:'#bbcbca'}
   ];
 
   useEffect(() => {
@@ -111,7 +117,7 @@ function PieChartCom ({responses , onPieData}) {
 
             return (
               <text 
-                x={x} y={y} fill="#000000"
+                x={x} y={y} fill="#fdfbf1"
                 textAnchor={x > cx ? 'start' : 'end'}
                 dominantBaseline="central"
                 style={{ fontWeight: 'bold', fontSize: 30  }}
