@@ -210,9 +210,9 @@ function Result_M() {
           <div className="inner-1">
             <div className="head-main">
               <img src={logo2} alt="badge" className="img1" style={{ float: "left" }}></img>
-              <h1 className="head" >{t('main.congratulations')}!</h1>
-              <h4 className="head-1"> {userName} , you have successfully <br></br>
-                completed the Udyam Uplift Test</h4>
+              <h1 className="head" >{t('main.congratulations')}</h1>
+              <h4 className="head-1"> {userName} , {t('main.congo_text1')}<br></br>
+              {t('main.congo_text2')}</h4>
               <button className="rounded-btn1" onClick={handlePrint} disabled={downloading}>
                 {downloading ? t('toast.pleaseWait') : t('main.download')}
               </button>
@@ -220,9 +220,9 @@ function Result_M() {
           </div>
 
           <div className="inner-2">
-            <p className="head2" style={{ textAlign: "center" }}>Here are the results of your psychometric test taken on {testDate}. The test assessed your personality <br></br>traits, cognitive abilities, and emotional intelligence. The test results provide valuable insights into your<br></br> strengths and areas for development, helping you understand yourself better.</p>
+            <p className="head2" style={{ textAlign: "center" }}>{t('main.text1')} <strong>{testDate}</strong> {t('main.text2')}</p>
             <br></br>
-            <h2 className="head3" style={{ textAlign: "center" }}>YOU ARE AN <span className="head4">{t(graph_uri + '.name')}</span> PERSON</h2>
+            <h2 className="head3" style={{ textAlign: "center" }}>{t('main.person_text1')} <span className="head4">{t(graph_uri + '.name')}</span> {t('main.person_text2')} </h2>
           </div>
           <div className="quad-graph">
             <Graph responses={responses} onGraphData={handleGraphData} />
@@ -231,7 +231,7 @@ function Result_M() {
 
           <div className="inner-3">
 
-            <h2 style={{ textAlign: "center" }}><span className="head-5">YOUR QUALITIES</span></h2>
+            <h2 style={{ textAlign: "center" }}><span className="head-5">{t('main.yourQualities')} </span></h2>
             <br></br>
             <div className="image-star">
               <img src={t1} alt="star" width="60px" height="60px" className="t1"></img>
