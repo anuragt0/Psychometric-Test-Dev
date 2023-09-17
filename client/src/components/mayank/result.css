@@ -26,15 +26,16 @@ h1{
 }
 .head{
   font-family: 'Noto Serif', serif;
-  font-size:60px;
+  font-size:65px;
   color:#dbdfd4;
   padding-top: 30px;
+  text-transform: uppercase;
   text-align: left;
-  margin-left: 10%;
+  margin-left: 4.5%;
 }
 .head-1{
-  font-family: 'Noto Serif', serif;
-  font-size:30px;
+  font-family: 'Noto' serif;
+  font-size:28px;
   color:#dbdfd4;
   margin-top: 8%;
   margin-left: 28%;
@@ -57,7 +58,7 @@ h1{
   width: 15%;
   border-radius:25px;
   margin-left: 65%;
-  margin-top: 10.5%;
+  margin-top: 10%;
 }
 .inner-2{
   background-color:#FDFBF0;
@@ -69,12 +70,14 @@ h1{
   font-family: 'NOTO' serif;
   color: #405738;
   margin-bottom: 25px;
+  line-height: 1.5;
 }
 .head3{
   font-size: 40px;
   font-family: 'Noto Serif', serif;
   color: #294826;
   margin-top:-30px;
+  text-transform: uppercase;
 }
 .head4{
   color:white;
@@ -90,6 +93,7 @@ h1{
   font-size:17px;
   color:#294826;
   margin:20px 70px;
+  line-height: 1.5;
 }
 .inner-3{
   background-color:#fdfbf1;
