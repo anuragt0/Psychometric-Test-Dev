@@ -80,10 +80,10 @@ const Graph = ({ responses, onGraphData }) => {
 
   // Find the option selected the maximum number of times
   const maxOptionIndex = optionCount.indexOf(Math.max(...optionCount));
-  // const maxOption = maxOptionIndex + 1;
+  const maxOption = maxOptionIndex + 1;
   // console.log(optionCount);
   // console.log(maxOption);
-  const maxOption = 1;
+  // const maxOption = 4;
 
   return (
     <>
@@ -105,7 +105,7 @@ const Graph = ({ responses, onGraphData }) => {
             stroke="dotted"
             strokeOpacity={1}
             fill="#57674a"
-            fillOpacity={0.8}
+            fillOpacity={1.8}
           /> : <ReferenceArea x1={5.7} y1={7} x2={9.5} y2={8} fill="#57674a" fillOpacity={1} />
         }
 
@@ -116,7 +116,7 @@ const Graph = ({ responses, onGraphData }) => {
             stroke="dotted"
             strokeOpacity={0.5}
             fill="#bbc29c"
-            fillOpacity={0.8}
+            fillOpacity={1.8}
           /> : <ReferenceArea x1={5.7} y1={2} x2={9.5} y2={3} fill="#bbc29c" fillOpacity={1} />
 }
 
@@ -127,7 +127,7 @@ const Graph = ({ responses, onGraphData }) => {
             stroke="dotted"
             strokeOpacity={1}
             fill="#294826"
-            fillOpacity={0.8}
+            fillOpacity={1.8}
           /> :<ReferenceArea x1={0.7} y1={7} x2={4.5} y2={8} fill="#294826" fillOpacity={1} />
 }
 
@@ -138,7 +138,7 @@ const Graph = ({ responses, onGraphData }) => {
             stroke="dotted"
             strokeOpacity={0.5}
             fill="#9fa298"
-            fillOpacity={0.8}
+            fillOpacity={1.8}
           /> :<ReferenceArea x1={0.7} y1={2} x2={4.5} y2={3} fill="#9fa298" fillOpacity={1} />
 }
 
