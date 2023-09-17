@@ -139,19 +139,24 @@ margin-right:150px;
   color: #405738;
 }
 .ht1{
-  margin-left: 110px;
+  margin-left: 120px;
+  width: 10%;
 }
 .ht2{
-  margin-left:50px;
+  margin-left:20px;
+  width: 20%;
 }
 .ht3{
-  margin-right:50px;
+  margin-right:110px;
+  width: 10%;
 }
 .ht4{
-  margin-left:320px;
+  margin-left:330px;
+  width: 15%;
 }
 .ht5{
-  margin-right: 270px;
+  margin-right: 320px;
+  width: 15%;
 }
 .text-pie{
   display: flex;
