@@ -16,6 +16,7 @@ import {
   ReferenceLine,
   ReferenceArea,
   Rectangle,
+  ResponsiveContainer,
   // Rectangle
 } from 'recharts';
 // import { BsAspectRatio } from 'react-icons/bs';
@@ -99,7 +100,7 @@ const Graph = ({ responses, onGraphData }) => {
         {/* Creating the rectangles with dotted border */}
 
         {maxOption === 1 ?
-          <ReferenceArea  className='rectangle-shadow'// Ideal Normative
+          <ReferenceArea className='rectangle-shadow'// Ideal Normative
             x1={5.2} y1={5.3}
             x2={9.8} y2={9.7}
             stroke="dotted"
@@ -118,9 +119,9 @@ const Graph = ({ responses, onGraphData }) => {
             fill="#bbc29c"
             fillOpacity={1.8}
           /> : <ReferenceArea x1={5.7} y1={2} x2={9.5} y2={3} fill="#bbc29c" fillOpacity={1} />
-}
+        }
 
-        {maxOption === 3 ? 
+        {maxOption === 3 ?
           <ReferenceArea className='rectangle-shadow'//Information Driven
             x1={0.2} y1={5.3}
             x2={4.8} y2={9.7}
@@ -128,8 +129,8 @@ const Graph = ({ responses, onGraphData }) => {
             strokeOpacity={1}
             fill="#294826"
             fillOpacity={1.8}
-          /> :<ReferenceArea x1={0.7} y1={7} x2={4.5} y2={8} fill="#294826" fillOpacity={1} />
-}
+          /> : <ReferenceArea x1={0.7} y1={7} x2={4.5} y2={8} fill="#294826" fillOpacity={1} />
+        }
 
         {maxOption === 4 ?
           <ReferenceArea className='rectangle-shadow'//Individualist Rebellion
@@ -139,8 +140,8 @@ const Graph = ({ responses, onGraphData }) => {
             strokeOpacity={0.5}
             fill="#9fa298"
             fillOpacity={1.8}
-          /> :<ReferenceArea x1={0.7} y1={2} x2={4.5} y2={3} fill="#9fa298" fillOpacity={1} />
-}
+          /> : <ReferenceArea x1={0.7} y1={2} x2={4.5} y2={3} fill="#9fa298" fillOpacity={1} />
+        }
 
 
         <Scatter data={data} fill={data.fill}>
