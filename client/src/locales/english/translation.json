@@ -422,7 +422,8 @@
       "msg3A": "Fantastic progress! You're 50% done",
       "msg3B": "keep it up!",
       "wellcome_75per": "Well Done! You have completed more than 75% of the quiz",
-      "justFinish": "You're about to finish..."
+      "justFinish": "You're about to finish...",
+      "completed":"SUCCESSFULLY COMPLETED THE TEST!"
     }
   },
   "result": {
