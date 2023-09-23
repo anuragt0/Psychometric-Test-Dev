@@ -209,58 +209,75 @@ function Result_M() {
         <div className="result-page" ref={componentRef}>
           <div className="inner-1">
             <div className="head-main">
-              <img src={logo2} alt="badge" className="img1" style={{ float: "left" }}></img>
+              <img src={logo2} alt="badge" className="img1" ></img>
               <h1 className="head" >{t('main.congratulations')}</h1>
               <h4 className="head-1"> {userName} , {t('main.congo_text1')}<br></br>
               {t('main.congo_text2')}</h4>
-              <button className="rounded-btn1" onClick={handlePrint} disabled={downloading}>
+            </div>
+             <button className="rounded-btn1" onClick={handlePrint} disabled={downloading}>
                 {downloading ? t('toast.pleaseWait') : t('main.download')}
               </button>
-            </div>
           </div>
 
           <div className="inner-2">
             <p className="head2" style={{ textAlign: "center" }}>{t('main.text1')} <strong>{testDate}</strong> {t('main.text2')}</p>
             <br></br>
             <h2 className="head3" style={{ textAlign: "center" }}>{t('main.person_text1')} <span className="head4">{t(graph_uri + '.name')}</span> {t('main.person_text2')} </h2>
-          </div>
+        
+
           <div className="quad-graph">
             <Graph responses={responses} onGraphData={handleGraphData} />
           </div>
-          <p className="text1" style={{ textAlign: "center" }}>{t(graph_uri + '.description')}</p>
+          </div>
+
+          <p className="text1">{t(graph_uri + '.description')}</p>
 
           <div className="inner-3">
+          <div className="big-container">
+            <h2><span className="your-qualities">{t('main.yourQualities')} </span></h2>
+            
+            <div className="first">
+              <div className="cont">
+              <img src={t1}></img>
+              <h4>{qualities_arr[0]}</h4>
+              </div>
+              <div className="cont">
+              <img src={t1}></img>
+              <h4>{qualities_arr[1]}</h4>
+              </div>
+              <div className="cont">
+              <img src={t1}></img>
+              <h4>{qualities_arr[2]}</h4>
+              </div>
+            </div>
 
-            <h2 style={{ textAlign: "center" }}><span className="head-5">{t('main.yourQualities')} </span></h2>
-            <br></br>
-            <div className="image-star">
-              <img src={t1} alt="star" width="60px" height="60px" className="t1"></img>
-              <img src={t1} alt="star" width="60px" height="60px" className="t2"></img>
-              <img src={t1} alt="star" width="60px" height="60px" className="t3"></img>
-            </div>
-            <div className="text-under-star">
-              <h4 className="ht1">{qualities_arr[0]}</h4>
-              <h4 className="ht2">{qualities_arr[1]}</h4>
-              <h4 className="ht3">{qualities_arr[2]}</h4>
-            </div>
-            <br></br>
-            <div className="image-star">
-              <img src={t1} alt="star" width="60px" height="60px" className="t4"></img>
-              <img src={t1} alt="star" width="60px" height="60px" className="t5"></img>
-            </div>
-            <div className="text-under-star">
+            
+            <div className="second">
+              <div className="cont">
+              <img src={t1}></img>
               <h4 className="ht4">{qualities_arr[3]}</h4>
+              </div>
+              <div className="cont">
+              <img src={t1}></img>
               <h4 className="ht5">{qualities_arr[4]}</h4>
+              </div>
             </div>
-            <br /><br /><br />
+           </div>
+          
 
-            <h2 style={{ textAlign: "center" }}><span className="head-5">{t('pie.sub_heading')}</span></h2>
-            <div className="text-pie">
+            <div className="pie-area">
+            <h2 style={{ textAlign: "center" }}><span className="social-influence">{t('pie.sub_heading')}</span></h2>
+            <div className="pie-container">
               <div className="pie1">
                 <PieChart responses={responses} onPieData={handlePieData} />
               </div>
-              <p className="text-beside-pichart">{t(pie_uri)}</p>
+              <div className="pie-text">
+              <p className="">{t(pie_uri)}</p>
+              </div>
             </div>
+            </div>
+            </div>
+
             <h2 style={{ textAlign: "center", marginTop: "60px" }}><span className="head-5">{t('radialBar.sub_heading')}</span></h2>
             <div className="radialBar">
               <RadialBarChartComponent responses={responses} onRadialData={handleRadialData} />
@@ -268,7 +285,8 @@ function Result_M() {
 
             <div className="inner-4">
               <div className="inner-star">
-                <img src={t1} alt="star" className="star"></img>
+                <img src={t1} className="
+                "></img>
                 <p style={{ fontSize: "18px" }}> {t('radialBar.label1')} </p>
               </div>
               <p className="p1" style={{ fontSize: "16px" }}>
@@ -276,7 +294,7 @@ function Result_M() {
               </p>
 
               <div className="inner-star">
-                <img src={t1} alt="star" className="star"></img>
+                <img src={t1} className="star"></img>
                 <p style={{ fontSize: "18px" }}> {t('radialBar.label2')}</p>
               </div>
               <p className="p1" style={{ fontSize: "16px" }}>
@@ -284,7 +302,7 @@ function Result_M() {
               </p>
 
               <div className="inner-star">
-                <img src={t1} alt="star" className="star"></img>
+                <img src={t1} className="star"></img>
                 <p style={{ fontSize: "18px" }}> {t('radialBar.label3')}</p>
               </div>
               <p className="p1" style={{ fontSize: "16px" }}>
@@ -292,7 +310,7 @@ function Result_M() {
               </p>
 
               <div className="inner-star">
-                <img src={t1} alt="star" className="star"></img>
+                <img src={t1} className="star"></img>
                 <p style={{ fontSize: "18px" }}> {t('radialBar.label4')}</p>
               </div>
               <p className="p1" style={{ fontSize: "16px" }}>
@@ -300,7 +318,7 @@ function Result_M() {
               </p>
 
               <div className="inner-star">
-                <img src={t1} alt="star" className="star"></img>
+                <img src={t1} className="star"></img>
                 <p style={{ fontSize: "18px" }}> {t('radialBar.label5')}</p>
               </div>
               <p className="p1" style={{ fontSize: "16px" }}>
@@ -308,7 +326,7 @@ function Result_M() {
               </p>
 
               <div className="inner-star">
-                <img src={t1} alt="star" className="star"></img>
+                <img src={t1} className="star"></img>
                 <p style={{ fontSize: "18px" }}> {t('radialBar.label6')}</p>
               </div>
               <p className="p1" style={{ fontSize: "16px" }}>
@@ -322,7 +340,7 @@ function Result_M() {
                 </button>
               </div>
             </div>
-          </div>
+         
 
         </div>
       ) : (
