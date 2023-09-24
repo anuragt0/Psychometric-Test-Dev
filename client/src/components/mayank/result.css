@@ -335,3 +335,80 @@ body {
     width: 200px;
   }
 }
+
+
+/* NEW CSS FOR QUALITIES */
+
+.unique-quality-container {
+    margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .unique-star-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Adjust the horizontal gap between stars */
+    margin-bottom: 20px; /* Add space between the rows */
+  }
+
+  .unique-star {
+    width: calc(33.33% - 20px); /* Distribute stars in 3 columns with 20px gap */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .unique-star-row {
+    display: flex;
+    justify-content: center;
+    gap: 250px; /* Increase the horizontal gap between stars */
+    margin-bottom: 20px; /* Add space between the rows */
+  }
+
+  .unique-star {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.unique-star-row-2{
+    margin-top: 7%;
+}
+
+.unique-my-star {
+  width: 40px; /* Adjust the star size as needed */
+  height: 40px;
+}
+
+.unique-quality-text h4 {
+  max-width: 250px; /* Increase the maximum width for the text */
+  overflow: hidden; /* Handle overflow by hiding it */
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .unique-star-row {
+    display: flex;
+    flex-direction: column; /* Change to a single column layout for smaller screens */
+    gap: 20px; /* Adjust the gap between stars for smaller screens */
+  }
+  .unique-star-row-2{
+    margin-top: 0;
+}
+
+  .unique-my-star {
+    width: 60px; /* Increase the star size for smaller screens */
+    height: 60px;
+  }
+}

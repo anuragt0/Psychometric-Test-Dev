@@ -252,7 +252,58 @@ function Result_M() {
                 </span>
               </h2>
 
-              <div className="quality-container">
+              {/* TRY 1 */}
+              <div className="unique-quality-container">
+  <div className="unique-star-row">
+    <div className="unique-star">
+      <img src={t1} className="unique-my-star" alt={`Star for ${qualities_arr[0]}`} />
+      <h4 className="unique-quality-text">{qualities_arr[0]}</h4>
+    </div>
+    <div className="unique-star">
+      <img src={t1} className="unique-my-star" alt={`Star for ${qualities_arr[1]}`} />
+      <h4 className="unique-quality-text">{qualities_arr[1]}</h4>
+    </div>
+    <div className="unique-star">
+      <img src={t1} className="unique-my-star" alt={`Star for ${qualities_arr[2]}`} />
+      <h4 className="unique-quality-text">{qualities_arr[2]}</h4>
+    </div>
+  </div>
+  <div className="unique-star-row unique-star-row-2" >
+    <div className="unique-star">
+      <img src={t1} className="unique-my-star" alt={`Star for ${qualities_arr[3]}`} />
+      <h4 className="unique-quality-text">{qualities_arr[3]}</h4>
+    </div>
+    <div className="unique-star">
+      <img src={t1} className="unique-my-star" alt={`Star for ${qualities_arr[4]}`} />
+      <h4 className="unique-quality-text">{qualities_arr[4]}</h4>
+    </div>
+  </div>
+</div>
+
+              {/* TRY 1 */}
+
+              {/* //////////////////////////////////////////////// */}
+              {/* <div className="quality-container"> */}
+  {/* <div className="star-row">
+    {qualities_arr.slice(0, 3).map((quality, index) => (
+      <div className="star" key={index}>
+        <img src={t1} className="my-star" alt={`Star for ${quality}`} />
+        <h4>{quality}</h4>
+      </div>
+    ))}
+  </div> */}
+  {/* <div className="star-row">
+    {qualities_arr.slice(3, 5).map((quality, index) => (
+      <div className="star" key={index}>
+        <img src={t1} className="my-star" alt={`Star for ${quality}`} />
+        <h4>{quality}</h4>
+      </div>
+    ))}
+  </div> */}
+ {/* </div> */}
+              {/* //////////////////////////////////////////////// */}
+
+              {/* <div className="quality-container">
                 <div className="first">
                   <div className="cont">
                     <img src={t1} className="my-star"></img>
@@ -267,6 +318,7 @@ function Result_M() {
                     <h4>{qualities_arr[2]}</h4>
                   </div>
                 </div>
+                
                 <div className="second">
                   <div className="cont">
                     <img src={t1} className="my-star"></img>
@@ -277,8 +329,10 @@ function Result_M() {
                     <h4>{qualities_arr[4]}</h4>
                   </div>
                 </div>
-              </div>
+              </div> */}
+              {/* ////////////////////////// */}
 
+              <div style={{marginTop: "10rem"}}>
               <h2 className="margin" style={{ textAlign: "center" }}>
                 <span className="social-influence">{t("pie.sub_heading")}</span>
               </h2>
@@ -290,6 +344,19 @@ function Result_M() {
                   <p className="">{t(pie_uri)}</p>
                 </div>
               </div>
+              </div>
+
+              {/* <h2 className="margin" style={{ textAlign: "center" }}>
+                <span className="social-influence">{t("pie.sub_heading")}</span>
+              </h2>
+              <div className="pie-container">
+                <div className="chart">
+                  <PieChart responses={responses} onPieData={handlePieData} />
+                </div>
+                <div className="pie-text">
+                  <p className="">{t(pie_uri)}</p>
+                </div>
+              </div> */}
 
               <h2
                 className="margin"
