@@ -88,6 +88,7 @@ function Result_M() {
     content: () => componentRef.current,
     documentTitle: `your-name-udyam-uplift`,
   });
+  
 
   const [responses, setResponses] = useState([]);
   const [testDate, setTestDate] = useState("");
@@ -136,34 +137,41 @@ function Result_M() {
   };
 
   //* Download Functionallity Start*//
-  const pdfRef = useRef();
-  const handleDownloadClick = () => {
-    // console.log ("Download Started...");
-    setDownloading(true);
-    const input = pdfRef.current;
-    html2canvas(input).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF("p", "mm", "a4", true);
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
-      const imgWidth = canvas.width;
-      const imgHeight = canvas.height;
-      const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
-      const imgX = (pdfWidth - imgWidth * ratio) / 2;
-      const imgY = 30;
-      pdf.addImage(
-        imgData,
-        "PNG",
-        imgX,
-        imgY,
-        imgWidth * ratio,
-        imgHeight * ratio
-      );
-      pdf.save("Result.pdf");
-      setDownloading(false);
-      toast.success(t("toast.resultsDownloaded")); // Using toast from react-hot-toast for demonstration
-    });
-  };
+
+  const handleDownloadClick = async () => {
+    // Create a new jsPDF instance
+    const customWidth = 500; // Replace with your desired width in millimeters
+
+    // Determine the height based on the device's screen size
+    const isMobile = window.innerWidth < 768; // You can adjust this breakpoint as needed
+    const customHeight = isMobile ? 6000 : 1200; // Set different heights for mobile and desktop
+
+    const pdf = new jsPDF('p', 'mm', [customWidth, customHeight], true);
+
+    // Get all the elements you want to include in the PDF
+    const elementsToCapture = document.querySelectorAll('.element-to-capture');
+    console.log('Number of elements to capture:', elementsToCapture.length);
+
+    // Loop through each element and add it as a new page in the PDF
+    for (const element of elementsToCapture) {
+        console.log('Capturing element:', element);
+        // Capture the content of the element as an image using html2canvas
+        const canvas = await html2canvas(element, {scale: 2});
+        const imgData = canvas.toDataURL('image/jpeg', 1.0);
+
+        // Add the image to the PDF
+        pdf.addImage(imgData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight(), '', 'FAST');
+
+        // Add a new page for the next element
+        if (element !== elementsToCapture[elementsToCapture.length - 1]) {
+            pdf.addPage();
+        }
+    }
+
+    // Save the PDF with a specific filename
+    pdf.save('Result.pdf');
+};
+  
   //* Download Functionallity Ends *//
 
   //*Current Date and Time *//
@@ -199,11 +207,11 @@ function Result_M() {
   return (
     <>
       {responses.length !== 0 && !loading ? (
-        <div className="result-page" ref={componentRef}>
+        <div className="result-page element-to-capture">
           <div className="half">
             <div className="dark-top dark">
               <div className="flex-item">
-                <img src={logo2} className="img-top"></img>
+                <img src={logo2} className="img-top" alt="logo"></img>
               </div>
               <div className="flex-item">
                 <p className="congratulations">{t("main.congratulations")}</p>
@@ -215,14 +223,16 @@ function Result_M() {
                       {t("main.congo_text2")}
                     </p>
                   </div>
-                  <div>
+                  <div className="pdf-controls">
+
                     <button
                       className="down-btn"
-                      onClick={handlePrint}
+                      onClick={handleDownloadClick}
                       disabled={downloading}
                     >
                       {downloading ? t("toast.pleaseWait") : t("main.download")}
                     </button>
+                   
                   </div>
                 </div>
               </div>
@@ -243,8 +253,10 @@ function Result_M() {
               </div>
             </div>
 
-            <p className="text1">{t(graph_uri + ".description")}</p>
 
+            
+            <p className="text1">{t(graph_uri + ".description")}</p>
+            
             <div className="light">
               <h2 className="margin" style={{ textAlign: "center" }}>
                 <span className="your-qualities">
@@ -279,7 +291,6 @@ function Result_M() {
     </div>
   </div>
 </div>
-
               {/* TRY 1 */}
 
               {/* //////////////////////////////////////////////// */}
