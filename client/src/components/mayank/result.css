@@ -288,7 +288,10 @@ body {
     width: 200px; 
   }
   .you-are{
-    font-size: 23px;
+    font-size: 18px;
+  }
+  .para-top{
+    font-size: 15px;
   }
   /* CONGS END  */
 
