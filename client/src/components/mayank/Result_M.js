@@ -28,59 +28,59 @@ import { useTranslation } from "react-i18next";
 import "../../library/i18n";
 
 function Result_M() {
-  //? Language Functionality Starts ......................................................................
+    //? Language Functionality Starts ......................................................................
 
-  const { t } = useTranslation("translation", { keyPrefix: "result" });
+    const { t } = useTranslation("translation", { keyPrefix: "result" });
 
-  //used to get language Stored in LocalStorage //*should be in every Page having Language Functionality
-  useEffect(() => {
-    let currentLang = localStorage.getItem("lang");
-    i18n.changeLanguage(currentLang);
+    //used to get language Stored in LocalStorage //*should be in every Page having Language Functionality
+    useEffect(() => {
+        let currentLang = localStorage.getItem("lang");
+        i18n.changeLanguage(currentLang);
 
-    // console.log(t('array'  , { returnObjects: true }));
-  }, []);
+        // console.log(t('array'  , { returnObjects: true }));
+    }, []);
 
-  //? Language Functionality Ends .................................................................
+    //? Language Functionality Ends .................................................................
 
-  //?  text Content Start ...............................................
+    //?  text Content Start ...............................................
 
-  const [personalityName, setPersonalityName] = useState("");
-  // Function to receive personalityName from the child component (Graph)
-  const handleGraphData = (name) => {
-    setPersonalityName(name);
-  };
+    const [personalityName, setPersonalityName] = useState("");
+    // Function to receive personalityName from the child component (Graph)
+    const handleGraphData = (name) => {
+        setPersonalityName(name);
+    };
 
-  const [categoryName, setCategoryName] = useState("");
-  // Function to receive personalityName from the child component (Graph)
-  const handlePieData = (name) => {
-    setCategoryName(name);
-  };
+    const [categoryName, setCategoryName] = useState("");
+    // Function to receive personalityName from the child component (Graph)
+    const handlePieData = (name) => {
+        setCategoryName(name);
+    };
 
-  const [affectingFacttors, setAffectingFacttors] = useState({});
-  // Function to receive personalityName from the child component (Graph)
-  const handleRadialData = (data) => {
-    setAffectingFacttors(data);
-  };
+    const [affectingFacttors, setAffectingFacttors] = useState({});
+    // Function to receive personalityName from the child component (Graph)
+    const handleRadialData = (data) => {
+        setAffectingFacttors(data);
+    };
 
-  // *"graph": {"text_content": { personalityName:{ Description and Qualities}............
-  const graph_uri = "graph.text_content." + personalityName;
+    // *"graph": {"text_content": { personalityName:{ Description and Qualities}............
+    const graph_uri = "graph.text_content." + personalityName;
 
-  const pie_uri = "pie.text_content." + categoryName;
+    const pie_uri = "pie.text_content." + categoryName;
 
-  const radial_uri = "radialBar.text_content";
+    const radial_uri = "radialBar.text_content";
 
-  // console.log(pie_uri);
+    // console.log(pie_uri);
 
-  //t(pie_uri ) -> only one paragraph
+    //t(pie_uri ) -> only one paragraph
 
-  //* text guideline for designer --
-  // graph --> 1 . content == t(graph_uri + '.description')  ***its just a String
-  // console.log(t(graph_uri + '.description'));
-  //           2.  quailties == t(graph_uri + '.qualities')  ***use .map because  its an array with exactly five Qualities in it
-  const qualities_arr = t(graph_uri + ".qualities", { returnObjects: true });
-  // console.log(qualities_arr);
+    //* text guideline for designer --
+    // graph --> 1 . content == t(graph_uri + '.description')  ***its just a String
+    // console.log(t(graph_uri + '.description'));
+    //           2.  quailties == t(graph_uri + '.qualities')  ***use .map because  its an array with exactly five Qualities in it
+    const qualities_arr = t(graph_uri + ".qualities", { returnObjects: true });
+    // console.log(qualities_arr);
 
-  //?  text Content ends here  ..................................................................
+    //?  text Content ends here  ..................................................................
 
   // REACT TO PDF
   const componentRef = useRef();
@@ -97,44 +97,44 @@ function Result_M() {
   const [downloading, setDownloading] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    getResult();
-  }, []);
+    useEffect(() => {
+        getResult();
+    }, []);
 
-  //!Make separate functions for fetching results and validation
+    //!Make separate functions for fetching results and validation
 
-  const getResult = async () => {
-    // setLoading(true);
-    const response = await fetch(`${server_origin}/api/user/get-user`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "auth-token": localStorage.getItem("token"),
-      },
-    });
-    let response1 = await response.json();
-    // console.log("response1asdfasdfasd: ", response1);
+    const getResult = async () => {
+        // setLoading(true);
+        const response = await fetch(`${server_origin}/api/user/get-user`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": localStorage.getItem("token"),
+            },
+        });
+        let response1 = await response.json();
+        // console.log("response1asdfasdfasd: ", response1);
 
-    if (response1.success === false) {
-      toast.error(t("toast.errorFetchResult"));
-      navigate("/login");
-      return;
-    }
-    // console.log("asdflkjasldkfjaskldfjl", response1.userDoc);
-    if (
-      !response1.userDoc.testResponse ||
-      response1.userDoc.testResponse.length !== 26
-    ) {
-      toast.error(t("toast.inCompleteTest"));
-      navigate("/test/instructions");
-      return;
-    }
-    setResponses(response1.userDoc.testResponse);
-    setTestDate(formatDateWithCustomTime(response1.userDoc.lastTestDate));
-    setUserName(response1.userDoc.name);
-    // console.log(formatDateWithCustomTime(response1.userDoc.lastTestDate));
-    setLoading(false);
-  };
+        if (response1.success === false) {
+            toast.error(t("toast.errorFetchResult"));
+            navigate("/login");
+            return;
+        }
+        // console.log("asdflkjasldkfjaskldfjl", response1.userDoc);
+        if (
+            !response1.userDoc.testResponse ||
+            response1.userDoc.testResponse.length !== 26
+        ) {
+            toast.error(t("toast.inCompleteTest"));
+            navigate("/test/instructions");
+            return;
+        }
+        setResponses(response1.userDoc.testResponse);
+        setTestDate(formatDateWithCustomTime(response1.userDoc.lastTestDate));
+        setUserName(response1.userDoc.name);
+        // console.log(formatDateWithCustomTime(response1.userDoc.lastTestDate));
+        setLoading(false);
+    };
 
   //* Download Functionallity Start*//
 
@@ -174,35 +174,35 @@ function Result_M() {
   
   //* Download Functionallity Ends *//
 
-  //*Current Date and Time *//
-  function getDaySuffix(day) {
-    if (day >= 11 && day <= 13) {
-      return "th";
+    //*Current Date and Time *//
+    function getDaySuffix(day) {
+        if (day >= 11 && day <= 13) {
+            return "th";
+        }
+        switch (day % 10) {
+            case 1:
+                return "st";
+            case 2:
+                return "nd";
+            case 3:
+                return "rd";
+            default:
+                return "th";
+        }
     }
-    switch (day % 10) {
-      case 1:
-        return "st";
-      case 2:
-        return "nd";
-      case 3:
-        return "rd";
-      default:
-        return "th";
+
+    function formatDateWithCustomTime(dateString) {
+        const date = new Date(dateString);
+        const day = date.getDate();
+        const month = date.toLocaleString("default", { month: "long" });
+        const year = date.getFullYear();
+        const hour = date.getHours();
+        const minute = String(date.getMinutes()).padStart(2, "0");
+        const amPm = hour >= 12 ? "PM" : "AM";
+        const formattedTime = `${hour % 12 || 12}:${minute} ${amPm}`;
+
+        return `${day}${getDaySuffix(day)} ${month} ${year}, ${formattedTime}`;
     }
-  }
-
-  function formatDateWithCustomTime(dateString) {
-    const date = new Date(dateString);
-    const day = date.getDate();
-    const month = date.toLocaleString("default", { month: "long" });
-    const year = date.getFullYear();
-    const hour = date.getHours();
-    const minute = String(date.getMinutes()).padStart(2, "0");
-    const amPm = hour >= 12 ? "PM" : "AM";
-    const formattedTime = `${hour % 12 || 12}:${minute} ${amPm}`;
-
-    return `${day}${getDaySuffix(day)} ${month} ${year}, ${formattedTime}`;
-  }
 
   return (
     <>
@@ -238,20 +238,20 @@ function Result_M() {
               </div>
             </div>
 
-            <div className="light">
-              <p className="para-top">
-                {t("main.text1")} <strong>{testDate}</strong> {t("main.text2")}
-              </p>
-              <h2 className="you-are" style={{ textAlign: "center" }}>
-                {t("main.person_text1")}{" "}
-                <span className="head4">{t(graph_uri + ".name")}</span>{" "}
-                {t("main.person_text2")}{" "}
-              </h2>
+                        <div className="light">
+                            <p className="para-top">
+                                {t("main.text1")} <strong>{testDate}</strong> {t("main.text2")}
+                            </p>
+                            <h2 className="you-are" style={{ textAlign: "center" }}>
+                                {t("main.person_text1")}{" "}
+                                <span className="head4">{t(graph_uri + ".name")}</span>{" "}
+                                {t("main.person_text2")}{" "}
+                            </h2>
 
-              <div className="quad-graph">
-                <Graph responses={responses} onGraphData={handleGraphData} />
-              </div>
-            </div>
+                            <div className="quad-graph">
+                                <Graph responses={responses} onGraphData={handleGraphData} />
+                            </div>
+                        </div>
 
 
             
@@ -264,216 +264,154 @@ function Result_M() {
                 </span>
               </h2>
 
-              {/* TRY 1 */}
-              <div className="unique-quality-container">
-  <div className="unique-star-row">
-    <div className="unique-star">
-      <img src={t1} className="unique-my-star" alt={`Star for ${qualities_arr[0]}`} />
-      <h4 className="unique-quality-text">{qualities_arr[0]}</h4>
-    </div>
-    <div className="unique-star">
-      <img src={t1} className="unique-my-star" alt={`Star for ${qualities_arr[1]}`} />
-      <h4 className="unique-quality-text">{qualities_arr[1]}</h4>
-    </div>
-    <div className="unique-star">
-      <img src={t1} className="unique-my-star" alt={`Star for ${qualities_arr[2]}`} />
-      <h4 className="unique-quality-text">{qualities_arr[2]}</h4>
-    </div>
-  </div>
-  <div className="unique-star-row unique-star-row-2" >
-    <div className="unique-star">
-      <img src={t1} className="unique-my-star" alt={`Star for ${qualities_arr[3]}`} />
-      <h4 className="unique-quality-text">{qualities_arr[3]}</h4>
-    </div>
-    <div className="unique-star">
-      <img src={t1} className="unique-my-star" alt={`Star for ${qualities_arr[4]}`} />
-      <h4 className="unique-quality-text">{qualities_arr[4]}</h4>
-    </div>
-  </div>
-</div>
-              {/* TRY 1 */}
+                            {/* TRY 1 */}
+                            <div className="unique-quality-container">
+                                <div className="unique-star-row">
+                                    <div className="unique-star">
+                                        <img src={t1} className="unique-my-star" alt={`Star for ${qualities_arr[0]}`} />
+                                        <h4 className="unique-quality-text">{qualities_arr[0]}</h4>
+                                    </div>
+                                    <div className="unique-star">
+                                        <img src={t1} className="unique-my-star" alt={`Star for ${qualities_arr[1]}`} />
+                                        <h4 className="unique-quality-text">{qualities_arr[1]}</h4>
+                                    </div>
+                                    <div className="unique-star">
+                                        <img src={t1} className="unique-my-star" alt={`Star for ${qualities_arr[2]}`} />
+                                        <h4 className="unique-quality-text">{qualities_arr[2]}</h4>
+                                    </div>
+                                </div>
+                                <div className="unique-star-row unique-star-row-2" >
+                                    <div className="unique-star">
+                                        <img src={t1} className="unique-my-star" alt={`Star for ${qualities_arr[3]}`} />
+                                        <h4 className="unique-quality-text">{qualities_arr[3]}</h4>
+                                    </div>
+                                    <div className="unique-star">
+                                        <img src={t1} className="unique-my-star" alt={`Star for ${qualities_arr[4]}`} />
+                                        <h4 className="unique-quality-text">{qualities_arr[4]}</h4>
+                                    </div>
+                                </div>
+                            </div>
 
-              {/* //////////////////////////////////////////////// */}
-              {/* <div className="quality-container"> */}
-  {/* <div className="star-row">
-    {qualities_arr.slice(0, 3).map((quality, index) => (
-      <div className="star" key={index}>
-        <img src={t1} className="my-star" alt={`Star for ${quality}`} />
-        <h4>{quality}</h4>
-      </div>
-    ))}
-  </div> */}
-  {/* <div className="star-row">
-    {qualities_arr.slice(3, 5).map((quality, index) => (
-      <div className="star" key={index}>
-        <img src={t1} className="my-star" alt={`Star for ${quality}`} />
-        <h4>{quality}</h4>
-      </div>
-    ))}
-  </div> */}
- {/* </div> */}
-              {/* //////////////////////////////////////////////// */}
 
-              {/* <div className="quality-container">
-                <div className="first">
-                  <div className="cont">
-                    <img src={t1} className="my-star"></img>
-                    <h4>{qualities_arr[0]}</h4>
-                  </div>
-                  <div className="cont">
-                    <img src={t1} className="my-star"></img>
-                    <h4>{qualities_arr[1]}</h4>
-                  </div>
-                  <div className="cont">
-                    <img src={t1} className="my-star"></img>
-                    <h4>{qualities_arr[2]}</h4>
-                  </div>
+                            <div style={{ marginTop: "10rem" }}>
+                                <h2 className="margin" style={{ textAlign: "center" }}>
+                                    <span className="social-influence">{t("pie.sub_heading")}</span>
+                                </h2>
+                                <div className="pie-container">
+                                    <div className="chart">
+                                        <PieChart responses={responses} onPieData={handlePieData} />
+                                    </div>
+                                    <div className="pie-text">
+                                        <p className="">{t(pie_uri)}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h2
+                                className="margin"
+                                style={{ textAlign: "center", marginTop: "60px" }}
+                            >
+                                <span className="influence">{t("radialBar.sub_heading")}</span>
+                            </h2>
+                            <div className="radialBar">
+                                <RadialBarChartComponent
+                                    responses={responses}
+                                    onRadialData={handleRadialData}
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="half-2">
+                        <div className="inner-4">
+                            <div className="inner-star">
+                                <img src={t1} className="star"></img>
+                                <p style={{ fontSize: "18px" }}> {t("radialBar.label1")} </p>
+                            </div>
+                            <p className="p1" style={{ fontSize: "16px" }}>
+                                {t(
+                                    radial_uri +
+                                    ".group_size_or_unanimity?." +
+                                    affectingFacttors[0]
+                                )}
+                            </p>
+
+                            <div className="inner-star">
+                                <img src={t1} className="star"></img>
+                                <p style={{ fontSize: "18px" }}> {t("radialBar.label2")}</p>
+                            </div>
+                            <p className="p1" style={{ fontSize: "16px" }}>
+                                {t(
+                                    radial_uri +
+                                    ".cohesion_or_status_of_others?." +
+                                    affectingFacttors[1]
+                                )}
+                            </p>
+
+                            <div className="inner-star">
+                                <img src={t1} className="star"></img>
+                                <p style={{ fontSize: "18px" }}> {t("radialBar.label3")}</p>
+                            </div>
+                            <p className="p1" style={{ fontSize: "16px" }}>
+                                {t(radial_uri + ".Reciprocity?." + affectingFacttors[2])}
+                            </p>
+
+                            <div className="inner-star">
+                                <img src={t1} className="star"></img>
+                                <p style={{ fontSize: "18px" }}> {t("radialBar.label4")}</p>
+                            </div>
+                            <p className="p1" style={{ fontSize: "16px" }}>
+                                {t(
+                                    radial_uri +
+                                    ".Commitment_and_Consistency?." +
+                                    affectingFacttors[3]
+                                )}
+                            </p>
+
+                            <div className="inner-star">
+                                <img src={t1} className="star"></img>
+                                <p style={{ fontSize: "18px" }}> {t("radialBar.label5")}</p>
+                            </div>
+                            <p className="p1" style={{ fontSize: "16px" }}>
+                                {t(radial_uri + ".Scarcity?." + affectingFacttors[4])}
+                            </p>
+
+                            <div className="inner-star">
+                                <img src={t1} className="star"></img>
+                                <p style={{ fontSize: "18px" }}> {t("radialBar.label6")}</p>
+                            </div>
+                            <p className="p1" style={{ fontSize: "16px" }}>
+                                {t(
+                                    radial_uri + ".Authority/_commands?." + affectingFacttors[5]
+                                )}
+                            </p>
+
+                            <div className="endbtn">
+                                <button
+                                    className="rounded-btn"
+                                    onClick={handlePrint}
+                                    disabled={downloading}
+                                >
+                                    {downloading ? t("toast.pleaseWait") : t("main.download")}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                <div className="second">
-                  <div className="cont">
-                    <img src={t1} className="my-star"></img>
-                    <h4>{qualities_arr[3]}</h4>
-                  </div>
-                  <div className="cont">
-                    <img src={t1} className="my-star"></img>
-                    <h4>{qualities_arr[4]}</h4>
-                  </div>
-                </div>
-              </div> */}
-              {/* ////////////////////////// */}
-
-              <div style={{marginTop: "10rem"}}>
-              <h2 className="margin" style={{ textAlign: "center" }}>
-                <span className="social-influence">{t("pie.sub_heading")}</span>
-              </h2>
-              <div className="pie-container">
-                <div className="chart">
-                  <PieChart responses={responses} onPieData={handlePieData} />
-                </div>
-                <div className="pie-text">
-                  <p className="">{t(pie_uri)}</p>
-                </div>
-              </div>
-              </div>
-
-              {/* <h2 className="margin" style={{ textAlign: "center" }}>
-                <span className="social-influence">{t("pie.sub_heading")}</span>
-              </h2>
-              <div className="pie-container">
-                <div className="chart">
-                  <PieChart responses={responses} onPieData={handlePieData} />
-                </div>
-                <div className="pie-text">
-                  <p className="">{t(pie_uri)}</p>
-                </div>
-              </div> */}
-
-              <h2
-                className="margin"
-                style={{ textAlign: "center", marginTop: "60px" }}
-              >
-                <span className="influence">{t("radialBar.sub_heading")}</span>
-              </h2>
-              <div className="radialBar">
-                <RadialBarChartComponent
-                  responses={responses}
-                  onRadialData={handleRadialData}
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="half-2">
-            <div className="inner-4">
-              <div className="inner-star">
-                <img src={t1} className="star"></img>
-                <p style={{ fontSize: "18px" }}> {t("radialBar.label1")} </p>
-              </div>
-              <p className="p1" style={{ fontSize: "16px" }}>
-                {t(
-                  radial_uri +
-                    ".group_size_or_unanimity?." +
-                    affectingFacttors[0]
-                )}
-              </p>
-
-              <div className="inner-star">
-                <img src={t1} className="star"></img>
-                <p style={{ fontSize: "18px" }}> {t("radialBar.label2")}</p>
-              </div>
-              <p className="p1" style={{ fontSize: "16px" }}>
-                {t(
-                  radial_uri +
-                    ".cohesion_or_status_of_others?." +
-                    affectingFacttors[1]
-                )}
-              </p>
-
-              <div className="inner-star">
-                <img src={t1} className="star"></img>
-                <p style={{ fontSize: "18px" }}> {t("radialBar.label3")}</p>
-              </div>
-              <p className="p1" style={{ fontSize: "16px" }}>
-                {t(radial_uri + ".Reciprocity?." + affectingFacttors[2])}
-              </p>
-
-              <div className="inner-star">
-                <img src={t1} className="star"></img>
-                <p style={{ fontSize: "18px" }}> {t("radialBar.label4")}</p>
-              </div>
-              <p className="p1" style={{ fontSize: "16px" }}>
-                {t(
-                  radial_uri +
-                    ".Commitment_and_Consistency?." +
-                    affectingFacttors[3]
-                )}
-              </p>
-
-              <div className="inner-star">
-                <img src={t1} className="star"></img>
-                <p style={{ fontSize: "18px" }}> {t("radialBar.label5")}</p>
-              </div>
-              <p className="p1" style={{ fontSize: "16px" }}>
-                {t(radial_uri + ".Scarcity?." + affectingFacttors[4])}
-              </p>
-
-              <div className="inner-star">
-                <img src={t1} className="star"></img>
-                <p style={{ fontSize: "18px" }}> {t("radialBar.label6")}</p>
-              </div>
-              <p className="p1" style={{ fontSize: "16px" }}>
-                {t(
-                  radial_uri + ".Authority/_commands?." + affectingFacttors[5]
-                )}
-              </p>
-
-              <div className="endbtn">
-                <button
-                  className="rounded-btn"
-                  onClick={handlePrint}
-                  disabled={downloading}
+            ) : (
+                <div
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        minHeight: "100vh",
+                    }}
                 >
-                  {downloading ? t("toast.pleaseWait") : t("main.download")}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      ) : (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            minHeight: "100vh",
-          }}
-        >
-          <SyncLoader size={30} color="#3e950c" />
-        </div>
-      )}
-    </>
-  );
+                    <SyncLoader size={30} color="#3e950c" />
+                </div>
+            )}
+        </>
+    );
 }
 
 export default Result_M;
