@@ -54,7 +54,7 @@
     "iAgreeToThe": "I agree to the",
     "privacyPolicy": "Privacy Policy",
     "and": "and",
-    "termsAndConditions": "Terms and Conditions"    
+    "termsAndConditions": "Terms and Conditions"
   },
   "disclaimer": {
     "heading": "Disclaimer",
@@ -67,7 +67,7 @@
     "contactInformation": "Contact Information:",
     "contactInfoPlaceholder": "If you have any questions or concerns regarding this disclaimer or our services, please contact us at"
   },
-  "privacyPolicy":{
+  "privacyPolicy": {
     "heading": "Privacy Policy",
     "informationCollectHeader": "Information We Collect:",
     "informationTypesHeader": "We collect various types of personal information, including but not limited to:",
@@ -203,7 +203,12 @@
     "city": "City",
     "pincode": "Pincode",
     "country": "Country",
-    "register": "Register"
+    "register": "Register",
+    "registerAgree": "By registering, you agree to our",
+    "privacyPolicy": "Privacy Policy",
+    "unlockPersonalityInsights": "Unlock Your Personalized Personality Insights Report",
+    "discoverUnderstanding": "Discover a deeper understanding of yourself",
+    "justStepAway": "just a step away"
   },
   "quiz": {
     "toast": {

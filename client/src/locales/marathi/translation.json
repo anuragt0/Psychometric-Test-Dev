@@ -50,7 +50,11 @@
     ],
     "note": "नोंद:",
     "noteMessage": "तुम्ही तुमच्या चाचणीदरम्यान लॉजिक मोडमधून बाहेर पडल्यास, तुम्ही ते हुन्हा-सक्षम करण्यासाठी \" गो फुल स्क्रीन” बटणावर क्लिक करू शकता.",
-    "startTestButton": "परीक्षा सुरू करा"
+    "startTestButton": "परीक्षा सुरू करा",
+    "iAgreeToThe": "माझ्याकडून सहमत आहे",
+    "privacyPolicy": "गोपनीयता धोरण",
+    "and": "आणि",
+    "termsAndConditions": "अटी आणि अटीची अटी"
   },
   "congrats": {
     "congratulation": "अभिनंदन! ",
@@ -155,7 +159,12 @@
     "शहर": "शहर",
     "pincode": "पिनकोड",
     "country": "देश",
-    "register": "नोंदणी करा"
+    "register": "नोंदणी करा",
+    "registerAgree": "नोंदणी केल्यास, आपल्याला आमच्याशी सहमती आहे",
+    "privacyPolicy": "गोपनीयता धोरण",
+    "unlockPersonalityInsights": "आपल्या व्यक्तिगत व्यक्तिमत्व इंसायट्स अनलॉक करा",
+    "discoverUnderstanding": "स्वतःच्या मागील आणि समजण्याची एक दर",
+    "justStepAway": "फक्त एक टप्पा आहे"
   },
   "quiz": {
     "toast": {

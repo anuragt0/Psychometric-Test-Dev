@@ -203,7 +203,12 @@
     "city": "शहर",
     "pincode": "पिनकोड",
     "country": "देश",
-    "register": "रजिस्टर"
+    "register": "रजिस्टर",
+    "registerAgree": "रजिस्टर करके, आप हमारे से सहमत होते हैं",
+    "privacyPolicy": "गोपनीयता नीति",
+    "unlockPersonalityInsights": "अपनी व्यक्तिगत व्यक्तित्व इंसाइट्स रिपोर्ट खोलें",
+    "discoverUnderstanding": "खुद के बारे में और गहरी समझ पाएं",
+    "justStepAway": "बस एक कदम दूर"
   },
   "quiz": {
     "toast": {
