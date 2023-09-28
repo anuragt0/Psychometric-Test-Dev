@@ -12,44 +12,37 @@
   height: 60vh;
   display: flex;
   margin-bottom: 5rem;
-  background-image: linear-gradient( to top left, white , #71BF44 90%);
+  background-image: url("../images/aboutBg.svg");
 }
 
-.u-about-page-landing-div-right {
-  position: relative;
+.u-about-page-landing-div-left{
+  z-index: 1;
 }
 
 .u-about-page-landing-slogan {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 900;
   font-family:Arial, Helvetica, sans-serif;
   margin-top: 4rem;
   margin-left: 5rem;
   color: rgb(8, 50, 5);
-  /* text-align: center; */
 }
 .u-about-page-landing-about{
   margin-left: 5rem;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   font-size: 20px;
-  font-family: noto sans;
-  color: rgb(63, 62, 62);
-}
-
-.u-about-page-landing-slogan-bg {
-  position: absolute;
-  width: 450px;
-  top: 200px;
-  left: 120px;
+  line-height: 1.5;
+  font-family: 'NOTO' sans;
+  color: white;
 }
 .bg{
     position: absolute;
-    background-image: linear-gradient(black, grey);
-    height: 254px;
-    width: 450px;
-    top: 200px;
-    left: 120px;
-    opacity: 0.4;
+    background-image: linear-gradient(to top left, black , grey );
+    opacity: 0.6;
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    z-index: 0;
   }
 .u-about-page-landing-hero {
   display: flex;
@@ -101,86 +94,3 @@
   background-color: white;
 }
 
-@media only screen and (max-width: 750px) {
-  .u-about-page-outer-div {
-    margin-left: 0rem;
-    margin-right: 0rem;
-    margin-top: 6rem;
-  }
-
-  .u-about-page-landing-div {
-    flex-direction: column;
-    margin-bottom: 13rem;
-    height: 0vh;
-    background-image: none;
-  }
-
-  .u-page-page-landing-heading {
-    font-size: 1.6rem;
-  }
-
-  .u-about-page-landing-slogan {
-    font-size: 2rem;
-    position: absolute;
-    text-align:center;
-    margin-left: 2.5rem;
-    color: white;
-    Margin-top:0rem;
-    z-index: 999;
-  }
-
-  .bg{
-    position: absolute;
-    background-image: linear-gradient(black, #71BF44);
-    width: 90%;
-    height: 250px;
-    top: -80px;
-    left: 20px;
-    opacity: 0.4;
-  }
-
-  .u-about-page-landing-slogan-bg {
-    width: 90%;
-    height: 250px;
-    top: -80px;
-    left: 20px;
-    /* opacity: 0.8; */
-  }
-
-  .u-about-page-landing-hero {
-    flex-direction: column;
-    height: 100%;
-    margin: 3rem 2rem;
-  }
-
-  .u-about-page-landing-hero-left,
-  .u-about-page-landing-hero-right {
-    width: 100%;
-    flex: 1;
-  }
-
-  .u-about-page-landing-hero-left {
-    padding: 1.2rem 2.1rem;
-  }
-
-  .u-about-page-landing-hero-right {
-    flex-direction: column;
-  }
-
-  .u-about-page-hero-img {
-    height: 95%;
-  }
-
-  .u-about-page-landing-hero-heading {
-    font-size: 1.2rem;
-    
-  }
-
-  .u-about-page-landing-hero-subheading {
-    font-size: 1rem;
-  }
-  .u-about-page-landing-about{
-    display: none;
-  }
-  
-}

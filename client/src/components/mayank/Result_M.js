@@ -137,7 +137,6 @@ function Result_M() {
     };
 
   //* Download Functionallity Start*//
-
   const handleDownloadClick = async () => {
     // Create a new jsPDF instance
     const customWidth = 500; // Replace with your desired width in millimeters
@@ -156,18 +155,17 @@ function Result_M() {
     for (const element of elementsToCapture) {
         console.log('Capturing element:', element);
         // Capture the content of the element as an image using html2canvas
-        const canvas = await html2canvas(element, {scale: 2});
-        const imgData = canvas.toDataURL('image/jpeg', 1.0);
+        const canvas = await html2canvas(element, {scale: 1.5});
+        const imgData = canvas.toDataURL('image/jpeg', 0.7);
 
         // Add the image to the PDF
-        pdf.addImage(imgData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight(), '', 'FAST');
+        pdf.addImage(imgData, 'JPEG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight(), '', 'FAST');
 
         // Add a new page for the next element
         if (element !== elementsToCapture[elementsToCapture.length - 1]) {
             pdf.addPage();
         }
     }
-
     // Save the PDF with a specific filename
     pdf.save('Result.pdf');
 };
