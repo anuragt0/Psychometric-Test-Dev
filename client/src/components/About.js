@@ -7,6 +7,7 @@ import aboutImg from '../images/about-img.svg'
 import wepLogo from '../images/wep-logo.svg';
 import caXpert from '../images/caXpert.svg';
 import aboutBg from '../images/aboutBg.svg';
+import aboutmobile from '../images/aboutBgmobile.png';
 import "../css/about.css";
 
 const AboutPage = () => {
@@ -22,6 +23,7 @@ const AboutPage = () => {
   return (
     <div className="u-about-page-outer-div">
       <div className="u-about-page-landing-div">
+        <img src={aboutmobile}></img>
       <div className="bg"></div>
         <div className="u-about-page-landing-div-left">
           <p className="u-about-page-landing-slogan">{t('weAre')}<br></br> {t('udyamUplift')} </p>
