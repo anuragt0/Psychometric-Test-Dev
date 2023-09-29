@@ -4,6 +4,18 @@ const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
 const fetchPerson = require("../middlewares");
 const Question = require("../mongodb/Models/Question");
+const basicAuth = require('express-basic-auth');
+
+
+// Basic Authentication middleware
+const userId = process.env.userId;
+const userPassword = process.env.userPassword;
+
+const userAuth = basicAuth({
+    users: { [userId]: userPassword },
+    challenge: true,
+    unauthorizedResponse: 'Unauthorized',
+});
 
 
 //Register
@@ -11,11 +23,10 @@ const Question = require("../mongodb/Models/Question");
 //Middleware will verify if user has verified there number or logged in.
 // !REGISTER or updating user can be done only single time.
 
-router.post("/register",  async(req,res)=>{
+router.post("/register", userAuth,  async(req,res)=>{
     //todo: Validate the fields.
     const fields = req.body;
     try{
-
         //* testResponses are also included
         const newUser = await User.create(fields);
         //* Have to generate token also
@@ -37,7 +48,7 @@ router.post("/register",  async(req,res)=>{
 // ! Secure the API by using any code to request the APIs.
 // ! IF MOBILE EXISTS UPDATE THE PASSWORD 
 // ! ELSE CREATE USER WITH MOBILE AND PASSWORD
-router.post("/login", async (req,res)=>{
+router.post("/login", userAuth, async (req,res)=>{
     try {
         const mobile = req.body.mobile;
         const password = req.body.password;
@@ -66,7 +77,7 @@ router.post("/login", async (req,res)=>{
     }
 })
 
-router.post("/update-password", async (req, res)=>{
+router.post("/update-password", userAuth, async (req, res)=>{
     const mobile = req.body.mobile;
     const newPassword = req.body.password;
 
@@ -86,7 +97,7 @@ router.post("/update-password", async (req, res)=>{
 })
 
 //!Generate token also here
-router.post("/check-password", async(req,res)=>{
+router.post("/check-password", userAuth, async(req,res)=>{
     try{
         const userDoc = await User.findOne({mobile: req.body.mobile});
 
@@ -113,7 +124,7 @@ router.post("/check-password", async(req,res)=>{
 
 })
 
-router.post("/verify-user", fetchPerson, async (req,res)=>{
+router.post("/verify-user", userAuth, fetchPerson, async (req,res)=>{
     
     res.json({success: true, message: "Token verified succesfully", isAdmin: req.isAdmin});
 })
@@ -131,7 +142,7 @@ router.post("/get-user", fetchPerson, async (req,res)=>{
     
 })
 
-router.post("/check-mobile-registered", async (req,res)=>{
+router.post("/check-mobile-registered", userAuth, async (req,res)=>{
     const phone = req.body.mobile
     try {
         const userDoc = await User.findOne({mobile: phone});
@@ -148,7 +159,7 @@ router.post("/check-mobile-registered", async (req,res)=>{
 })
 
 //Update test responses in user schema
-router.put("/update-response", fetchPerson, async(req,res)=>{
+router.put("/update-response", userAuth, fetchPerson, async(req,res)=>{
     const userId = req.mongoID;
     // console.log(userId);
     try {
