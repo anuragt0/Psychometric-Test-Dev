@@ -105,11 +105,15 @@ function Result_M() {
 
     const getResult = async () => {
         // setLoading(true);
+        const userId = process.env.REACT_APP_USER_ID;
+        const userPassword = process.env.REACT_APP_USER_PASSWORD;
+        const basicAuth = btoa(`${userId}:${userPassword}`);
         const response = await fetch(`${server_origin}/api/user/get-user`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "auth-token": localStorage.getItem("token"),
+                "Authorization": `Basic ${basicAuth}`,
             },
         });
         let response1 = await response.json();

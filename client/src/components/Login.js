@@ -193,12 +193,17 @@ const Login = () => {
     }
 
     // Check if the mobile is not registered
+    const userId = process.env.REACT_APP_USER_ID;
+        const userPassword = process.env.REACT_APP_USER_PASSWORD;
+        const basicAuth = btoa(`${userId}:${userPassword}`);
+        console.log("userID", userId)
     const response = await fetch(
       `${server_origin}/api/user/check-mobile-registered`,
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Basic ${basicAuth}`,
         },
         body: JSON.stringify({ mobile: mobileNumber }),
       }
@@ -220,10 +225,12 @@ const Login = () => {
     //login user
 
     // handleCheckPasswordButtonClick();
+    
     const responsee = await fetch(`${server_origin}/api/user/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Basic ${basicAuth}`,
       },
       body: JSON.stringify({ mobile: mobileNumber, password: password }),
     });
@@ -240,6 +247,9 @@ const Login = () => {
 
     //* Update the responses only if test is given already (testProgress is in localStorage)
     if (localStorage.getItem("testProgress")) {
+        const userId = process.env.REACT_APP_USER_ID;
+        const userPassword = process.env.REACT_APP_USER_PASSWORD;
+        const basicAuth = btoa(`${userId}:${userPassword}`);
       const responseUpdate = await fetch(
         `${server_origin}/api/user/update-response`,
         {
@@ -247,6 +257,7 @@ const Login = () => {
           headers: {
             "Content-Type": "application/json",
             "auth-token": token,
+            "Authorization": `Basic ${basicAuth}`,
           },
           body: JSON.stringify({ responses: userTestResponses }),
         }
@@ -322,12 +333,15 @@ const Login = () => {
       return;
     }
     setLoading(true);
-
+    const userId = process.env.REACT_APP_USER_ID;
+        const userPassword = process.env.REACT_APP_USER_PASSWORD;
+        const basicAuth = btoa(`${userId}:${userPassword}`);
     // Create password and generate token and login
     const response = await fetch(`${server_origin}/api/user/update-password`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Basic ${basicAuth}`,
       },
       body: JSON.stringify({ mobile: mobileNumber, password: password }),
     });
@@ -339,6 +353,7 @@ const Login = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Basic ${basicAuth}`,
         },
         body: JSON.stringify({ mobile: mobileNumber, password: password }),
       });
@@ -369,15 +384,17 @@ const Login = () => {
       return;
     }
 
-    //  Check if the mobile is already registered
-    //  Check if the mobile is already registered
-    //  Check if the mobile is already registered
+    const userId = process.env.REACT_APP_USER_ID;
+        const userPassword = process.env.REACT_APP_USER_PASSWORD;
+        // console.log("userID", userId);
+        const basicAuth = btoa(`${userId}:${userPassword}`);
     const response = await fetch(
       `${server_origin}/api/user/check-mobile-registered`,
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Basic ${basicAuth}`,
         },
         body: JSON.stringify({ mobile: mobileNumber }),
       }

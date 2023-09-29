@@ -186,13 +186,15 @@ const RegistrationPage = () => {
 
     const handleSendOtpClick = async () => {
         setLoading(true);
-
+        const userId = process.env.REACT_APP_USER_ID;
+        const userPassword = process.env.REACT_APP_USER_PASSWORD;
+        const basicAuth = btoa(`${userId}:${userPassword}`);
         // Check if the mobile is already registered
         const response = await fetch(`${server_origin}/api/user/check-mobile-registered`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-
+                "Authorization": `Basic ${basicAuth}`,
             },
             body: JSON.stringify({ mobile: mobileNumber })
         });
@@ -230,10 +232,15 @@ const RegistrationPage = () => {
         updatedCreds["testResponse"] = userTestResponses;
         updatedCreds["lastTestDate"] = Date.now();
 
+        const userId = process.env.REACT_APP_USER_ID;
+        const userPassword = process.env.REACT_APP_USER_PASSWORD;
+        const basicAuth = btoa(`${userId}:${userPassword}`);
+
         const response = await fetch(`${server_origin}/api/user/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                "Authorization": `Basic ${basicAuth}`,
             },
             body: JSON.stringify(updatedCreds)
         });
@@ -489,7 +496,7 @@ const RegistrationPage = () => {
                 <p style={{ color: "#1A5D1A" }}>{t('discoverUnderstanding')} <em>{t('justStepAway')}</em></p></h3>
             </div>
 
-            {componentState === 1 && RegisterComponent()}
+            {componentState === 1 && EnterPhoneComponent()}
             {componentState === 2 && EnterOTPComponent()}
             {componentState === 3 && RegisterComponent()}
 
