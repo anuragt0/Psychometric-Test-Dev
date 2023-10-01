@@ -227,20 +227,26 @@ function Quiz() {
         const userPassword = process.env.REACT_APP_USER_PASSWORD;
         const basicAuth = btoa(`${userId}:${userPassword}`);
         setLoading(true);
-      const responseUpdate = await fetch(`${server_origin}/api/user/update-response`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'auth-token': localStorage.getItem("token"),
-          "Authorization": `Basic ${basicAuth}`,
-        },
-        body: JSON.stringify({ responses: result })
-      });
-      let response2 = await responseUpdate.json();
-      setLoading(false);
-      if (response2.success === false) {
-        localStorage.removeItem("token");
-      }
+        try {
+            const responseUpdate = await fetch(`${server_origin}/api/user/update-response`, {
+              method: 'PUT',
+              headers: {
+                'Content-Type': 'application/json',
+                'auth-token': localStorage.getItem("token"),
+                "Authorization": `Basic ${basicAuth}`,
+              },
+              body: JSON.stringify({ responses: result })
+            });
+            let response2 = await responseUpdate.json();
+            setLoading(false);
+            if (response2.success === false) {
+              localStorage.removeItem("token");
+            }
+        } catch (error) {
+            setLoading(false);
+            toast.error("Some error occured. Please try again later");
+            console.log(error.message);
+        }
     }
 
     setUserTestResponses(result);

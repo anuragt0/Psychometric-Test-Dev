@@ -43,7 +43,6 @@ function App() {
           <Route path="/disclaimer" element={<><Disclaimer/> <Footer/></>} />
 
         
-
           {/* Admin */}
           <Route path="/admin/analytics" element={<Analytics />} />
           <Route path="/admin/questions" element={<AdminQuestions />} />
