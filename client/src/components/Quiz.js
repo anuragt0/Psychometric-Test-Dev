@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { server_origin } from '../utilities/constants';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import "../css/quiz.css";
 import LoadingBar from 'react-top-loading-bar'
 import Progress from '../components/Progress';
@@ -14,13 +14,13 @@ import Confetti from 'react-confetti';
 // import useWindowSize from "@rooks/use-window-size";
 
 
-import { toast } from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
 
 // IMPORTS for Language Functionlaity
 import i18n /*, { changeLanguage }*/ from "i18next";
 import { useTranslation } from 'react-i18next';
 
-// import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from '../context/LanguageContext';
 
 // PROMPT
 import { confirmAlert } from 'react-confirm-alert';
@@ -33,8 +33,8 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import the CSS
 function Quiz() {
 
   const { t } = useTranslation("translation", { keyPrefix: 'quiz' });
-  // const { userTestResponses, setUserTestResponses } = useLanguage();
-  // const location = useLocation(); // Get the current route path
+  const { userTestResponses, setUserTestResponses } = useLanguage();
+  const location = useLocation(); // Get the current route path
   const [loading, setLoading] = useState(false);
 
 
@@ -53,7 +53,7 @@ function Quiz() {
     //     setShowPrompt(false);
     // }
 
-  });
+  }, []);
 
 
   const navigate = useNavigate();
@@ -101,7 +101,7 @@ function Quiz() {
     // }
 
 
-  })
+  }, [])
 
 
   // Dummy getQuestions
@@ -197,7 +197,7 @@ function Quiz() {
 
     setClickedOption(i + 1);
     updateResult(i + 1);
-    if (currentQuestionIndex === questions.length - 1) {
+    if (currentQuestionIndex == questions.length - 1) {
       toast.success(t("toast.testCompleted"))
     }
 
@@ -249,7 +249,7 @@ function Quiz() {
         }
     }
 
-    // setUserTestResponses(result);
+    setUserTestResponses(result);
     navigate("/test/submit");
 
   }
@@ -305,7 +305,7 @@ function Quiz() {
 
   const showMsg = progress < 26 ? true : false;
   const showMsg2 = (progress > 25 && progress < 50) ? true : false;
-  const showMsg3 = (progress === 50) ? true : false;
+  const showMsg3 = (progress == 50) ? true : false;
   const showMsg31 = (progress > 50 && progress < 76) ? true : false;
   const showMsg4 = (progress >= 76 && progress < 100) ? true : false;
   const showMsg5 = (progress === 100) ? true : false;
@@ -438,30 +438,3 @@ function Quiz() {
 }
 
 export default Quiz
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

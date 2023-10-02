@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 
+//! Add cors options before deploy
+
 app.use(cors());
 app.use(express.json());
 

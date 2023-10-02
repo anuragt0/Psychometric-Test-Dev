@@ -259,21 +259,12 @@ const Navbar = () => {
                                     {/* Add more options for other languages */}
 
                                 </select>
-
-                                {/* <Select
-        defaultValue={selectedOption}
-        onChange={setSelectedOption}
-        options={options}
-      /> */}
-
-
-
                             </div>
                         </li>
                     )}
                     {/* Language Buttons Ends   */}
 
-                    <li>
+                    {/* <li> */}
                         {localStorage.getItem("token") ? (
                             <li className="nav-item active" onClick={handleLogoutClick}>
                                     <motion.div
@@ -323,7 +314,7 @@ const Navbar = () => {
 
                             </div>
                         )}
-                    </li>
+                    {/* </li> */}
                 </ul>
             </div>
         </nav>
