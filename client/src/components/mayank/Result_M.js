@@ -209,7 +209,7 @@ function Result_M() {
         const amPm = hour >= 12 ? "PM" : "AM";
         const formattedTime = `${hour % 12 || 12}:${minute} ${amPm}`;
 
-        return `${day}${getDaySuffix(day)} ${month} ${year}, ${formattedTime}`;
+        return `${day}${getDaySuffix(day)} ${t('main.month.'+month)} ${year}, ${formattedTime}`;
     }
 
   return (

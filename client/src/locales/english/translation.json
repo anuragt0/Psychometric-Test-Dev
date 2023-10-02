@@ -35,7 +35,9 @@
   },
   "instruction": {
     "toast": {
-      "loginToContinue": "Please Login to continue"
+      "loginToContinue": "Please Login to continue",
+      "testStartedMessage": "Test has been started. All the best.",
+      "acceptTermsMessage": "Please accept our terms and condition to continue"
     },
     "testInstructions": "Test Instructions",
     "welcomeMessage": "Welcome to the test! This test contains 26 questions, and for each question, you'll have four options to choose from.",
@@ -209,7 +211,8 @@
     "privacyPolicy": "Privacy Policy",
     "unlockPersonalityInsights": "Unlock Your Personalized Personality Insights Report",
     "discoverUnderstanding": "Discover a deeper understanding of yourself",
-    "justStepAway": "just a step away"
+    "justStepAway": "just a step away",
+    "sendOtp": "Send OTP"
   },
   "quiz": {
     "toast": {
@@ -471,9 +474,9 @@
     "progressBar": {
       "msg1A": " Hey! Finish the complete quiz and I will ",
       "msg1B": "back to you with your Report card.",
-      "msg2A": "Great! You have completed 25% of the quiz ",
+      "msg2A": "Great! You have completed more than 25% of the quiz ",
       "msg2B": "keep doing... ",
-      "msg3A": "Fantastic progress! You're 50% done",
+      "msg3A": "Fantastic progress! You're more than 50% done",
       "msg3B": "keep it up!",
       "wellcome_75per": "Well Done! You have completed more than 75% of the quiz",
       "justFinish": "You're about to finish...",

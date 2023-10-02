@@ -313,7 +313,7 @@ const RegistrationPage = () => {
                         disabled={loading}
                         onClick={handleSendOtpClick}
                     >
-                        {loading ? t('waitButton') : "Send OTP"}
+                        {loading ? t('waitButton') : t('sendOtp')}
                     </button>
 
                 </div>
