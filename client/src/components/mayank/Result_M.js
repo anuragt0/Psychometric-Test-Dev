@@ -142,7 +142,7 @@ function Result_M() {
         } catch (error) {
             setLoading(false);
             toast.error("Some error occured. Please try again later");
-            console.log(error.message);
+            // console.log(error.message);
         }
     };
 
