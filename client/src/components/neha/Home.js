@@ -1,5 +1,5 @@
 import React from "react";
-import { useRef } from "react";
+// import { useRef } from "react";
 import { Link } from "react-router-dom";
 import "./home.css";
 import Image1 from "./images/home-bg.png";
@@ -9,19 +9,19 @@ import { motion } from "framer-motion";
 // import { InView } from 'react-intersection-observer'
 // import videoFile from './images/Worklife.mp4'
 import { useState, useEffect } from "react";
-import { useInView } from "framer-motion";
+// import { useInView } from "framer-motion";
 // import { staggerContainer } from './framer'
 // import { TypingText } from './text'
 
-import { headerVariants, textVariant } from "./framer";
+import { textVariant } from "./framer";
 import LanguageSelectorModal from "./LanguageSelectorModal";
 // import Picker from "react-scrollable-picker";
 
 //IMPORTS FOR Language change Functionality
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
-import { useLanguage } from "../../context/LanguageContext";
-import { faL } from "@fortawesome/free-solid-svg-icons";
+// import { useLanguage } from "../../context/LanguageContext";
+// import { faL } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
   const { t } = useTranslation("translation", { keyPrefix: "home" });
@@ -33,7 +33,7 @@ const Home = () => {
     // console.log(t('array'  , { returnObjects: true }));
   }, []);
 
-  const [selectedLanguageM, setSelectedLanguageM] = useState({});
+  // const [selectedLanguageM, setSelectedLanguageM] = useState({});
   const languages = [
     {
       value: "English",
@@ -81,30 +81,29 @@ const Home = () => {
 
   useEffect(() => {
     let returningUser = localStorage.getItem("hasVisited");
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       setShowModal(!returningUser);
     }, 1000);
   }, []);
 
   const handleLanguageSelect = (language) => {
-    setSelectedLanguageM(language);
     localStorage.setItem("lang", language);
     i18n.changeLanguage(language);
     localStorage.setItem("hasVisited", true);
     setShowModal(false);
   };
 
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  // const ref = useRef(null);
+  // const isInView = useInView(ref, { once: true });
 
-  const buttonref = useRef(null);
-  const buttonisInView = useInView(buttonref, { once: false });
+  // const buttonref = useRef(null);
+  // const buttonisInView = useInView(buttonref, { once: false });
 
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
-  const handleLoadedData = () => {
-    setIsLoading(false);
-  };
+  // const handleLoadedData = () => {
+  //   setIsLoading(false);
+  // };
 
   return (
     <>
@@ -129,7 +128,7 @@ const Home = () => {
                         {t('video_unsupported')}
                     </video> */}
           <div className="">
-            <img src={Image1} className="img" layout="responsive"
+            <img src={Image1} className="img" layout="responsive" alt="woman enterpreneur"
             height={500}
             width={500}></img>
           </div>
