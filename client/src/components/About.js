@@ -244,6 +244,7 @@ const AboutPage = () => {
                     <div className="u-about-page-section-8__head">
                         <h2>{t('ABOUT_CAXPERT')}</h2>
                         <img src={caXpert} alt="" />
+                        <h2>{t('ABOUT_CAXPERT2')}</h2>
                     </div>
                     <div className="horizontal-line"></div>
                 </div>
