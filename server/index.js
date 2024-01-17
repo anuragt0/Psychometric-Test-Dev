@@ -3,7 +3,12 @@ const app = express();
 const cors = require('cors');
 
 //! Add cors options before deploy
-
+// const corsOptions = {
+//     origin: 'https://udyamuplift.in', // Only allow requests from your website
+//     // origin: 'http://localhost:3000', // Only allow requests from your website
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     credentials: true, // Enable cookies and authentication headers
+// };
 app.use(cors());
 app.use(express.json());
 
