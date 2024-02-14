@@ -214,7 +214,7 @@ const RegistrationPage = () => {
             onSignup();
         } catch (error) {
             console.log(error.message);
-            toast.error("Some error occured. Please try again later")
+            toast.error(t('toast.someErrorOccured'))
         }
     };
 
@@ -234,7 +234,7 @@ const RegistrationPage = () => {
         }
         // console.log("here: ", wepUser);
         if(wepUser ==="none"){
-            toast.error("Please choose an option");
+            toast.error(t('toast.Please_choose_an_option'));
             return;
         }
         const updatedCreds = credentials;
@@ -272,7 +272,7 @@ const RegistrationPage = () => {
             }
         } catch (error) {
             console.log(error.message);
-            toast.error("Some error occured. Please try again later")
+            toast.error(t('toast.someErrorOccured'))
         }
 
 
@@ -493,7 +493,7 @@ const RegistrationPage = () => {
 
                     <div className="input-field">
         <label htmlFor="wepUser">
-          Are you a WEP user?
+            t('Are_you_a_WEP_user?')
         </label>
         <select
           id="wepUser"
@@ -501,13 +501,13 @@ const RegistrationPage = () => {
           onChange={handleChangeWepUser}
           required
         >
-          <option value="none">Select an Option</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
+          <option value="none">t('Select_an_Option')</option>
+          <option value="yes">t('Yes')</option>
+          <option value="no">t('No')</option>
         </select>
         {wepUser==="no" && (
         <div>
-            Register now on <a href='https://wep.gov.in/'>https://wep.gov.in</a>
+            t('Register_now_on') <a href='https://wep.gov.in/'>https://wep.gov.in</a>
         </div>
         )}
       </div>

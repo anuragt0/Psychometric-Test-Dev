@@ -173,7 +173,9 @@
       "otpInvalid": "अवैध OTP",
       "enterName": "नोंदणी करण्यासाठी कृपया बोट प्रविष्ट करा",
       "atleast5CharPass": "संकेतशब्द किमान ५ वर्णांचा असावा",
-      "mobileNo_alread_register": "होय, नंबर आधीच नोंदणीकृत आहे, कृपया सुरू ठेवण्यासाठी लॉग इन करा"
+      "mobileNo_alread_register": "होय, नंबर आधीच नोंदणीकृत आहे, कृपया सुरू ठेवण्यासाठी लॉग इन करा",
+      "someErrorOccured": "काही त्रुटी आली आहे. कृपया नंतर पुन्हा प्रयत्न करा",
+      "Please_choose_an_option": "कृपया एक पर्याय निवडा"
     },
     "enterPhone": "प्रारंभ करण्यासाठी कृपया तुमचा मोबाईल नंबर प्रविष्ट करा",
     "enterPasswordToLogin": "लॉग इन करण्यासाठी कृपया तुमचा पासवर्ड टाका",
@@ -212,7 +214,12 @@
     "unlockPersonalityInsights": "आपल्या व्यक्तिगत व्यक्तिमत्व इंसायट्स अनलॉक करा",
     "discoverUnderstanding": "स्वतःच्या मागील आणि समजण्याची एक दर",
     "justStepAway": "फक्त एक टप्पा आहे",
-    "sendOtp": "OTP पाठवा"
+    "sendOtp": "OTP पाठवा",
+    "Are_you_a_WEP_user?": "तुम्ही WEP वापरकर्ता आहात का?",
+    "Select_an_Option": "पर्याय निवडा",
+    "Yes": "होय",
+    "No": "नाही",
+    "Register_now_on": "आता नोंदणी करा"
   },
   "quiz": {
     "toast": {

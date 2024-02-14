@@ -173,7 +173,9 @@
       "otpInvalid": " OTP अमान्य है ",
       "enterName": "कृपया पंजीकरण के लिए नाम दर्ज करें",
       "atleast5CharPass": "पासवर्ड कम से कम 5 अक्षरों का होना चाहिए",
-      "mobileNo_already_register": "यह नंबर पहले से पंजीकृत है, कृपया जारी रहने के लिए लॉगिन करें"
+      "mobileNo_already_register": "यह नंबर पहले से पंजीकृत है, कृपया जारी रहने के लिए लॉगिन करें",
+      "someErrorOccured": "कुछ त्रुटि हुई। कृपया बाद में पुन: प्रयास करें",
+      "Please_choose_an_option": "कृपया एक विकल्प चुनें"
     },
     "enterPhone": "कृपया जारी रखने के लिए अपना मोबाइल नंबर दर्ज करें",
     "enterPasswordToLogin": "कृपया जारी रखने के लिए अपना पासवर्ड दर्ज करें",
@@ -212,7 +214,12 @@
     "unlockPersonalityInsights": "अपनी व्यक्तिगत व्यक्तित्व इंसाइट्स रिपोर्ट खोलें",
     "discoverUnderstanding": "खुद के बारे में और गहरी समझ पाएं",
     "justStepAway": "बस एक कदम दूर",
-    "sendOtp": "OTP भेजें"
+    "sendOtp": "OTP भेजें",
+    "Are_you_a_WEP_user?": "क्या आप एक WEP उपयोगकर्ता हैं?",
+    "Select_an_Option": "एक विकल्प चुनें",
+    "Yes": "हाँ",
+    "No": "नहीं",
+    "Register_now_on": "अब पंजीकरण करें"
   },
   "quiz": {
     "toast": {

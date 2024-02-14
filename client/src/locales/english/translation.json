@@ -173,7 +173,9 @@
       "otpInvalid": "Invalid OTP",
       "enterName": "Please enter name to register",
       "atleast5CharPass": "Password must be of atleast 5 characters",
-      "mobileNo_already_register": "This number is already registered, please login to continue"
+      "mobileNo_already_register": "This number is already registered, please login to continue",
+      "someErrorOccured": "Some error occured. Please try again later",
+      "Please_choose_an_option":"Please choose an option"
     },
     "enterPhone": "Please enter your mobile number to continue",
     "enterPasswordToLogin": "Please enter your password to continue",
@@ -212,7 +214,12 @@
     "unlockPersonalityInsights": "Unlock Your Personalized Personality Insights Report",
     "discoverUnderstanding": "Discover a deeper understanding of yourself",
     "justStepAway": "just a step away",
-    "sendOtp": "Send OTP"
+    "sendOtp": "Send OTP",
+    "Are_you_a_WEP_user?": "Are you a WEP user?",
+    "Select_an_Option":"Select an Option",
+    "Yes":"Yes",
+    "No": "No",
+    "Register_now_on":"Register now on" 
   },
   "quiz": {
     "toast": {
