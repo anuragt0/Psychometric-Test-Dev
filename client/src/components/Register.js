@@ -493,7 +493,7 @@ const RegistrationPage = () => {
 
                     <div className="input-field">
         <label htmlFor="wepUser">
-            t('Are_you_a_WEP_user?')
+            {t('Are_you_a_WEP_user?')}
         </label>
         <select
           id="wepUser"
@@ -501,9 +501,9 @@ const RegistrationPage = () => {
           onChange={handleChangeWepUser}
           required
         >
-          <option value="none">t('Select_an_Option')</option>
-          <option value="yes">t('Yes')</option>
-          <option value="no">t('No')</option>
+          <option value="none">{t('Select_an_Option')}</option>
+          <option value="yes">{t('Yes')}</option>
+          <option value="no">{t('No')}</option>
         </select>
         {wepUser==="no" && (
         <div>
